@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+@font-face {
+  font-family: BYekan;
+  src: url("./assets/fonts/BYekan.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: IranSanse;
+  src: url("./assets/fonts/iranian_sans.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: IranSanse;
+}

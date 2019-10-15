@@ -1,0 +1,158 @@
+.flex-container {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 10vh;
+}
+
+
+.auth-main {
+  flex: 1;
+}
+
+.auth-box {
+  align-content: center;
+}
+
+.auth-main .card .top {
+  padding: 10px
+}
+
+.top {
+  padding: 10px;
+  padding-bottom: 0px;
+}
+
+#checkbox{
+  margin: 5px;
+}
+
+.card {
+  background: #fff;
+  transition: .5s;
+  border: 0;
+  margin-bottom: 30px;
+  border-radius: .55rem;
+  position: relative;
+  width: 100%;
+  padding: 10px;
+
+
+  -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+}
+
+.lead {
+  margin-bottom: 0px;
+}
+
+.header {
+  padding: 20px;
+}
+
+.body {
+  padding: 20px;
+}
+
+.bottom {
+  margin: 10px;
+  margin-top: 30px;
+}
+
+.card .body {
+  color: #444;
+  padding: 20px;
+  font-weight: 400;
+}
+
+
+.auth-main::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 400px;
+  height: 100%;
+  z-index: -1;
+  background: #455562
+}
+
+.auth-box {
+  position: absolute;
+  width: 380px;
+  height: auto;
+  margin-left: 100px;
+  margin-right: 1vh;
+  text-align: right;
+}
+
+@media screen and (max-width: 374px) {
+  .auth-box .top {
+      margin-top: 30px;
+      text-align: center
+  }
+}
+
+.auth-box .top img {
+  width: 130px
+}
+
+
+
+
+
+.content {
+  margin-top: 100px;;
+  background-color: white;
+  flex: 2;
+}
+
+.my-row {
+direction: ltr;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  flex-direction: row;
+
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  justify-content: center;
+
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  align-items: auto;
+
+}
+
+.cell {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 10px;
+  text-align: center;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  box-sizing: content-box;
+}
+.img-bg {
+  max-width: 70%;
+  max-height:130%;
+}
+
+.text-bg {
+  margin-right: 5vw;
+  font-size: 1.5vw;
+  color: #a3cace;
+}

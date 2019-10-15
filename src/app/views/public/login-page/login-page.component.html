@@ -1,0 +1,51 @@
+<div id="wrapper">
+  <div class="vertical-align-wrap flex-container">
+    <div class="vertical-align-middle auth-main">
+      <div class="auth-box">
+        <div class="top">
+          <img src="assets/images/logo-2.png">
+        </div>
+        <div class="card">
+          <div class="header">
+            <p class="lead">به اکانت خود وارد شوید</p>
+          </div>
+          <div class="body">
+            <form class="form-auth-small" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="signin-email" class="control-label sr-only">ایمیل</label>
+                <input type="email" class="form-control" id="signin-email" value="user@domain.com" placeholder="ایمیل">
+              </div>
+              <div class="form-group">
+                <label for="signin-password" class="control-label sr-only">رمز عبور</label>
+                <input type="password" class="form-control" id="signin-password" value="thisisthepassword"
+                  placeholder="رمز عبور">
+              </div>
+              <div class="form-group clearfix">
+                <label class="fancy-checkbox element-left">
+                  <input id="checkbox" type="checkbox">
+                  <span>مرا به خاطر بسپار</span>
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg btn-block">ورود</button>
+              <div class="bottom">
+                <p><span class="helper-text m-b-10"><i class="fa fa-lock"></i>&nbsp;<a
+                    [routerLink]="['/authentication/page-forgot-password']">رمز خود را فراموش کرده ام</a></span></p>
+                <p><span>عضو شبکه علمی ایران نیستید؟<a [routerLink]="['/authentication/page-register']">در اینجا ثبت نام کنید</a></span></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="my-row">
+        <div class="cell">
+          <div class="my-col">
+            <img class="img-bg" src="assets/images/crm_png_A0_Rectangle_3_pattern.png">
+            <p class="text-bg">سامانه ارتباط با مشترکین شبکه علمی ایران</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
