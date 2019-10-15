@@ -20,11 +20,13 @@ import {MatIconModule} from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './views/public/login-page/login-page.component';
+import { MainComponent } from './views/developer/main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
