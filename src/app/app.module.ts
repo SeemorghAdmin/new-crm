@@ -20,15 +20,19 @@ import {MatIconModule} from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './views/public/login-page/login-page.component';
-import { MainComponent } from './views/developer/main/main.component';
 import { CreatNewTicketComponent } from './views/customer/creat-new-ticket/creat-new-ticket.component';
+import { DevMainComponent } from './views/developer/main/main.component';
+import { OwnersMainComponent } from './views/owners/main/main.component';
+import { CustMainComponent } from './views/customer/main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    MainComponent,
-    CreatNewTicketComponent
+    CreatNewTicketComponent,
+    DevMainComponent,
+    OwnersMainComponent,
+    CustMainComponent
   ],
   imports: [
     BrowserModule,
