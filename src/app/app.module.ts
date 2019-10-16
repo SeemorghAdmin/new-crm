@@ -21,12 +21,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './views/public/login-page/login-page.component';
 import { MainComponent } from './views/developer/main/main.component';
+import { CreatNewTicketComponent } from './views/customer/creat-new-ticket/creat-new-ticket.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    MainComponent
+    MainComponent,
+    CreatNewTicketComponent
   ],
   imports: [
     BrowserModule,
