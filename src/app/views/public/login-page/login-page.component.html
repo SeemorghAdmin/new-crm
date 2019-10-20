@@ -10,15 +10,14 @@
             <p class="lead">به اکانت خود وارد شوید</p>
           </div>
           <div class="body">
-            <form class="form-auth-small" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+            <form class="form-auth-small" #form="ngForm" utocomplete="off" (ngSubmit)="onSubmit(form)">
               <div class="form-group">
-                <label for="signin-email" class="control-label sr-only">ایمیل</label>
-                <input type="email" class="form-control" id="signin-email" value="user@domain.com" placeholder="ایمیل">
+                <label><i class="fas fa-user-circle" [class.green-icon]="UserName.valid" [class.red-icon]="UserName.invalid && UserName.touched"></i></label>
+                <input type="email" class="form-control" #UserName="ngModel" name="UserName" [(ngModel)]="formModel.UserName" required placeholder="ایمیل">
               </div>
               <div class="form-group">
-                <label for="signin-password" class="control-label sr-only">رمز عبور</label>
-                <input type="password" class="form-control" id="signin-password" value="thisisthepassword"
-                  placeholder="رمز عبور">
+                <label><i class="fas fa-unlock-alt" [class.green-icon]="Password.valid" [class.red-icon]="Password.invalid && Password.touched"></i></label>
+                <input type="password" class="form-control" #Password="ngModel" name="Password" [(ngModel)]="formModel.Password" required placeholder="رمز عبور">
               </div>
               <div class="form-group clearfix">
                 <label class="fancy-checkbox element-left">

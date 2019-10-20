@@ -21,6 +21,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './views/public/login-page/login-page.component';
 
+
+// نوید
+import { AuthInterceptor } from 'src//auth/auth.interceptor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { AuthService } from './services/auth/auth.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,12 +42,21 @@ import { LoginPageComponent } from './views/public/login-page/login-page.compone
     HttpClientModule,
     MatSidenavModule,
     MatIconModule,
+    NgbModule,
     MatExpansionModule,
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    ToastrModule.forRoot({
+      progressBar: true
+    })
   ],
-  providers: [],
+  providers: [AuthService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
