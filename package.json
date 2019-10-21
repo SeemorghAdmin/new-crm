@@ -13,7 +13,7 @@
   "dependencies": {
     "@amcharts/amcharts4": "^4.6.6",
     "@amcharts/amcharts4-geodata": "^4.1.7",
-    "@angular/animations": "^8.2.6",
+    "@angular/animations": "^8.2.11",
     "@angular/cdk": "^8.2.0",
     "@angular/common": "~8.2.3",
     "@angular/compiler": "~8.2.3",
@@ -43,7 +43,7 @@
     "ng-multiselect-dropdown": "^0.2.3",
     "ngx-echarts": "^4.1.0",
     "ngx-gallery": "^5.10.0",
-    "ngx-toastr": "^9.1.2",
+    "ngx-toastr": "^9.2.0",
     "node-sass": "^4.12.0",
     "popper.js": "^1.14.7",
     "rxjs": "^6.5.2",

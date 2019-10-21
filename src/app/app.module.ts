@@ -33,9 +33,13 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthService } from './services/auth/auth.service';
 
+// رضا
+import { AddPersonComponent } from './views/owners/manageperson/addperson.component';
+
+
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent, AddPersonComponent,
     LoginPageComponent,
     CreatNewTicketComponent,
     DevMainComponent,
