@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-dev-main',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DevMainComponent implements OnInit {
 
-  constructor() { }
+
+
+
+  constructor(config: NgbDropdownConfig) {
+    config.placement = 'bottom-left';
+    config.autoClose = true;
+  }
 
   ngOnInit() {
   }

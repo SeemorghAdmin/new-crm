@@ -1,4 +1,7 @@
-<div dir="rtl">
- <router-outlet></router-outlet>   
+<div *ngIf="!isLogedIn">
+  <app-login-page></app-login-page>
+</div>
 
+<div *ngIf="isLogedIn">
+  <app-user-panel></app-user-panel>
 </div>

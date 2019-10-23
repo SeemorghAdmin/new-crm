@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-creat-new-ticket',
-  templateUrl: './creat-new-ticket.component.html',
-  styleUrls: ['./creat-new-ticket.component.css']
+  selector: 'app-create-new-ticket',
+  templateUrl: './create-new-ticket.component.html',
+  styleUrls: ['./create-new-ticket.component.css']
 })
 export class CreatNewTicketComponent implements OnInit {
 
