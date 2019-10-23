@@ -3,6 +3,7 @@ import { AuthService} from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
+import { PersonService } from './../../../services/serviceperson/person.service';
 
 @Component({
   selector: 'app-login-page',
@@ -15,26 +16,39 @@ export class LoginPageComponent implements OnInit {
     UserName :'', 
     Password : ''
   }
-  constructor(private service: AuthService, private router: Router, private toastr: ToastrService) { }
+  constructor( private router: Router, private toastr: ToastrService, private service: PersonService) { }
 
   ngOnInit() {
-    if (localStorage.getItem('token') != null)
-      this.router.navigateByUrl('');
+    
+    //if (localStorage.getItem('token') != null)
+     // this.router.navigateByUrl('/cust/home');
   }
   onSubmit(form: NgForm) {
-    this.service.login(form.value).subscribe(
-      (res: any) => {
-        localStorage.setItem('token', res.token);
-        console.log('login success');
-        this.router.navigateByUrl('');
-      },
-      err => {
+    // لاگین رضا
+    this.service.Login().subscribe(
+    (res: any)  => 
+    {
+      console.log(res);
+      if (res.statusCode == 200) 
+      {
+        this.toastr.success('Ok');
+        //console.log(res.user.token)
+        localStorage.setItem('token', res.user.token);
+
+        switch (res.user.role1) {
+          case 1:
+            this.router.navigateByUrl('/cust/home');
+            break;
+        
+          default:
+            break;
+        }
+      } 
+    }, (err : any) =>
+    {
         if (err.status == 400)
-          this.toastr.error('Incorrect username or password.', 'Authentication failed.');
-        else
-          console.log(err);
-      }
-    );
+        this.toastr.error(err.error);
+    });
   }
 
 }

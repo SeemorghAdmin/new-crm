@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonService } from './../../../services/serviceperson/person.service';
 
 @Component({
   selector: 'app-cust-main',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustMainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: PersonService) { }
 
   ngOnInit() {
+    this.service.GetUserProfile().subscribe( res =>
+      {
+        console.log(res)
+      });
   }
 
 }

@@ -77,4 +77,10 @@ export class PersonService
         };
         return this.http.post(this.BaseURI + '/Person' , body);
       }
+
+      //مشخصات حساب کاربری
+      GetUserProfile()
+      {
+        return this.http.get(this.BaseURI + '/Person');
+      }
 }
