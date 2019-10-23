@@ -1,1 +1,80 @@
-<p>creat-new-ticket works!</p>
+<div class="row">  
+    <div class="col-md-12" style="text-align: center;">
+      <div class="card card-user">
+        <div class="card-header">
+          <h5 class="card-title">خوش آمدید </h5>
+        </div>
+        <div class="card-body" style="direction: rtl;">
+          <div class="row">  
+              <div class="col-md-3" style="text-align: center;">                
+                </div>
+            <div class="col-md-6" style="text-align: center;">
+              <form>
+              <div class="card card-user">
+                <div class="card-header">
+                  <h5 class="card-title">فرم درخواست پشتیبانی</h5>
+                </div>
+                <div class="card-body" style="direction: rtl;">   
+                <div class="row">
+                  <p>نوع سرویس خود را انتخاب نمایید:</p>
+                    <select id="ddl"  dir="rtl"  style="width: 250px;"  (change)="ServiceTypeNumber($event.target.value)"  class="custom-select custom-select-sm">
+                      <option> انتخاب کنید</option>
+                      <option  *ngFor="let item of Service; let i = index" value="{{item.services_ID}}" >{{item.faName}}</option>                   
+                    </select>  
+                  </div>
+
+                   <div class="row">
+                    <p>عنوان درخواست خود را ذکر نمایید:</p>                 
+                    </div>
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="title"  [(ngModel)]="Ticket.title" style="width: 70%;">
+
+                  <div class="row" style="margin-top: 20px;">
+                      <p>درخواست خود را وارد نمایید:</p>
+                  </div>
+                  <textarea class="form-control" name="comment" [(ngModel)]="Ticket.Comment" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+                  <div class="row"> 
+                  
+                  </div>
+
+                <div class="row" style="margin-top: 20px;">
+                    <p> وضعیت درخواست خود را مشخص کنید :</p>
+                    <div class="form-group required">
+                        <label class="form-check-inline">
+                            عادی
+                          <input class="form-check-input"  type="radio" name="typeDance1" [value]="1" [(ngModel)]="Ticket.status">  
+                      </label>
+                      </div>
+                      <div class="form-group required">
+                      <label class="form-check-inline">
+                       فوری 
+                          <input class="form-check-input"  type="radio" name="typeDance2" [value]="2" [(ngModel)]="Ticket.status">
+                      </label>
+                    </div>
+                    <div class="form-group required">
+                        <label class="form-check-inline">
+                        آنی
+                            <input class="form-check-input"  type="radio" name="typeDance3" [value]="3" [(ngModel)]="Ticket.status">
+                        </label>
+                      </div>
+                </div>
+                  <div class="row">
+                    <div class="col-md-12 center-block">
+                      <input class="btn btn-primary" type="submit" (click)="post(Ticket)"   value="ثبت درخواست" style="margin-top: 2%;background-color: #2f9fd3;">
+                    </div>
+                 </div>
+
+               
+
+
+                </div>
+              </div>
+            </form>
+            </div>
+            <div class="col-md-3" style="text-align: center;">               
+              </div>
+          </div>        
+        </div>
+      </div>
+    </div>
+  </div>

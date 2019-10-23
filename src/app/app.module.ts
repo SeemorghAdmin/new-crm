@@ -20,6 +20,7 @@ import { CreatNewTicketComponent } from './views/customer/create-new-ticket/crea
 import { DevMainComponent } from './views/developer/main/main.component';
 import { OwnersMainComponent } from './views/owners/main/main.component';
 import { CustMainComponent } from './views/customer/main/main.component';
+import { ShowUserTicketComponent } from './views/customer/Show-User-Ticket/Show-User-Ticket';
 
 import { MaterialModule } from './matrial-module'; // این ماژول مخصوص کار با کتابخانه های متریال است
 
@@ -36,6 +37,9 @@ import { UserPanelComponent } from './views/public/user-panel/user-panel.compone
 // رضا
 import { AddPersonComponent } from './views/owners/manage-person/add-person.component';
 
+import { TicketingService } from './services/Ticketing/Ticketing.service'
+import { ChatTicketComponent } from './views/customer/Chat-Ticket/ChatTicket.component';
+import { ShowTicketsComponent } from './views/owners/Ticketing/show-tickets/show-tickets.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +51,10 @@ import { AddPersonComponent } from './views/owners/manage-person/add-person.comp
     OwnersMainComponent,
     CustMainComponent,
     UserPanelComponent,
+    CreatNewTicketComponent,
+    ShowUserTicketComponent,
+    ChatTicketComponent,
+    ShowTicketsComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +72,8 @@ import { AddPersonComponent } from './views/owners/manage-person/add-person.comp
       progressBar: true
     })
   ],
-  providers: [AuthService, {
+    
+  providers: [AuthService,TicketingService, {
     // توسط نوید برای لاگین ثبت شده اند
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
