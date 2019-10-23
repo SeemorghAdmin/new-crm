@@ -34,12 +34,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthService } from './services/auth/auth.service';
 
 // رضا
-import { AddPersonComponent } from './views/owners/manageperson/addperson.component';
+import { AddPersonComponent } from './views/owners/manage-person/add-person.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, AddPersonComponent,
+    AppComponent,
+    AddPersonComponent,
     LoginPageComponent,
     CreatNewTicketComponent,
     DevMainComponent,

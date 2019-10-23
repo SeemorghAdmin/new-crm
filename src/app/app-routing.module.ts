@@ -5,8 +5,8 @@ import { LoginPageComponent } from './views/public/login-page/login-page.compone
 import { CustMainComponent } from './views/customer/main/main.component';
 
 // رضا
-//صفحه اضافه ثبت person
-import { AddPersonComponent } from './views/owners/manageperson/addperson.component';
+// صفحه اضافه ثبت person
+import { AddPersonComponent } from './views/owners/manage-person/add-person.component';
 
 const routes: Routes = [
   {path: '', component: LoginPageComponent},

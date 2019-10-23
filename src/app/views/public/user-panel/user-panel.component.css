@@ -1,0 +1,78 @@
+.panel-sidenav {
+  width: 15vw;
+  min-width: 200px;
+  background-color: #c0dcde;
+}
+
+.panel-sidenav-content {
+  background-color: #c0dcde;
+}
+
+.panel-toolbar {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 8vh;
+  min-height: 56px;
+  background-color: #d8e9ea;
+}
+
+.panel-footer {
+  border-top-width: 5px;
+  border-top-color: red;
+  background-color: #d8e9ea;
+  text-align: center;
+  height: 5vh;
+  padding: 2vh;
+}
+
+.content-top {
+  background-color: #c0dcde;
+  justify-content: center;
+}
+
+.content {
+  background-color: white;
+  height: 89%;
+  width: 98%;
+  margin-left: 1%;
+  overflow: scroll;
+}
+
+
+.navbar-left {
+  display: flex;
+  flex-direction: row;
+}
+
+.panel-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.panel-is-mobile .panel-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+h1.panel-app-name {
+  margin-left: 8px;
+}
+
+.panel-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+  height: 87vh;
+}
+
+.panel-is-mobile .panel-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
