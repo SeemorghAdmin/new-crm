@@ -3,25 +3,112 @@
     <header>
         <h2>Customers</h2>
     </header>
-    
+
     <section>
         <nav style="float:right;">
-            <ul>
+            <ul id="menu">
                 <p>menu</p>
-                <li><a href="#">1</a></li>
+                <li id="first"><a href="#">{{t}}</a></li>
                 <li><a href="#">2</a></li>
                 <li><a href="#">3</a></li>
             </ul>
         </nav>
-    
+
         <article>
-            <h1>Conent</h1>
-            <p>You can see contents here</p>
+
+
+            <table style="align-self: center;text-align: center;">
+
+
+
+
+                <tr style="align-items: center;">
+
+                    <td>
+                        <h3 style="float: center;">نام دانشگاه</h3>
+                    </td>
+
+                    <td>
+                        <h3 style="float: center;">{{info.uniName}}</h3>
+                    </td>
+
+                </tr>
+
+
+                <tr style="align-items: center;">
+
+                    <td>
+                        <h3 style="float: center;">سایت دانشگاه</h3>
+                    </td>
+
+                    <td>
+                        <h3 style="float: center;">{{info.agentName}}</h3>
+                    </td>
+
+                </tr>
+
+                <tr style="align-items: center;">
+
+                    <td>
+                        <h3 style="float: center;">کد ملی دانشگاه</h3>
+                    </td>
+                    <td>
+                        <h3 style="float: center;">{{info.uniNationalId}}</h3>
+                    </td>
+
+                </tr>
+
+
+                <tr style="align-items: center;">
+
+                    <td>
+                        <h3 style="float: center;">نماینده دانشگاه</h3>
+                    </td>
+
+                    <td>
+                        <h3 style="float: center;">{{info.adminName}}</h3>
+                    </td>
+
+                </tr>
+
+                <tr style="align-items: center;">
+
+                    <td>
+                        <h3 style="float: center;">شماره ملی نماینده دانشگاه</h3>
+                    </td>
+
+                    <td>
+                        <h3 style="float: center;">{{info.adminNationalId}}</h3>
+                    </td>
+
+                </tr>
+
+                <tr style="align-items: center;">
+
+                    <td>
+                        <h3 style="float: center;">نام کاربری</h3>
+                    </td>
+
+                    <td>
+                        <h3 style="float: center;">{{info.adminUsername}}</h3>
+                    </td>
+
+                </tr>
+
+
+
+
+
+            </table>
+
+
+
         </article>
     </section>
-    
+
     <footer>
         <p>Footer</p>
+
     </footer>
-    
-    </div>
+
+</div>

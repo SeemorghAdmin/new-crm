@@ -8,6 +8,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CountUpModule } from 'countup.js-angular2';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import { HttpClient} from '@angular/common/http';
 
 
 // کتابخانه های متریال برای side-nav
@@ -24,6 +26,8 @@ import { CreatNewTicketComponent } from './views/customer/creat-new-ticket/creat
 import { DevMainComponent } from './views/developer/main/main.component';
 import { OwnersMainComponent } from './views/owners/main/main.component';
 import { CustMainComponent } from './views/customer/main/main.component';
+import { AuthService } from './services/auth/auth.service';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +36,7 @@ import { CustMainComponent } from './views/customer/main/main.component';
     CreatNewTicketComponent,
     DevMainComponent,
     OwnersMainComponent,
-    CustMainComponent
+    CustMainComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,8 +50,10 @@ import { CustMainComponent } from './views/customer/main/main.component';
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    NgxWebstorageModule.forRoot(),
+   
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
