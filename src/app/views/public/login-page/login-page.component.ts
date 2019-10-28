@@ -19,7 +19,7 @@ export class LoginPageComponent implements OnInit {
   constructor( private router: Router, private toastr: ToastrService, private service: PersonService) { }
 
   ngOnInit() {
-    
+    //localStorage.removeItem('token');
     //if (localStorage.getItem('token') != null)
      // this.router.navigateByUrl('/cust/home');
   }
@@ -31,13 +31,23 @@ export class LoginPageComponent implements OnInit {
       console.log(res);
       if (res.statusCode == 200) 
       {
-        this.toastr.success('Ok');
+        //this.toastr.success('Ok');
         //console.log(res.user.token)
         localStorage.setItem('token', res.user.token);
 
-        switch (res.user.role1) {
+        switch (res.user.role1) 
+        {
           case 1:
+            this.router.navigateByUrl('/dev/home');
+            break;
+            case 2:
+            this.router.navigateByUrl('/owner/home');
+            break;
+            case 3:
             this.router.navigateByUrl('/cust/home');
+            break;
+            case 4:
+            this.router.navigateByUrl('/inspeector/home');
             break;
         
           default:

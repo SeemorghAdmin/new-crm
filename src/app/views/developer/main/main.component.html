@@ -1,16 +1,37 @@
-<!-- a responsive header-->
-<div class="col-md-12">
-    <header>
-        <h2>Developers</h2>
-    </header>
+<div class="col-md-12" style="height: 100vh; background-color: #455562; padding: 10px;">
+  <div class="col-md-12 d-flex flex-column bd-highlight mb-3" style="height: 100%; background-color: white;">
+    <div class="row header" style="height: 8vh; background-color: #d8e9ea;">
+      <div class="col-md-12" style="padding: 0px;">
+        <nav class="navbar navbar-expand navbar-dark" style="padding-top: 0px; padding-bottom: 0px;">
 
-    <section>
-        <nav style="float:right;">
-            <ul>
-                <p>menu</p>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <!-- <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="#" tabindex="-1">
+                  <img src="../../../../assets/images/log-out.png">
+                </a>
+              </li>
+              <li ngbDropdown class="nav-item dropdown">
+                <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src="../../../../assets/images/bell-with-notification.png">
+                </a>
+
+                <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <p class="text-center" style="font-weight: bold;">شما 2 پیام جدید دارید</p>
+                  <a class="dropdown-item text-right" href="#"> وضعیت دانشگاه شهید چمران اهواز به بررسی شناسه ملی تغییر کرد</a>
+                  <a class="dropdown-item text-right" href="#">دانشگاه صنعتی شریف یک درخواست سرویس جدید ثبت کرد</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item text-right" href="#" style="color: #5c8ed4;">مشاهده تمام پیام ها</a>
+                </div>
+              </li>
             </ul>
         </nav>
 

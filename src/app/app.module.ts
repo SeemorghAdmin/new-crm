@@ -38,11 +38,12 @@ import { UserPanelComponent } from './views/public/user-panel/user-panel.compone
 
 // رضا
 import { AddPersonComponent } from './views/owners/manage-person/add-person.component';
-
+import { InspeectorComponent } from './views/inspectors/main/main.component';
 // سعید
 import { TicketingService } from './services/Ticketing/Ticketing.service'
 import { ChatTicketComponent } from './views/customer/Chat-Ticket/ChatTicket.component';
 import { ShowTicketsComponent } from './views/owners/Ticketing/show-tickets/show-tickets.component';
+
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ShowTicketsComponent } from './views/owners/Ticketing/show-tickets/show
     CreatNewTicketComponent,
     ShowUserTicketComponent,
     ChatTicketComponent,
-    ShowTicketsComponent
+    ShowTicketsComponent,
+    InspeectorComponent
   ],
   imports: [
     BrowserModule,
