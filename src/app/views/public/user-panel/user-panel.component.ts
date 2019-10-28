@@ -1,16 +1,13 @@
 import {MediaMatcher} from '@angular/cdk/layout';
-import { ChangeDetectorRef,Component, OnInit, OnDestroy } from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-user-panel',
+  templateUrl: './user-panel.component.html',
+  styleUrls: ['./user-panel.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
-  public isLogedIn = true;
+export class UserPanelComponent implements OnDestroy {
 
-
-  
   mobileQuery: MediaQueryList;
 
   fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
@@ -37,10 +34,5 @@ export class AppComponent implements OnInit, OnDestroy {
     // tslint:disable-next-line: deprecation
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-  title = 'new-crm';
 
-  ngOnInit()
-  {
-   
-  }
 }

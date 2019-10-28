@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
+import { PersonService } from '../../../services/person/person.service';
 
 @Component({
   selector: 'app-cust-main',
@@ -18,7 +19,11 @@ export class CustMainComponent implements OnInit {
   info;
   uni;
   id;
-  constructor(private sessionSt: SessionStorageService, private route: ActivatedRoute, private auth: AuthService, private http: HttpClient, private rout: Router) { }
+  constructor(private sessionSt: SessionStorageService,
+    private route: ActivatedRoute, private auth: AuthService, private http: HttpClient,
+    private rout: Router, private service: PersonService) { }
+
+
   ngOnInit() {
 
     /* this.sessionSt.store("name","");  */
@@ -41,7 +46,5 @@ export class CustMainComponent implements OnInit {
       }
     )
 
-
   }
-
 }

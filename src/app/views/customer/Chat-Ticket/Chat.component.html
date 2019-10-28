@@ -1,0 +1,40 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
+        <div class="message-wrap col-lg-8">
+            <div class="msg-wrap">
+                <div class="alert alert-info msg-date">
+                    <strong>پرسش و پاسخ های شما</strong>
+                </div>
+                <div class="media msg" *ngFor="let item of ChatTicketing; let i = index">
+
+                    <small class="pull-right time"><i class="fa fa-clock-o"></i> "{{item.commentTime}}"</small>
+                    <div class="media-body" style="text-align: right;">
+
+                        <a class="pull-right">
+                            <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 50px; height: 50px;" *ngIf="item.person.role1 == 0" src="./../../../../assets/images/customer-flat-icon-vector-14992103.jpg">
+                            <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 50px; height: 50px;"  *ngIf="item.person.role2 == 3"  src="./../../../../assets/images/118-512.png">
+                        </a>
+                        <h5 style="margin-right: 113px;" class="media-heading">{{item.person.firstName}}  {{item.person.lastName}}</h5>
+                        <small class="col-lg-10">{{item.comment}}</small>
+                    </div>
+                </div>                             
+            </div>
+         <form>
+            <div class="send-wrap ">
+                <textarea class="form-control send-message" rows="3" name="comment" [(ngModel)]="Ticket.comment" style="direction: rtl;"></textarea>
+            </div>
+            <div class="btn-panel">
+                    <a class=" col-lg-3 btn   send-message-btn" (click)="DiactiveChat()" *ngIf="t != 1" role="button"> بستن چت</a>
+                    <a class=" col-lg-3 btn   send-message-btn" (click)="DiactiveChat()" *ngIf="t == 1" role="button">  فعال سازی دوباره درخواست</a>
+                <a class=" col-lg-4 text-right btn   send-message-btn pull-right" *ngIf="t != 1" (click)="post(Ticket)" role="button"><i class="fa fa-plus"></i> ارسال </a>
+               
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
