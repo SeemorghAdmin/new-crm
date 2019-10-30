@@ -1,16 +1,17 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 
+export interface MenuItems {
+  name: string;
+  url: string;
+}
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
 
-export interface MenuItems {
-  name: string;
-  url: string;
-}
+
 
 export class InspeectorComponent implements OnInit, OnDestroy {
 
