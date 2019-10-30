@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {MediaMatcher} from '@angular/cdk/layout';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import { Session } from 'protractor';
 import { SessionStorageService } from 'ngx-webstorage';
 import { query } from '@angular/animations';
@@ -14,14 +15,26 @@ import { PersonService } from '../../../services/person/person.service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class CustMainComponent implements OnInit {
+export class CustMainComponent implements OnInit, OnDestroy {
 
+  userType = "Customer"
+  fillerNav = Array.from({length: 50}, (_, i) => this.userType + ` Nav Item ${i + 1}`);
+
+  mobileQuery: MediaQueryList;
   info;
   uni;
   id;
   constructor(private sessionSt: SessionStorageService,
     private route: ActivatedRoute, private auth: AuthService, private http: HttpClient,
-    private rout: Router, private service: PersonService) { }
+    private rout: Router, private service: PersonService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) { 
+
+      this.mobileQuery = media.matchMedia('(max-width: 600px)');
+      this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+      // tslint:disable-next-line: deprecation
+      this.mobileQuery.addListener(this._mobileQueryListener);
+    }
+
+    private _mobileQueryListener: () => void;
 
 
   ngOnInit() {
@@ -46,5 +59,10 @@ export class CustMainComponent implements OnInit {
       }
     )
 
+  }
+
+  ngOnDestroy(): void {
+    // tslint:disable-next-line: deprecation
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 }

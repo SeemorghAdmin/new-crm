@@ -23,7 +23,8 @@ const routes: Routes = [
   {path: 'dev/home', component: DevMainComponent},
   {path: 'owner/home', component: OwnersMainComponent},
   {path: 'inspeector/home', component: InspeectorComponent},
-  // صفحه ثبت کردن person
+  {path: 'user-panel', component: UserPanelComponent},
+  // صفحه ثبت کردن person 
    {path: 'addperson', component: AddPersonComponent},
   {path: 'cust-creat-new-Ticket', component:CreatNewTicketComponent},
   {path: 'cust-Show-User-Ticket', component:ShowUserTicketComponent},

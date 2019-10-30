@@ -1,40 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { Session } from 'protractor';
-import { SessionStorageService } from 'ngx-webstorage';
-import { query } from '@angular/animations';
-import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/services/auth/auth.service';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { from } from 'rxjs';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-dev-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class DevMainComponent implements OnInit {
+export class DevMainComponent implements OnInit, OnDestroy {
 
 
-  info;
-  person;
-  id;
+ ////////////////// این خط ها متغیرهای مورد نیاز برای sidenav را ایجاد میکنند
+ userType = "Developer" // نام صفحه
+ fillerNav = Array.from({ length: 50 }, (_, i) => this.userType + ` Nav Item ${i + 1}`); // ایجاد 50 تا آیتم برای نمایش در منو
+ mobileQuery: MediaQueryList;
+ private _mobileQueryListener: () => void;
+ ////////////////// انهتای بخش sidenav
 
-  constructor(private sessionSt: SessionStorageService, private route: ActivatedRoute, private auth: AuthService, private http: HttpClient, private rout: Router) {
-    this.route.params.subscribe(params => this.id = params)
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher /// متغیرهای مربوط به sidenav
+    ) {
+     ////////////////// دستور های مربوط به داینامیک کردن sidenav
+     this.mobileQuery = media.matchMedia('(max-width: 600px)');
+     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+     // tslint:disable-next-line: deprecation
+     this.mobileQuery.addListener(this._mobileQueryListener);
+     ////////////////// انتهای بخش sidenav
   }
 
   ngOnInit() {
-    // console.log(this.id.id);
+  }
 
-
-
-    this.http.get('http://localhost:8080/nern_test_war_exploded//api/get-login-info.jsp?id=' + this.id.id).subscribe(
-      res => {
-        this.info = res;
-        console.log(this.info);
-      });
-
+  ngOnDestroy(): void {
+    // tslint:disable-next-line: deprecation
+    this.mobileQuery.removeListener(this._mobileQueryListener); // جهت پاکسازی sidenav
   }
 
 }
