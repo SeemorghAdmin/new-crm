@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatDialog } from '@angular/material';
 import { FormControl } from '@angular/forms';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import { ModalComponent } from '../modal/modal.component';
 
 export interface PeriodicElement {
   custName: string;
@@ -33,7 +34,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class TablesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
 
   displayedColumns: string[] = ['custNationalID', 'custName', 'weight', 'actions'];
@@ -96,7 +97,13 @@ export class TablesComponent implements OnInit {
     return myFilterPredicate;
   }
 
-  approve(element:PeriodicElement) {
-    console.log(element.custName);
+  openDialog(element:PeriodicElement) {
+    const dialogRef = this.dialog.open(ModalComponent,{
+      data: { name: element.custName },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

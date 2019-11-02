@@ -48,6 +48,7 @@ import { TablesComponent } from './views/public/tables/tables.component';
 import { getFarsiPaginatorIntl } from './farsi-paginator-intl';
 import { MatPaginatorIntl } from '@angular/material';
 import { AddDeveloperComponent } from './views/developer/add-developer/add-developer.component';
+import { ModalComponent } from './views/public/modal/modal.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { AddDeveloperComponent } from './views/developer/add-developer/add-devel
     ShowTicketsComponent,
     InspeectorComponent,
     TablesComponent,
-    AddDeveloperComponent
+    AddDeveloperComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,6 +86,10 @@ import { AddDeveloperComponent } from './views/developer/add-developer/add-devel
     ToastrModule.forRoot({
       progressBar: true
     })
+  ],
+
+  entryComponents: [
+    ModalComponent
   ],
 
   providers: [AuthService,TicketingService, {
