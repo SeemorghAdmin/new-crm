@@ -16,15 +16,18 @@ import { AddPersonComponent } from './views/owners/manage-person/add-person.comp
 import { InspeectorComponent } from './views/inspectors/main/main.component';
 
 import { OwnersMainComponent } from './views/owners/main/main.component';
+import { TablesComponent } from './views/public/tables/tables.component';
 
 const routes: Routes = [
   {path: '', component: LoginPageComponent},
+  {path: 'table', component: TablesComponent},
+  {path: 'panel', component: UserPanelComponent},
   {path: 'cust/home', component: CustMainComponent},
   {path: 'dev/home', component: DevMainComponent},
   {path: 'owner/home', component: OwnersMainComponent},
   {path: 'inspeector/home', component: InspeectorComponent},
   {path: 'user-panel', component: UserPanelComponent},
-  // صفحه ثبت کردن person 
+  // صفحه ثبت کردن person
    {path: 'addperson', component: AddPersonComponent},
   {path: 'cust-creat-new-Ticket', component:CreatNewTicketComponent},
   {path: 'cust-Show-User-Ticket', component:ShowUserTicketComponent},

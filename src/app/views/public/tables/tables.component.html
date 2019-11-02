@@ -1,0 +1,61 @@
+<div class="col-md-12 table-container" dir="rtl">
+
+  <div class="row search-form">
+    <div>
+      <mat-form-field>
+        <input matInput class="form-field" [formControl]="custNationalIDFilter" placeholder="شماره ملی مشترک">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput class="form-field" [formControl]="custNameFilter" placeholder="نام مشترک">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="custNationalID">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> شماره ملی مشترک
+
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.custNationalID}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="custName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> نام مشترک
+
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.custName}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>
+        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> عملیات </th>
+        <td mat-cell *matCellDef="let element">
+          <a (click)="approve(element)">
+            <img src="./../../../../assets/images/check.png">
+          </a>
+          <a>
+            <img src="./../../../../assets/images/delete.png">
+          </a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator class="paginator--centered" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+
+</div>

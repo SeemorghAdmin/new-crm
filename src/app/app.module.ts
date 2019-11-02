@@ -43,6 +43,10 @@ import { InspeectorComponent } from './views/inspectors/main/main.component';
 import { TicketingService } from './services/Ticketing/Ticketing.service'
 import { ChatTicketComponent } from './views/customer/Chat-Ticket/ChatTicket.component';
 import { ShowTicketsComponent } from './views/owners/Ticketing/show-tickets/show-tickets.component';
+import { TablesComponent } from './views/public/tables/tables.component';
+
+import { getFarsiPaginatorIntl } from './farsi-paginator-intl';
+import { MatPaginatorIntl } from '@angular/material';
 
 
 @NgModule({
@@ -59,7 +63,8 @@ import { ShowTicketsComponent } from './views/owners/Ticketing/show-tickets/show
     ShowUserTicketComponent,
     ChatTicketComponent,
     ShowTicketsComponent,
-    InspeectorComponent
+    InspeectorComponent,
+    TablesComponent
   ],
   imports: [
     BrowserModule,
@@ -78,14 +83,15 @@ import { ShowTicketsComponent } from './views/owners/Ticketing/show-tickets/show
       progressBar: true
     })
   ],
-    
+
   providers: [AuthService,TicketingService, {
     // توسط نوید برای لاگین ثبت شده اند
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
     // پایان لاگین نوید
-  }
+  },
+  { provide: MatPaginatorIntl, useValue: getFarsiPaginatorIntl() }
   ],
   bootstrap: [AppComponent]
 })
