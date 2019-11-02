@@ -47,6 +47,7 @@ import { TablesComponent } from './views/public/tables/tables.component';
 
 import { getFarsiPaginatorIntl } from './farsi-paginator-intl';
 import { MatPaginatorIntl } from '@angular/material';
+import { AddDeveloperComponent } from './views/developer/add-developer/add-developer.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { MatPaginatorIntl } from '@angular/material';
     ChatTicketComponent,
     ShowTicketsComponent,
     InspeectorComponent,
-    TablesComponent
+    TablesComponent,
+    AddDeveloperComponent
   ],
   imports: [
     BrowserModule,

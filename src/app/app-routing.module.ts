@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { AddDeveloperComponent } from './views/developer/add-developer/add-developer.component';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LoginPageComponent } from './views/public/login-page/login-page.component';
@@ -34,6 +35,8 @@ const routes: Routes = [
   {path: 'ChatTicket', component:ChatTicketComponent},
   {path: 'ChatTicket/:id', component:ChatTicketComponent},
   {path: 'ShowTicketsComponent', component:ShowTicketsComponent},
+  {path: 'AddDeveloperComponent', component:AddDeveloperComponent},
+
 ];
 
 @NgModule({
