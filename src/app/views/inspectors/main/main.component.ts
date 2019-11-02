@@ -1,5 +1,6 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface MenuItems {
   name: string;
@@ -27,8 +28,8 @@ export class InspeectorComponent implements OnInit, OnDestroy {
  ////////////////// انهتای بخش sidenav
 
   constructor(
-    changeDetectorRef: ChangeDetectorRef, media: MediaMatcher /// متغیرهای مربوط به sidenav
-  ) {
+    changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, /// متغیرهای مربوط به sidenav
+    private router: Router,) {
     ////////////////// دستور های مربوط به داینامیک کردن sidenav
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -39,6 +40,12 @@ export class InspeectorComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     
+  }
+
+  onLogout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role')
+    this.router.navigate(['']);
   }
 
   ngOnDestroy(): void {

@@ -24,7 +24,7 @@ export class CustMainComponent implements OnInit, OnDestroy {
   info;
   uni;
   id;
-  constructor(private sessionSt: SessionStorageService,
+  constructor(private sessionSt: SessionStorageService,private router: Router,
     private route: ActivatedRoute, private auth: AuthService, private http: HttpClient,
     private rout: Router, private service: PersonService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) { 
 
@@ -59,6 +59,12 @@ export class CustMainComponent implements OnInit, OnDestroy {
       }
     )
 
+  }
+
+  onLogout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role')
+    this.router.navigate(['']);
   }
 
   ngOnDestroy(): void {
