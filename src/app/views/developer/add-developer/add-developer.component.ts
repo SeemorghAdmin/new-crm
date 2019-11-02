@@ -13,7 +13,7 @@ export class AddDeveloperComponent implements OnInit {
   constructor(private service: AddDeveloperService, private toster: ToastrService) { }
 
   AddPerson() {
-      this.service.PostPerson().subscribe(
+      this.service.PostAddDeveloper().subscribe(
           res => {
               // tslint:disable: triple-equals
               if (res == true) {

@@ -25,7 +25,7 @@ export class AddDeveloperService
         NationalCardSerial: [''],
         ShenasNum: [''],
         ShenasSerial:[''],
-        MobileNumber:['']
+        MobileNumber:[''],
       });
 
       loginModel = this.fb.group(
@@ -35,31 +35,27 @@ export class AddDeveloperService
         });
 
       // ساخت متد پست دولوپر
-      PostPerson()
+      PostAddDeveloper()
       {
           var body =
           {
             PersonNationalId : this.formModel.value.PersonNationalId,
             FirstName : this.formModel.value.FirstName,
-            StaffNumber : this.formModel.value.StaffNumber,
             LastName: this.formModel.value.LastName,
             FatherName : this.formModel.value.FatherName,
             BirthDate : this.formModel.value.BirthDate,
             PositionId:  this.formModel.value.PositionId,
-            TeleNumber: this.formModel.value.TeleNumber,
-            Address : this.formModel.value.Address,
             Gender : this.formModel.value.Gender,
             UserName: this.formModel.value.UserName,
             Password: this.formModel.value.Password,
             Email : this.formModel.value.Email,
-            EduDegree : this.formModel.value.EduDegree,
-            EduField : this.formModel.value.EduField,
             NationalCardSerial : this.formModel.value.NationalCardSerial,
             ShenasNum: this.formModel.value.ShenasNum,
             ShenasSerial : this.formModel.value.ShenasSerial,
+            MobileNumber:this.formModel.value.MobileNumber,
           };
          
-          return this.http.post(this.BaseURI + '/Staff', body);
+          return this.http.post(this.BaseURI + '/Developer', body);
       }
 
       // متد ورود به حساب کاربری
