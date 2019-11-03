@@ -10,6 +10,11 @@ import { Router } from '@angular/router';
 import { from } from 'rxjs';
 import { PersonService } from '../../../services/person/person.service';
 
+export interface MenuItems {
+  name: string;
+  url: string;
+}
+
 @Component({
   selector: 'app-cust-main',
   templateUrl: './main.component.html',
@@ -17,10 +22,16 @@ import { PersonService } from '../../../services/person/person.service';
 })
 export class CustMainComponent implements OnInit, OnDestroy {
 
-  userType = "Customer"
-  fillerNav = Array.from({length: 50}, (_, i) => this.userType + ` Nav Item ${i + 1}`);
+  userType = "Customer";
 
+ fillerNav: MenuItems[] = [
+    {name: "پیگیری درخواست پشتیبانی", url:"/cust/home/cust-Show-User-Ticket"},
+    {name: "ثبت درخواست پشتیبانی", url:"/cust/home/cust-creat-new-Ticket"},
+  ]; // ایجاد 50 تا آیتم برای نمایش در منو
   mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+  ////////////////// انهتای بخش sidenav
+ 
   info;
   uni;
   id;
@@ -34,7 +45,7 @@ export class CustMainComponent implements OnInit, OnDestroy {
       this.mobileQuery.addListener(this._mobileQueryListener);
     }
 
-    private _mobileQueryListener: () => void;
+   
 
 
   ngOnInit() {

@@ -12,7 +12,6 @@ import { ChatTicketComponent } from './views/customer/Chat-Ticket/ChatTicket.com
 import { ShowTicketsComponent } from './views/owners/Ticketing/show-tickets/show-tickets.component';
 
 // رضا
-// صفحه اضافه ثبت person
 import { AddPersonComponent } from './views/owners/manage-person/add-person.component';
 import { InspeectorComponent } from './views/inspectors/main/main.component';
 import { OwnersMainComponent } from './views/owners/main/main.component';
@@ -21,16 +20,29 @@ import { TablesComponent } from './views/public/tables/tables.component';
 const routes: Routes = [
   {path: '', component: LoginPageComponent},
   {path: 'table', component: TablesComponent},
-  {path: 'panel', component: UserPanelComponent},
+  {path: 'panel', component: UserPanelComponent,},
   {path: 'cust/home', component: CustMainComponent},
+  {path: 'cust/home', component: CustMainComponent, 
+  children: 
+  [
+    {path: 'cust-creat-new-Ticket', component:CreatNewTicketComponent},
+    {path: 'cust-Show-User-Ticket', component:ShowUserTicketComponent},
+  ]
+  },
   {path: 'dev/home', component: DevMainComponent},
+  {path: 'dev/home', component: DevMainComponent,
+  children:
+  [
+    {path: 'addperson', component: AddPersonComponent},
+  ]
+  },
   {path: 'owner/home', component: OwnersMainComponent},
   {path: 'inspeector/home', component: InspeectorComponent},
   {path: 'user-panel', component: UserPanelComponent},
   // صفحه ثبت کردن person
-   {path: 'addperson', component: AddPersonComponent},
-  {path: 'cust-creat-new-Ticket', component:CreatNewTicketComponent},
-  {path: 'cust-Show-User-Ticket', component:ShowUserTicketComponent},
+  {path: 'addperson', component: AddPersonComponent},
+  
+  
   {path: 'ChatTicket', component:ChatTicketComponent},
   {path: 'ChatTicket/:id', component:ChatTicketComponent},
   {path: 'ShowTicketsComponent', component:ShowTicketsComponent},

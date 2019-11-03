@@ -8,22 +8,36 @@ import { ToastrService } from 'ngx-toastr';
     styleUrls: ['./add-person.component.css']
 })
 export class AddPersonComponent implements OnInit {
+
     constructor(private service: PersonService, private toster: ToastrService) { }
 
-    AddPerson() {
+    isDeveloper: boolean = false;
+    
+    AddPerson() 
+    {
         this.service.PostPerson().subscribe(
-            res => {
+            res => 
+            {
                 // tslint:disable: triple-equals
-                if (res == true) {
+                if (res == true) 
+                {
                    this.toster.success('ثبت نام با موفقیت انجام شد');
                 }
             },
-            (err: any) => {
-                if (err.status == 400) {
-                this.toster.error(err.error);
+            (err: any) => 
+            {
+                if (err.status == 400) 
+                {
+                    this.toster.error(err.error);
                 }
             });
     }
 
-    ngOnInit(): void { }
+    ngOnInit(): void 
+    {
+        if (parseInt(localStorage.getItem('role')) == 1) 
+        {
+            this.isDeveloper = true;
+        }
+     }
 }

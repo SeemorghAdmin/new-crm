@@ -30,7 +30,8 @@ export class PersonService
         EduField: [''],
         NationalCardSerial: [''],
         ShenasNum: [''],
-        ShenasSerial:['']
+        ShenasSerial:[''],
+        IsAdmin:['']
       });
 
       loginModel = this.fb.group(
@@ -62,6 +63,7 @@ export class PersonService
             NationalCardSerial : this.formModel.value.NationalCardSerial,
             ShenasNum: this.formModel.value.ShenasNum,
             ShenasSerial : this.formModel.value.ShenasSerial,
+            IsAdmin: this.formModel.value.IsAdmin
           };
          
           return this.http.post(this.BaseURI + '/Staff', body);

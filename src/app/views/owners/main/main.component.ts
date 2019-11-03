@@ -2,6 +2,11 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+export interface MenuItems {
+  name: string;
+  url: string;
+}
+
 @Component({
   selector: 'app-owner-main',
   templateUrl: './main.component.html',
@@ -11,8 +16,10 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
 
   ////////////////// این خط ها متغیرهای مورد نیاز برای sidenav را ایجاد میکنند
   userType = "Owner" // نام صفحه
-  fillerNav = Array.from({ length: 50 }, (_, i) => this.userType + ` Nav Item ${i + 1}`); // ایجاد 50 تا آیتم برای نمایش در منو
-  mobileQuery: MediaQueryList;
+  fillerNav: MenuItems[] = [
+    {name: "اضافه کردن کاربر جدید", url:"/AddDeveloperComponent"},
+  ]; // ایجاد 50 تا آیتم برای نمایش در منو 
+   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
   ////////////////// انهتای بخش sidenav
 
