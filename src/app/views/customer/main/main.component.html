@@ -26,7 +26,6 @@
       </a>
     </div>
   </mat-toolbar>
-
   <mat-sidenav-container class="panel-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav class="panel-sidenav" #snav position="end" [mode]="mobileQuery.matches ? 'over' : 'side'"
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
@@ -34,13 +33,12 @@
         <a mat-list-item routerLink="" *ngFor="let nav of fillerNav">{{nav}}</a>
       </mat-nav-list>
     </mat-sidenav>
-
     <mat-sidenav-content class="panel-sidenav-content">
       <mat-toolbar class="content-top">
         <h1>{{userType}}</h1>
       </mat-toolbar>
       <main class="content">
-        <Show-User-Ticket></Show-User-Ticket>
+        <app-create-new-ticket></app-create-new-ticket>
       </main>
     </mat-sidenav-content>
 
