@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TicketingService } from './../../../services/Ticketing/Ticketing.service';
 import { ActivatedRoute } from '@angular/router' ;
 import { Router } from '@angular/router';
+import { TicketClass } from '../create-new-ticket/create-new-ticket.component';
 @Component({
   selector: 'ChatTicket',
   templateUrl: './Chat.component.html'
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class ChatTicketComponent implements OnInit {
 TicketId;
 ChatTicketing;
-Ticket={};
+Ticket:TicketClass;
 t;
 us;
 PersonNationalId;

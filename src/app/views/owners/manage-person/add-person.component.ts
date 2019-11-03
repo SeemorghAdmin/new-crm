@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddPersonComponent implements OnInit {
 
-    constructor(private service: PersonService, private toster: ToastrService) { }
+    constructor(public service: PersonService, private toster: ToastrService) { }
 
     isDeveloper: boolean = false;
     
@@ -18,6 +18,7 @@ export class AddPersonComponent implements OnInit {
         this.service.PostPerson().subscribe(
             res => 
             {
+                this.service.formModel.value.IsAdmin = false;
                 // tslint:disable: triple-equals
                 if (res == true) 
                 {

@@ -10,7 +10,7 @@ import { AddDeveloperService } from 'src/app/services/developer/add-developer.se
 })
 export class AddDeveloperComponent implements OnInit {
 
-  constructor(private service: AddDeveloperService, private toster: ToastrService) { }
+  constructor(public service: AddDeveloperService, private toster: ToastrService) { }
 
   AddPerson() {
       this.service.PostAddDeveloper().subscribe(

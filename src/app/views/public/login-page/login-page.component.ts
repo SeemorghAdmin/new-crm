@@ -42,7 +42,7 @@ export class LoginPageComponent implements OnInit {
       }
      }
   }
-  onSubmit(form: NgForm) {
+  onSubmit() {
     // لاگین رضا
     this.service.Login().subscribe(
     (res: any)  =>
