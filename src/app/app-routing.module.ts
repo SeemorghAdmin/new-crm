@@ -34,6 +34,7 @@ const routes: Routes = [
   children:
   [
     {path: 'addperson', component: AddPersonComponent},
+    {path: 'AddDeveloperComponent', component: AddDeveloperComponent},
   ]
   },
   {path: 'owner/home', component: OwnersMainComponent},

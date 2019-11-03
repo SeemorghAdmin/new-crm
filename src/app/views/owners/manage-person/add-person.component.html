@@ -23,84 +23,93 @@
       <input type="text" class="form-control is-invalid" formControlName="FatherName" required>
     </div>
 
-    <div style="width: 48%; " class="mb-3">
+    <div style="width: 48%; float: left;" class="mb-3">
       <label for="">تاریخ تولد</label>
       <input type="text" class="form-control is-invalid" formControlName="BirthDate" required>
     </div>
 
 
-    <div class="custom-control custom-radio">
-      <label for="">جنسیت</label>
-      <input type="radio" formControlName="Gender" name="Gender" value="true" class="custom-control-input"
-        id="customControlValidation2" required>
-      <label class="custom-control-label" for="customControlValidation2">مرد</label>
-    </div>
-    <div class="custom-control custom-radio mb-3">
-      <input type="radio" formControlName="Gender" name="Gender" value="false" class="custom-control-input"
-        id="customControlValidation3" required>
-      <label class="custom-control-label" for="customControlValidation3">زن</label>
-      <div class="invalid-feedback">لطفا جنسیت را وارد نمایید</div>
-    </div>
+   
 
-    <div style="width: 48%; float: left;" class="mb-3">
+    <div style="width: 48%; float: right;" class="mb-3">
       <label for="">شماره پرسنلی</label>
       <input type="text" class="form-control is-invalid" formControlName="StaffNumber" required>
     </div>
 
-    <div style="width: 48%; float: right;" class="mb-3">
+    <div style="width: 48%; float: left;" class="mb-3">
       <label for="">سمت</label>
       <input type="text" class="form-control is-invalid" formControlName="PositionId" required>
     </div>
 
-    <div style="width: 48%; float: left;" class="mb-3">
+    <div style="width: 48%; float: right;" class="mb-3">
       <label for="">تلفن</label>
       <input type="text" class="form-control is-invalid" formControlName="TeleNumber" required>
     </div>
 
-    <div style="width: 48%; float: right;" class="mb-3">
+    <div style="width: 48%; float: left;" class="mb-3">
       <label for="">آدرس</label>
       <input type="text" class="form-control is-invalid" formControlName="Address" required>
     </div>
 
-    <div style="width: 48%; float: left;" class="mb-3">
+    <div style="width: 48%; float: right;" class="mb-3">
       <label for="">نام کاریری</label>
       <input type="text" class="form-control is-invalid" formControlName="UserName" required>
     </div>
 
-    <div style="width: 48%; float: right;" class="mb-3">
+    <div style="width: 48%; float: left;" class="mb-3">
       <label for="">رمز عبور</label>
       <input type="text" class="form-control is-invalid" formControlName="Password" required>
     </div>
 
-    <div style="width: 48%; float: left;" class="mb-3">
+    <div style="width: 48%; float: right;" class="mb-3">
       <label for="">ایمیل</label>
       <input type="text" class="form-control is-invalid" formControlName="Email" required>
     </div>
 
-    <div style="width: 48%; float: right;" class="mb-3">
+    <div style="width: 48%; float: left;" class="mb-3">
       <label for="">رشته تحصیلی</label>
       <input type="text" class="form-control is-invalid" formControlName="EduField" required>
     </div>
 
-    <div style="width: 48%; float: left;" class="mb-3">
+    <div style="width: 48%; float: right;" class="mb-3">
       <label for="">سریال کارت ملی</label>
       <input type="text" class="form-control is-invalid" formControlName="NationalCardSerial" required>
     </div>
 
-    <div style="width: 48%; float: right;" class="mb-3">
+    <div style="width: 48%; float: left;" class="mb-3">
       <label for="">شماره شناسنامه</label>
       <input type="text" class="form-control is-invalid" formControlName="ShenasNum" required>
     </div>
 
-    <div style="width: 48%; float: right; margin-bottom: 20px;" class="mb-3">
+    <div style="width: 48%; float: right;" class="mb-3">
       <label for="">سریال شناسنامه</label>
       <input type="text" class="form-control is-invalid" formControlName="ShenasSerial" required>
     </div>
 
-    <div *ngIf="isDeveloper == true" class="custom-control custom-checkbox mb-3">
-      <input type="checkbox" formControlName="IsAdmin" name="Gender" class="custom-control-input" id="customControlValidation1" >
-      <label class="custom-control-label" for="customControlValidation1">ادمین خاشع</label>
+    
+    <div class="custom-control custom-radio" style="float: right;">
+      <label for="">جنسیت</label>
+      <br>
+      <div class="custom-control custom-radio mb-3" style="float: right;">
+          <input type="radio" formControlName="Gender" name="Gender" value="false" class="custom-control-input"
+            id="customControlValidation3" required style="float: right; margin-right: 100px;">
+          <label class="custom-control-label" for="customControlValidation3">زن</label>
+        </div>
+        
+      <input type="radio" formControlName="Gender" name="Gender" value="true" class="custom-control-input"
+        id="customControlValidation2" required >
+      <label class="custom-control-label" for="customControlValidation2">مرد</label>
+      
     </div>
+
+    
+    <div class="form-group form-check">
+      <input type="checkbox" formControlName="IsAdmin" name="IsAdmin"  class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">ادمین خاشع</label>
+    </div>
+
+    
+   
 
     <div class="form-group col-md-8 offset-md-2">
       <button type="submit" class="btn btn-primary" [disabled]="!service.formModel.valid">ثبت نام</button>
