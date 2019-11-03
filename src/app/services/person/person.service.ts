@@ -43,6 +43,7 @@ export class PersonService
       // ساخت متد پست استف
       PostPerson()
       {
+        if (localStorage.getItem('role') == '1') {
           var body =
           {
             PersonNationalId : this.formModel.value.PersonNationalId,
@@ -63,8 +64,33 @@ export class PersonService
             NationalCardSerial : this.formModel.value.NationalCardSerial,
             ShenasNum: this.formModel.value.ShenasNum,
             ShenasSerial : this.formModel.value.ShenasSerial,
-            IsAdmin: this.formModel.value.IsAdmin
+            IsAdmin: true
           };
+        } else {
+          var body =
+          {
+            PersonNationalId : this.formModel.value.PersonNationalId,
+            FirstName : this.formModel.value.FirstName,
+            StaffNumber : this.formModel.value.StaffNumber,
+            LastName: this.formModel.value.LastName,
+            FatherName : this.formModel.value.FatherName,
+            BirthDate : this.formModel.value.BirthDate,
+            PositionId:  this.formModel.value.PositionId,
+            TeleNumber: this.formModel.value.TeleNumber,
+            Address : this.formModel.value.Address,
+            Gender : this.formModel.value.Gender,
+            UserName: this.formModel.value.UserName,
+            Password: this.formModel.value.Password,
+            Email : this.formModel.value.Email,
+            EduDegree : this.formModel.value.EduDegree,
+            EduField : this.formModel.value.EduField,
+            NationalCardSerial : this.formModel.value.NationalCardSerial,
+            ShenasNum: this.formModel.value.ShenasNum,
+            ShenasSerial : this.formModel.value.ShenasSerial,
+            IsAdmin: false
+          };
+        }
+         
          
           return this.http.post(this.BaseURI + '/Staff', body);
       }

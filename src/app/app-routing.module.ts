@@ -27,6 +27,7 @@ const routes: Routes = [
   [
     {path: 'cust-creat-new-Ticket', component:CreatNewTicketComponent},
     {path: 'cust-Show-User-Ticket', component:ShowUserTicketComponent},
+    {path: 'ChatTicket/:id', component:ChatTicketComponent},
   ]
   },
   {path: 'dev/home', component: DevMainComponent},
@@ -45,7 +46,7 @@ const routes: Routes = [
   
   
   {path: 'ChatTicket', component:ChatTicketComponent},
-  {path: 'ChatTicket/:id', component:ChatTicketComponent},
+  
   {path: 'ShowTicketsComponent', component:ShowTicketsComponent},
   {path: 'AddDeveloperComponent', component:AddDeveloperComponent},
 
