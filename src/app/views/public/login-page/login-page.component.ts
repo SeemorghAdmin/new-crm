@@ -13,16 +13,16 @@ import { PersonService } from '../../../services/person/person.service';
 export class LoginPageComponent implements OnInit {
   panelOpenState = false;
   formModel = {
-    UserName :'', 
+    UserName :'',
     Password : ''
   }
-  constructor( private router: Router, private toastr: ToastrService, private service: PersonService) { }
+  constructor( private router: Router, private toastr: ToastrService, public service: PersonService) { }
 
   ngOnInit() {
     //localStorage.removeItem('token');
     if (localStorage.getItem('token') != null)
      {
-      switch ( parseInt(localStorage.getItem('role'))) 
+      switch ( parseInt(localStorage.getItem('role')))
       {
         case 1:
           this.router.navigateByUrl('/dev/home');
@@ -36,7 +36,7 @@ export class LoginPageComponent implements OnInit {
           case 4:
           this.router.navigateByUrl('/inspeector/home');
           break;
-      
+
         default:
           break;
       }
@@ -45,16 +45,16 @@ export class LoginPageComponent implements OnInit {
   onSubmit(form: NgForm) {
     // لاگین رضا
     this.service.Login().subscribe(
-    (res: any)  => 
+    (res: any)  =>
     {
       console.log(res);
-      if (res.statusCode == 200) 
+      if (res.statusCode == 200)
       {
         //this.toastr.success('Ok');
         //console.log(res.user.token)
         localStorage.setItem('token', res.user.token);
         localStorage.setItem('role', res.user.role1 );
-        switch (res.user.role1) 
+        switch (res.user.role1)
         {
           case 1:
             this.router.navigateByUrl('/dev/home');
@@ -68,11 +68,11 @@ export class LoginPageComponent implements OnInit {
             case 4:
             this.router.navigateByUrl('/inspeector/home');
             break;
-        
+
           default:
             break;
         }
-      } 
+      }
     }, (err : any) =>
     {
         if (err.status == 400)
