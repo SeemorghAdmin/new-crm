@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TicketingService } from './../../../services/Ticketing/Ticketing.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-new-ticket',
@@ -9,27 +10,52 @@ import { TicketingService } from './../../../services/Ticketing/Ticketing.servic
 export class CreatNewTicketComponent implements OnInit {
 Service ;
 getServiceTypeId;
-  constructor(private api: TicketingService) {}
+t;
+  constructor(private api: TicketingService,private toastr: ToastrService) {}
 
   ngOnInit() {
     this.api.getService().subscribe(res => {
       this.Service = res;
-      console.log(res);
     });
   }
   Ticket={};
   ServiceTypeNumber(id)
   {
 this.getServiceTypeId=id;
-console.log(this.getServiceTypeId);
   }
   post(Ticket)
   {
-    Ticket.PersonNational_ID="4180109123";
+    if(this.getServiceTypeId >0)
+    {
+      if(Ticket.title != null)
+      {
+        if(Ticket.Comment !=null)
+        {
     Ticket.services_ID=this.getServiceTypeId;
     this.api.postTicket(Ticket).subscribe(res =>{
-console.log(res);
+if(res == true)
+{
+  this.toastr.success('درخواست شما ثبت شد از طریق صفحه پیگیری درخوست ها میتوانید از آخرین وضعیت درخواست خود مطلع شوید');
+  Ticket.title ='';
+  Ticket.status=null;
+  Ticket.Comment='';
+
+}
     });
-console.log(Ticket);
+  }
+  else
+  {
+    this.t=3;
+  }
+  }
+  else
+  {
+    this.t=2;
+  }
+  }
+  else
+  {
+    this.t=1;
+  }
   }
 }

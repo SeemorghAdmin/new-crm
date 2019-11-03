@@ -45,4 +45,8 @@ getAllTickets()
 {
   return this.http.get(this.BaseURI + '/GetTicket/AllTickets');
 }
+getPerson()
+{
+  return this.http.get(this.BaseURI + '/Person/getPersonAll');
+}
 }

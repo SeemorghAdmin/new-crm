@@ -6,6 +6,8 @@ export interface MenuItems {
   name: string;
   url: string;
 }
+
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',

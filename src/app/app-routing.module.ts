@@ -15,7 +15,6 @@ import { ShowTicketsComponent } from './views/owners/Ticketing/show-tickets/show
 // صفحه اضافه ثبت person
 import { AddPersonComponent } from './views/owners/manage-person/add-person.component';
 import { InspeectorComponent } from './views/inspectors/main/main.component';
-
 import { OwnersMainComponent } from './views/owners/main/main.component';
 import { TablesComponent } from './views/public/tables/tables.component';
 
@@ -38,7 +37,6 @@ const routes: Routes = [
   {path: 'AddDeveloperComponent', component:AddDeveloperComponent},
 
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

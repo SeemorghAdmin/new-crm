@@ -22,18 +22,21 @@
                   </h3>
                   <div class="mb-1 text-muted">  درخواست دهنده: {{item.person.firstName}}</div>
                   <div class="mb-1 text-muted">{{item.dateOfCreation}}</div>
+
+                  <div class="mb-1 text-muted" *ngIf="item.status == 1">عادی</div>
+                  <div class="mb-1 text-muted" *ngIf="item.status == 2">فوری</div>
+                  <div class="mb-1 text-muted" *ngIf="item.status == 3">آنی</div>
+
                   <p class="card-text mb-auto">{{item.title}}</p>
                   <p class="card-text mb-auto" style="color: forestgreen;" *ngIf="item.active == true">فعال</p>
                   <p class="card-text mb-auto" style="color: crimson;" *ngIf="item.active == false">غیر فعال</p>
                   <a [routerLink]="['/ChatTicket',item.ticket_ID]" >مشاهده گفت و گو</a>
                 </div>            
             </div>  
-
-
             </div>           
             <div class="col-md-4"></div>         
          </div>   
         </div>
       </div>
     </div>
-  </div>
+</div>

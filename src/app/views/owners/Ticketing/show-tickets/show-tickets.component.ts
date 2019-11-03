@@ -12,7 +12,7 @@ AllTickets;
   ngOnInit() {
     this.api.getAllTickets().subscribe(res => {
       this.AllTickets = res;
-      console.log(res);
+      
     });
   }
 
