@@ -15,10 +15,14 @@ export class AddPersonComponent implements OnInit {
     
     AddPerson() 
     {
+        if (this.isDeveloper == true) {
+            this.service.formModel.value.PositionId = 1;
+            
+        }
         this.service.PostPerson().subscribe(
             res => 
             {
-                this.service.formModel.value.IsAdmin = false;
+                
                 // tslint:disable: triple-equals
                 if (res == true) 
                 {

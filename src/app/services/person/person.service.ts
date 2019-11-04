@@ -8,12 +8,12 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class PersonService 
 {
   constructor(private fb: FormBuilder, private http: HttpClient) { }
-  readonly BaseURI = 'http://185.79.99.245/new-crm-api/api';
+  readonly BaseURI = 'http://localhost:58989/api';
 
   // ایجاد فرم مدل استف
   formModel = this.fb.group(
       {
-        PersonNationalId : ['', Validators.required],
+        PersonNationalId : ['',[Number, Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
         FirstName: ['', Validators.required],
         LastName: ['', Validators.required],
         FatherName: ['', Validators.required],
@@ -25,7 +25,7 @@ export class PersonService
         Address: [''],
         UserName: [''],
         Password:[''],
-        Email: [''],
+        Email: ['', Validators.email],
         EduDegree: [''],
         EduField: [''],
         NationalCardSerial: [''],
@@ -90,8 +90,7 @@ export class PersonService
             IsAdmin: false
           };
         }
-         
-         
+       
           return this.http.post(this.BaseURI + '/Staff', body);
       }
 

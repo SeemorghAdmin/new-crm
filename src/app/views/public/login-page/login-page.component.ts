@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 import { PersonService } from '../../../services/person/person.service';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
@@ -12,13 +13,12 @@ import { PersonService } from '../../../services/person/person.service';
 })
 export class LoginPageComponent implements OnInit {
   panelOpenState = false;
-  formModel = {
-    UserName :'',
-    Password : ''
-  }
-  constructor( private router: Router, private toastr: ToastrService, public service: PersonService) { }
+ 
+  constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService, public service: PersonService) { }
 
+ 
   ngOnInit() {
+    this.service.loginModel.reset();
     //localStorage.removeItem('token');
     if (localStorage.getItem('token') != null)
      {
@@ -50,6 +50,7 @@ export class LoginPageComponent implements OnInit {
       console.log(res);
       if (res.statusCode == 200)
       {
+        this.service.loginModel.reset();
         //this.toastr.success('Ok');
         //console.log(res.user.token)
         localStorage.setItem('token', res.user.token);
