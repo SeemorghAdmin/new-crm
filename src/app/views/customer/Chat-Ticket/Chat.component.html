@@ -2,55 +2,70 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://use.fontawesome.com/45e03a14ce.js"></script>
-<div class="main_section">
-   <div class="container">
-      <div class="chat_container">		 
-         <div class="col-sm-9 message_section">
-		 <div class="row">         
-		 <div class="new_message_head">
-		    <p style="text-align: center;">{{us}}</p>
-		 </div>
-		 <div class="chat_area">
-		 <ul class="list-unstyled" *ngFor="let item of ChatTicketing; let i = index">                 
-				  <li class="left clearfix admin_chat">
-                     <span class="chat-img1 pull-right">
-                     <img src="./../../../../assets/images/customer-flat-icon-vector-14992103.jpg" alt="User Avatar" class="img-circle">
-                     <img src="./../../../../assets/images/118-512.png" alt="User Avatar"  class="img-circle">
-                     </span>
-                     <div class="chat-body1 clearfix">
-                        <p style="text-align: right;">{{item.comment}}</p>
-                        <div class="row">
-                  <div class="chat_time pull-left">{{item.person.firstName}}  {{item.person.lastName}}</div>
-               </div>
-               <div class="row">
-                  <div class="chat_time pull-left">{{item.commentTime}}</div>
-               </div>
+<div class="row">
+    
+<div class="col-md-3"></div>
+
+<div class="col-md-6">
+      <div class="main_section">
+         <div class="container">
+            <div class="chat_container">		 
+               <div class="col-sm-9 message_section">
+             <div class="row">         
+             <div class="new_message_head">
+                <p style="text-align: center;">{{us}}</p>
+             </div>
+             <div class="chat_area" style="height: 600px;">
+             <ul class="list-unstyled" *ngFor="let item of ChatTicketing; let i = index">                 
+                    <li class="left clearfix admin_chat">
+                           <span class="chat-img1 pull-right">
+                           <img src="./../../../../assets/images/customer-flat-icon-vector-14992103.jpg" alt="User Avatar" class="img-circle" *ngIf="item.person.role1 == 3">
+                           <img src="./../../../../assets/images/118-512.png" alt="User Avatar"  class="img-circle" *ngIf="item.person.role1 == 2">
+                           </span>
+                           <div class="chat-body1 clearfix">
+                              <p style="text-align: right;">{{item.comment}}</p>
+                              <div class="row">
+                        <div class="chat_time pull-left">{{item.person.firstName}}  {{item.person.lastName}}</div>
                      </div>
-                  </li>		 
-		 </ul>
-       </div>  
-          <div class="message_write">
-             <form>
-                  <div class="alert alert-danger" role="alert" style="text-align: center;" *ngIf="DangerAlertShow == 1">
-                        لطفا متقاضی دریافت پیام را انتخاب کنید
-                      </div>
-    	 <textarea class="form-control" placeholder="type a message" style="direction: rtl;" name="comment" [(ngModel)]="Ticket.comment"> </textarea>
-		 <div class="clearfix"></div>
-		 <div class="chat_bottom">
-          <a  class="pull-left upload_btn" (click)="DiactiveChat()">
-               بستن چت</a>
- <a class="pull-right btn btn-success" (click)="post(Ticket)">
- ارسال</a>
- <select id="ddl"  dir="rtl"  style="width: 250px;"  (change)="getName($event.target.value)"  class="pull-right">
-   <option> متقاضی دریافت پیام را انتخاب کنید</option>
-   <option>مشتری</option>
-   <option  *ngFor="let item of PersonForDropDownList; let i = index" value="{{item.personNational_ID}}" >{{item.firstName}} {{item.lastName}}</option>                   
- </select>  
-</div>
-</form>
-       </div>
-		 </div>
+                     <div class="row">
+                        <div class="chat_time pull-left">{{item.commentTime}}</div>
+                     </div>
+                           </div>
+                        </li>		 
+             </ul>
+             </div>  
+                <div class="message_write">
+                   <form>
+                        <div class="alert alert-danger" role="alert" style="text-align: center;" *ngIf="DangerAlertShow == 1">
+                              لطفا متقاضی دریافت پیام را انتخاب کنید
+                            </div>
+              <textarea class="form-control" placeholder="type a message" style="direction: rtl;" name="comment" [(ngModel)]="Ticket.comment"> </textarea>
+             <div class="clearfix"></div>
+             <div class="chat_bottom">
+                <a  class="pull-left upload_btn" (click)="DiactiveChat()">
+                     بستن چت</a>
+       <a class="pull-right btn btn-success" (click)="post(Ticket)" *ngIf="ta == 2">
+       ارسال</a>
+
+       <a class="pull-right btn btn-success" (click)="postt(Ticket)" *ngIf="ta == 3">
+           ارسال</a>
+
+       <select id="ddl"  dir="rtl"  style="width: 250px;"  (change)="getName($event.target.value)"  class="pull-right" *ngIf="ta == 2">
+         <option> متقاضی دریافت پیام را انتخاب کنید</option>
+         <option>مشتری</option>
+         <option  *ngFor="let item of PersonForDropDownList; let i = index" value="{{item.personNational_ID}}" >{{item.firstName}} {{item.lastName}}</option>                   
+       </select>  
+      </div>
+      </form>
+             </div>
+             </div>
+               </div>
+            </div>
          </div>
       </div>
-   </div>
+      </div>
+      <div class="col-md-3">
+         </div>
 </div>
+
+ 

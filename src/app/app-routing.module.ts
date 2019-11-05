@@ -39,6 +39,14 @@ const routes: Routes = [
   ]
   },
   {path: 'owner/home', component: OwnersMainComponent},
+  {path: 'owner/home', component: OwnersMainComponent,
+children:
+[
+  {path: 'ShowTicketsComponent', component:ShowTicketsComponent},
+  {path: 'ChatTicket/:id', component:ChatTicketComponent},
+]
+
+},
   {path: 'inspeector/home', component: InspeectorComponent},
   {path: 'user-panel', component: UserPanelComponent},
   // صفحه ثبت کردن person
@@ -46,7 +54,6 @@ const routes: Routes = [
   
   
   {path: 'ChatTicket', component:ChatTicketComponent},
-  
   {path: 'ShowTicketsComponent', component:ShowTicketsComponent},
   {path: 'AddDeveloperComponent', component:AddDeveloperComponent},
 

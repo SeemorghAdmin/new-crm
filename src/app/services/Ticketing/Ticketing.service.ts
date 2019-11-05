@@ -9,7 +9,7 @@ export class TicketingService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
  
-  readonly BaseURI = 'http://185.79.99.245/new-crm-api/api';
+  readonly BaseURI = 'http://localhost:58989/api';
 
   getService()
 {
@@ -48,5 +48,13 @@ getAllTickets()
 getPerson()
 {
   return this.http.get(this.BaseURI + '/Person/getPersonAll');
+}
+putResiver(Ticket)
+{
+  return this.http.put(this.BaseURI + '/GetTicket/'+Ticket.Ticket_ID ,Ticket );
+}
+putSeen(id)
+{
+  return this.http.put(this.BaseURI + '/ChatTicketing/'+id ,id );
 }
 }

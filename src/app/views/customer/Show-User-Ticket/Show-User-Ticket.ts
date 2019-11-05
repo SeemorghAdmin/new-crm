@@ -10,11 +10,10 @@ export class ShowUserTicketComponent implements OnInit {
   constructor(private api: TicketingService) { }
 UserTicket;
 UserDiactiveTicket;
-t;
+t=1;
 name;
 namee;
   ngOnInit() {
-
     this.api.getTicket().subscribe(res => {
       this.UserTicket = res;
      this.name= this.UserTicket[0].person.firstName;

@@ -1,42 +1,55 @@
 <div class="row">  
-    <div class="col-md-12" style="text-align: center;">
-      <div class="card card-user">
-        <div class="card-header">
-          <h5 class="card-title">مشاهده درخواست ها</h5>
+  <div class="col-md-12" style="text-align: center;">
+    <div class="card card-user">
+      <div class="card-header">
+        <h5 class="card-title">مشاهده درخواست ها</h5>
+      </div>
+      <div class="card-body" style="direction: rtl;">
+        <div class="row">  
+           <p style="margin-right: 10%;font-size: 22px;">درخواست های ارسالی به شما</p>            
+        </div>  
+       <div class="row mb-3">
+<div class="col-md-7" *ngFor="let item of AllTickets; let i = index" style="padding: 3px;">
+    <div class="card shadow" style="direction: rtl;">
+        <div class="card-body">
+            <div class="row text-center">                
+                <div class="col-md-4" style="text-align: right;">
+                  <div class="row">
+                    <h5>درخواست دهنده: </h5>
+                    <p>{{item.person.firstName}}</p>
+                  </div>
+                  <div class="row">
+                    <h5>تاریخ درخواست : </h5>
+                    <p>{{item.dateOfCreation}}</p>
+                  </div>
+                  <div class="row">
+                    <h5>فوریت :</h5>
+                    <p style="color: #af00ff;" *ngIf="item.status == 1">عادی</p>
+                    <p style="color: tomato;" *ngIf="item.status == 2">فوری</p>
+                    <p style="color:red;" *ngIf="item.status == 3">آنی</p>
+                  </div>                   
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                  <h5>نوع سرویس درخواستی :</h5>
+                  <p>{{item.services.faName}}</p>
+                </div>
+                <div class="row">
+                  <h5>عنوان درخواست :</h5>
+                  <p>{{item.title}}</p>
+                </div>
+                </div>
+                <div class="col-md-4">    
+                  <div class="sub-row">
+                      <button type="button" class="btn btn-warning btn-sm btn-block"  (click)=" pagenav(item.ticket_ID)"  style="background-color: #2f9fd3;margin-top: 50px;">مشاهده گفت و گو</button>
+                  </div>
+              </div>
+            </div>
         </div>
-        <div class="card-body" style="direction: rtl;">
-          <div class="row">  
-             <p style="margin-right: 10%;font-size: 22px;">درخواست های ارسالی به شما</p>            
-          </div>  
-
-          <div class="row" style="direction: rtl;">  
-            <div class="col-md-1"></div>
-            <div class="col-md-7">
-
-            <div class="card flex-md-row mb-4 box-shadow h-md-250" *ngFor="let item of AllTickets; let i = index">
-                    <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" style="width: 140px; height: 155px;" src="./../../../../assets/images/logo.png" data-holder-rendered="true">
-                <div class="card-body d-flex flex-column align-items-start">
-                  <strong class="d-inline-block mb-2 text-primary"></strong>
-                  <h3 class="mb-0">
-                    <a class="text-dark" >{{item.services.faName}}</a>
-                  </h3>
-                  <div class="mb-1 text-muted">  درخواست دهنده: {{item.person.firstName}}</div>
-                  <div class="mb-1 text-muted">{{item.dateOfCreation}}</div>
-
-                  <div class="mb-1 text-muted" *ngIf="item.status == 1">عادی</div>
-                  <div class="mb-1 text-muted" *ngIf="item.status == 2">فوری</div>
-                  <div class="mb-1 text-muted" *ngIf="item.status == 3">آنی</div>
-
-                  <p class="card-text mb-auto">{{item.title}}</p>
-                  <p class="card-text mb-auto" style="color: forestgreen;" *ngIf="item.active == true">فعال</p>
-                  <p class="card-text mb-auto" style="color: crimson;" *ngIf="item.active == false">غیر فعال</p>
-                  <a [routerLink]="['/ChatTicket',item.ticket_ID]" >مشاهده گفت و گو</a>
-                </div>            
-            </div>  
-            </div>           
-            <div class="col-md-4"></div>         
-         </div>   
-        </div>
+    </div>   
+</div>
+</div>
       </div>
     </div>
+  </div>
 </div>

@@ -1,14 +1,5 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script>
-  $(document).ready(function () {
-    $(".btn-pref .btn").click(function () {
-      $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
-      $(".tab").addClass("active"); // instead of this do the below 
-    });
-  });
-</script>
 <div class="row">
   <div class="col-lg-6 col-sm-6 center-block">
     <div class="card hovercard">
@@ -39,6 +30,9 @@
           <div class="row">
             <div class="col-md-12" style="text-align: center;">
               <div class="card card-user">
+                  <div class="card-header">
+                      <h5 class="card-title">مشاهده درخواست ها</h5>
+                    </div>
                 <div class="card-body" style="direction: rtl;">
                   <div class="row" style="direction: rtl;">
                     <div class="col-md-1"></div>
@@ -57,9 +51,9 @@
                               <p>وضعیت :</p>
                               <p style="color: #af00ff;" *ngIf="item.status == 1">عادی</p>
                               <p style="color: tomato;" *ngIf="item.status == 2">فوری</p>
-                              <p style="color:coral;" *ngIf="item.status == 3">آنی</p>
+                              <p style="color:red;" *ngIf="item.status == 3">آنی</p>
                             </div>
-                            <a [routerLink]="['/ChatTicket',item.ticket_ID]">مشاهده گفت و گو</a>
+                            <a [routerLink]="['/cust/home/ChatTicket',item.ticket_ID]">مشاهده گفت و گو</a>
                           </div>
                         </div>
                       </div>
