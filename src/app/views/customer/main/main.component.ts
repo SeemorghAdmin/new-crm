@@ -1,10 +1,6 @@
-import {MediaMatcher} from '@angular/cdk/layout';
-import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import { Session } from 'protractor';
-import { SessionStorageService } from 'ngx-webstorage';
-import { query } from '@angular/animations';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/services/auth/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
@@ -24,51 +20,51 @@ export class CustMainComponent implements OnInit, OnDestroy {
 
   userType = "Customer";
 
- fillerNav: MenuItems[] = [
-    {name: "پیگیری درخواست پشتیبانی", url:"/cust/home/cust-Show-User-Ticket"},
-    {name: "ثبت درخواست پشتیبانی", url:"/cust/home/cust-creat-new-Ticket"},
+  fillerNav: MenuItems[] = [
+    { name: "پیگیری درخواست پشتیبانی", url: "/cust/home/cust-Show-User-Ticket" },
+    { name: "ثبت درخواست پشتیبانی", url: "/cust/home/cust-creat-new-Ticket" },
   ]; // ایجاد 50 تا آیتم برای نمایش در منو
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
   ////////////////// انهتای بخش sidenav
- 
+
   info;
   uni;
   id;
-  constructor(private sessionSt: SessionStorageService,private router: Router,
-    private route: ActivatedRoute, private auth: AuthService, private http: HttpClient,
-    private rout: Router, private service: PersonService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) { 
+  constructor(private router: Router,
+    private route: ActivatedRoute, private http: HttpClient,
+    private rout: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
 
-      this.mobileQuery = media.matchMedia('(max-width: 600px)');
-      this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-      // tslint:disable-next-line: deprecation
-      this.mobileQuery.addListener(this._mobileQueryListener);
-    }
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    // tslint:disable-next-line: deprecation
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
 
-   
+
 
 
   ngOnInit() {
-
+    ////////////////////////////////////////////////// دریافت اطلاعات مشترک از EC
+    ////////////////////////////////////////////////// کد توسط ماندانا غلامی
     /* this.sessionSt.store("name","");  */
+    // this.route.queryParams.subscribe(params => this.id = params.id)
+    // this.http.get('http://localhost:8080/nern_test_war_exploded//api/get-login-info.jsp?id=' + this.id).subscribe(
+    //   res => {
+    //     this.info = res;
+    //     console.log(this.info);
 
-    this.route.queryParams.subscribe(params => this.id = params.id)
-    this.http.get('http://localhost:8080/nern_test_war_exploded//api/get-login-info.jsp?id=' + this.id).subscribe(
-      res => {
-        this.info = res;
-        console.log(this.info);
+    //     if (this.info.isAdmin == true) {
 
-        if (this.info.isAdmin == true) {
+    //       this.rout.navigate(['/dev/home/', this.id]);
 
-          this.rout.navigate(['/dev/home/', this.id]);
-
-          console.log(this.info);
+    //       console.log(this.info);
 
 
-        }
+    //     }
 
-      }
-    )
+    //   }
+    // )
 
   }
 

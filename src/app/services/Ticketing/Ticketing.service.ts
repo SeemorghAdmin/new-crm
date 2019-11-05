@@ -9,7 +9,7 @@ export class TicketingService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
  
-  readonly BaseURI = 'http://localhost:58989/api';
+  readonly BaseURI = 'http://185.79.99.245/new-crm-api/api';
 
   getService()
 {
