@@ -2,6 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { TicketingService } from './../../../services/Ticketing/Ticketing.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+
+export interface TicketClass {
+  ticket_ID : number;
+  comment: string;
+  resiver: string;
+  conf : number;
+}
+
 @Component({
   selector: 'ChatTicket',
   templateUrl: './Chat.component.html'
@@ -9,7 +17,7 @@ import { Router } from '@angular/router';
 export class ChatTicketComponent implements OnInit {
   TicketId;
   ChatTicketing;
-  Ticket = {};
+ 
   t;
   ta;
   us;
@@ -18,13 +26,18 @@ export class ChatTicketComponent implements OnInit {
   DangerAlertShow;
   Moshtari;
   constructor(private api: TicketingService, private route: ActivatedRoute, private router: Router) { }
+
+  public Ticket: TicketClass = { ticket_ID : 0 , comment: '' , resiver : '' ,conf :0};
+
   ngOnInit() {
     this.TicketId = this.route.snapshot.paramMap.get('id');
     this.api.getTicketChat(this.TicketId).subscribe(res => {
       this.ChatTicketing = res;
-      console.log(this.ChatTicketing);
+
       this.us = this.ChatTicketing[0].ticket.title;
+
       this.Moshtari = this.ChatTicketing[0].person.personNational_ID;
+
       if (this.ChatTicketing[0].ticket.active == false) {
         this.t = 1;
       }
@@ -53,12 +66,13 @@ export class ChatTicketComponent implements OnInit {
   getName(id) {
     this.PersonNationalId = id;
   }
+
   post(Ticket) {
     if (this.PersonNationalId == null || this.PersonNationalId == 'متقاضی دریافت پیام را انتخاب کنید') {
       this.DangerAlertShow = 1;
     }
     else {
-      Ticket.Ticket_ID = this.TicketId;
+      Ticket.ticket_ID = this.TicketId;
       if (this.PersonNationalId == 'مشتری') {
         Ticket.Resiver = this.Moshtari;
       }
@@ -83,7 +97,7 @@ export class ChatTicketComponent implements OnInit {
     });
   }
   postt(Ticket) {
-    Ticket.Ticket_ID = this.TicketId;
+    Ticket.ticket_ID = this.TicketId;
     this.api.postTicketChat(Ticket).subscribe(res => {
       if (res == true) {
         window.location.reload();

@@ -21,6 +21,7 @@ const routes: Routes = [
   {path: '', component: LoginPageComponent},
   {path: 'table', component: TablesComponent},
   {path: 'panel', component: UserPanelComponent,},
+  {path: 'ChatTicket/:id', component:ChatTicketComponent},
   {path: 'cust/home', component: CustMainComponent},
   {path: 'cust/home', component: CustMainComponent, 
   children: 
