@@ -51,7 +51,7 @@ getPerson()
 }
 putResiver(Ticket)
 {
-  return this.http.put(this.BaseURI + '/GetTicket/'+Ticket.Ticket_ID ,Ticket );
+  return this.http.put(this.BaseURI + '/GetTicket/'+Ticket.ticket_ID ,Ticket );
 }
 putSeen(id)
 {
