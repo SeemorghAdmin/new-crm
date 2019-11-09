@@ -19,10 +19,12 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
   fillerNav: MenuItems[] = [
     {name: "اضافه کردن کاربر جدید", url:"/owner/home/AddDeveloperComponent"},
     {name: "درخواست های پشتیبانی", url:"/owner/home/ShowTicketsComponent"},
-  ]; // ایجاد 50 تا آیتم برای نمایش در منو 
+  ]; // ایجاد 50 تا آیتم برای نمایش در منو
    mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
   ////////////////// انهتای بخش sidenav
+
+  public opened: boolean;
 
   constructor(
     changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, /// متغیرهای مربوط به sidenav
@@ -38,6 +40,7 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.opened=true;
   }
 
   onLogout() {

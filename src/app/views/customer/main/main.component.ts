@@ -31,6 +31,7 @@ export class CustMainComponent implements OnInit, OnDestroy {
   info;
   uni;
   id;
+  opened: boolean;
   constructor(private router: Router,
     private route: ActivatedRoute, private http: HttpClient,
     private rout: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
@@ -65,6 +66,7 @@ export class CustMainComponent implements OnInit, OnDestroy {
 
     //   }
     // )
+    this.opened=true;
 
   }
 

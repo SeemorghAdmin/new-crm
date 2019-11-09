@@ -7,7 +7,7 @@
       <img src="assets/images/logo-s.png" style="max-height: -webkit-fill-available;">
     </a>
     <div class="navbar-left mr-auto">
-      <a class="nav-link" tabindex="-1" style="cursor: pointer;">
+      <a class="nav-link" tabindex="-1" style="cursor: pointer;" data-toggle="tooltip" data-placement="bottom" title="خروج">
         <img src="assets/images/log-out.png" (click)="onLogout()">
       </a>
       <a ngbDropdown class="nav-item dropdown">
@@ -29,7 +29,7 @@
 
   <mat-sidenav-container class="panel-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav class="panel-sidenav" #snav position="end" [mode]="mobileQuery.matches ? 'over' : 'side'"
-      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [(opened)]="opened">
       <mat-nav-list>
         <a mat-list-item routerLink="{{nav.url}}" *ngFor="let nav of fillerNav">{{nav.name}}</a>
       </mat-nav-list>

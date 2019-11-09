@@ -13,7 +13,8 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  panelOpenState = false;
+  panelOpenState = true;
+  clicked = false;
 
   constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService, public service: PersonService) { }
 
@@ -44,6 +45,7 @@ export class LoginPageComponent implements OnInit {
      }
   }
   onSubmit() {
+    this.clicked=true;
     // لاگین رضا
     this.service.Login().subscribe(
     (res: any)  =>
@@ -79,6 +81,7 @@ export class LoginPageComponent implements OnInit {
     {
         if (err.status == 400)
         this.toastr.error(err.error);
+        this.clicked=false;
     });
   }
 

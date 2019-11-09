@@ -23,6 +23,7 @@ export class DevMainComponent implements OnInit, OnDestroy {
 ]; // ایجاد 50 تا آیتم برای نمایش در منو
  mobileQuery: MediaQueryList;
  private _mobileQueryListener: () => void;
+  opened: boolean;
  ////////////////// انهتای بخش sidenav
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, /// متغیرهای مربوط به sidenav
@@ -36,6 +37,7 @@ export class DevMainComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.opened=true;
   }
 
   onLogout() {

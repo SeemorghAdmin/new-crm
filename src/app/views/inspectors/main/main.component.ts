@@ -18,7 +18,7 @@ export interface MenuItems {
 
 export class InspeectorComponent implements OnInit, OnDestroy {
 
-  
+
  ////////////////// این خط ها متغیرهای مورد نیاز برای sidenav را ایجاد میکنند
  userType = "Inspector" // نام صفحه
  fillerNav: MenuItems[] = [
@@ -27,6 +27,7 @@ export class InspeectorComponent implements OnInit, OnDestroy {
  ]; // ایجاد 50 تا آیتم برای نمایش در منو
  mobileQuery: MediaQueryList;
  private _mobileQueryListener: () => void;
+  opened: boolean;
  ////////////////// انهتای بخش sidenav
 
   constructor(
@@ -41,7 +42,7 @@ export class InspeectorComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit() {
-    
+    this.opened=true;
   }
 
   onLogout() {
