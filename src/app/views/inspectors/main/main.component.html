@@ -3,16 +3,16 @@
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <a class="navbar-brand" href="#" style="padding-bottom: 0px; padding-top: 0px;">
+    <a class="navbar-brand" href="#" style="cursor: pointer; padding-bottom: 0px; padding-top: 0px;">
       <img src="assets/images/logo-s.png" style="max-height: -webkit-fill-available;">
     </a>
     <div class="navbar-left mr-auto">
       <a class="nav-link" tabindex="-1">
-        <img src="assets/images/log-out.png" (click)="onLogout()">
+        <img src="assets/images/log-out.png" (click)="onLogout()" style="cursor: pointer;">
       </a>
       <a ngbDropdown class="nav-item dropdown">
         <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">
           <img src="assets/images/bell-with-notification.png">
         </a>
 
