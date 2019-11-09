@@ -14,10 +14,10 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class LoginPageComponent implements OnInit {
   panelOpenState = false;
- 
+
   constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService, public service: PersonService) { }
 
- 
+
   ngOnInit() {
     this.service.loginModel.reset();
     //localStorage.removeItem('token');
@@ -48,7 +48,7 @@ export class LoginPageComponent implements OnInit {
     this.service.Login().subscribe(
     (res: any)  =>
     {
-      console.log(res);
+
       if (res.statusCode == 200)
       {
         this.service.loginModel.reset();

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PersonService 
+export class PersonService
 {
   constructor(private fb: FormBuilder, private http: HttpClient) { }
   readonly BaseURI = 'http://localhost:58989/api';
@@ -24,14 +24,14 @@ export class PersonService
         TeleNumber: [''],
         Address: [''],
         UserName: [''],
-        Password:[''],
+
         Email: ['', Validators.email],
         EduDegree: [''],
         EduField: [''],
         NationalCardSerial: [''],
         ShenasNum: [''],
-        ShenasSerial:[''],
-        IsAdmin:['']
+        ShenasSerial: [''],
+        IsAdmin: ['']
       });
 
       loginModel = this.fb.group(
@@ -57,7 +57,6 @@ export class PersonService
             Address : this.formModel.value.Address,
             Gender : this.formModel.value.Gender,
             UserName: this.formModel.value.UserName,
-            Password: this.formModel.value.Password,
             Email : this.formModel.value.Email,
             EduDegree : this.formModel.value.EduDegree,
             EduField : this.formModel.value.EduField,
@@ -80,7 +79,6 @@ export class PersonService
             Address : this.formModel.value.Address,
             Gender : this.formModel.value.Gender,
             UserName: this.formModel.value.UserName,
-            Password: this.formModel.value.Password,
             Email : this.formModel.value.Email,
             EduDegree : this.formModel.value.EduDegree,
             EduField : this.formModel.value.EduField,
@@ -90,7 +88,7 @@ export class PersonService
             IsAdmin: false
           };
         }
-       
+
           return this.http.post(this.BaseURI + '/Staff', body);
       }
 
