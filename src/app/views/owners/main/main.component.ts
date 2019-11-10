@@ -15,7 +15,7 @@ export interface MenuItems {
 export class OwnersMainComponent implements OnInit, OnDestroy {
 
   ////////////////// این خط ها متغیرهای مورد نیاز برای sidenav را ایجاد میکنند
-  userType = "Owner" // نام صفحه
+  pageType = "پنل کاربری کارکنان خاشع" // نام صفحه
   fillerNav: MenuItems[] = [
     {name: "اضافه کردن کاربر جدید", url:"/owner/home/AddPerson"},
     {name: "درخواست های پشتیبانی", url:"/owner/home/ShowTickets"},
