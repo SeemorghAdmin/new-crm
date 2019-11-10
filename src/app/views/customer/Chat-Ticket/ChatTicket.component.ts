@@ -81,11 +81,10 @@ export class ChatTicketComponent implements OnInit {
         Ticket.Conf = 1;
       }
       this.api.postTicketChat(Ticket).subscribe(res => {
-        if (res == true) {
-          window.location.reload();
-        }
+      
       });
       this.api.putResiver(Ticket).subscribe(res => {
+        this.router.navigateByUrl('/owner/home/ShowTickets');
       });
     }
   }
@@ -97,10 +96,13 @@ export class ChatTicketComponent implements OnInit {
     });
   }
   postt(Ticket) {
+    
     Ticket.ticket_ID = this.TicketId;
+    this.api.putResiver(Ticket).subscribe(res => {
+    });
     this.api.postTicketChat(Ticket).subscribe(res => {
       if (res == true) {
-        window.location.reload();
+        this.router.navigateByUrl('/cust/home/cust-Show-User-Ticket');
       }
     });
   }
