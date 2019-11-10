@@ -17,32 +17,32 @@
                     <p>{{item.person.firstName}}  {{item.person.lastName}}</p>
                   </div>
                   <div class="row">
-                    <h5>تاریخ درخواست : </h5>
+                    <h5>تاریخ درخواست: </h5>
                     <p>{{item.dateOfCreation}}</p>
                   </div>
                   <div class="row">
-                    <h5 style="background-color: gray;padding: 3px;color: white;" *ngIf="item.status == 1">فوریت :
+                    <h5 style="background-color: gray;padding: 3px;color: white;" *ngIf="item.status == 1">فوریت: 
                       عادی
                     </h5>
-                    <h5 style="background-color: #f98d3f;padding: 3px;color: white;" *ngIf="item.status == 2">فوریت :
+                    <h5 style="background-color: #f98d3f;padding: 3px;color: white;" *ngIf="item.status == 2">فوریت: 
                       فوری
                     </h5>
-                    <h5 style="background-color: red;padding: 3px;color: white;" *ngIf="item.status == 3">فوریت :
+                    <h5 style="background-color: red;padding: 3px;color: white;" *ngIf="item.status == 3">فوریت: 
                       آنی
                     </h5>
                   </div>                   
                 </div>
                 <div class="col-md-4">
                   <div class="row">
-                  <h5>نوع سرویس درخواستی :</h5>
+                  <h5>نوع سرویس درخواستی: </h5>
                   <p>{{item.services.faName}}</p>
                 </div>
                 <div class="row">
-                  <h5>عنوان درخواست :</h5>
+                  <h5>عنوان درخواست: </h5>
                   <p>{{item.title}}</p>
                 </div>
                 <div class="row">
-                  <h5>پیام های خوانده نشده :</h5>
+                  <h5>پیام های خوانده نشده: </h5>
                   <p style="color: red;">{{item.unseenNumber}}</p>
                 </div>
 
