@@ -27,7 +27,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .side-nav-list-class{
   direction: rtl;
+  margin-top: 15px;
 }
+
+.panel-footer-content{
+  font-size: smaller;
+}
+
 
 
 body::-webkit-scrollbar {
