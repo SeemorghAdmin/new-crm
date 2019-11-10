@@ -17,8 +17,8 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
   ////////////////// این خط ها متغیرهای مورد نیاز برای sidenav را ایجاد میکنند
   userType = "Owner" // نام صفحه
   fillerNav: MenuItems[] = [
-    {name: "اضافه کردن کاربر جدید", url:"/owner/home/AddDeveloperComponent"},
-    {name: "درخواست های پشتیبانی", url:"/owner/home/ShowTicketsComponent"},
+    {name: "اضافه کردن کاربر جدید", url:"/owner/home/AddPerson"},
+    {name: "درخواست های پشتیبانی", url:"/owner/home/ShowTickets"},
   ]; // ایجاد 50 تا آیتم برای نمایش در منو
    mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
