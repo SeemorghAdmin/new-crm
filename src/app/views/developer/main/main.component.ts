@@ -18,8 +18,8 @@ export class DevMainComponent implements OnInit, OnDestroy {
  ////////////////// این خط ها متغیرهای مورد نیاز برای sidenav را ایجاد میکنند
  userType = "Developer" // نام صفحه
  fillerNav: MenuItems[] = [
-  {name: "اضافه کردن توسعه دهنده", url:"/dev/home/AddDeveloperComponent"},
-  {name: "اضافه کردن مدیر خاشع", url:"/dev/home/addperson"},
+  {name: "اضافه کردن توسعه دهنده", url:"/dev/home/AddDeveloper"},
+  {name: "اضافه کردن مدیر خاشع", url:"/dev/home/AddShoaManager"},
 ]; // ایجاد 50 تا آیتم برای نمایش در منو
  mobileQuery: MediaQueryList;
  private _mobileQueryListener: () => void;
