@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ConstantsService } from '../constants/constants.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonService
 {
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
-  readonly BaseURI = 'http://185.79.99.245/new-crm-api/api';
+  constructor(private fb: FormBuilder, private http: HttpClient, private constants: ConstantsService) { }
+  readonly BaseURI = this.constants.baseApiUrlNc;
 
   // ایجاد فرم مدل استف
   formModel = this.fb.group(

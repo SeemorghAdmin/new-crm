@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder} from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
+import { ConstantsService } from '../constants/constants.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TicketingService {
 
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
- 
-  readonly BaseURI = 'http://localhost:58989/api';
+  constructor(private fb: FormBuilder, private http: HttpClient, private constants: ConstantsService) { }
+
+  readonly BaseURI = this.constants.baseApiUrlNc;
 
   getService()
 {
