@@ -39,7 +39,7 @@ postTicketChat(ticket)
 }
 putDiactiveTicket(id)
 {
-  return this.http.put(this.BaseURI + '/CreatTicet/'+id ,id );
+  return this.http.put(this.BaseURI + '/CreatTicet/'+id ,id);
 }
 getAllTickets()
 {

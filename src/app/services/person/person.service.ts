@@ -24,7 +24,6 @@ export class PersonService
         TeleNumber: [''],
         Address: [''],
         UserName: [''],
-
         Email: ['', Validators.email],
         EduDegree: [''],
         EduField: [''],

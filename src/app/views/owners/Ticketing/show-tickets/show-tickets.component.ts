@@ -26,5 +26,19 @@ AllTickets;
     });
   
   }
+  getcolor(item)
+  {
+    
+  
+   
+  }
+  get(index)
+  {
+    console.log(index);
+    if(index %2 == 0)
+    {
+      return '#eeeded';
+    }
+  }
 
 }

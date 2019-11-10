@@ -48,7 +48,6 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
     localStorage.removeItem('role')
     this.router.navigate(['']);
   }
-
   ngOnDestroy(): void {
     // tslint:disable-next-line: deprecation
     this.mobileQuery.removeListener(this._mobileQueryListener); // جهت پاکسازی sidenav

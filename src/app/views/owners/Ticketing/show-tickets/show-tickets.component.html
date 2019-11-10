@@ -2,31 +2,34 @@
   <div class="col-md-12" style="text-align: center;">
     <div class="card card-user">
       <div class="card-header">
-        <h5 class="card-title">مشاهده درخواست ها</h5>
+        <h5 class="card-title">درخواست های ارسالی به شما</h5>
       </div>
-      <div class="card-body" style="direction: rtl;">
-        <div class="row">  
-           <p style="margin-right: 10%;font-size: 22px;">درخواست های ارسالی به شما</p>            
-        </div>  
+      <div class="card-body" style="direction: rtl;"> 
        <div class="row mb-3">
-<div class="col-md-7" *ngFor="let item of AllTickets; let i = index" style="padding: 3px;">
-    <div class="card shadow" style="direction: rtl;">
+        
+<div class="col-md-7" *ngFor="let item of AllTickets; let i = index" style="padding: 3px;">  
+    <div class="card shadow" style="direction: rtl;" [ngStyle]="{'border-color':getcolor(item),'background-color':get(i)}" >
         <div class="card-body">
             <div class="row text-center">                
                 <div class="col-md-4" style="text-align: right;">
                   <div class="row">
                     <h5>درخواست دهنده: </h5>
-                    <p>{{item.person.firstName}}</p>
+                    <p>{{item.person.firstName}}  {{item.person.lastName}}</p>
                   </div>
                   <div class="row">
                     <h5>تاریخ درخواست : </h5>
                     <p>{{item.dateOfCreation}}</p>
                   </div>
                   <div class="row">
-                    <h5>فوریت :</h5>
-                    <p style="color: #af00ff;" *ngIf="item.status == 1">عادی</p>
-                    <p style="color: tomato;" *ngIf="item.status == 2">فوری</p>
-                    <p style="color:red;" *ngIf="item.status == 3">آنی</p>
+                    <h5 style="background-color: gray;padding: 3px;color: white;" *ngIf="item.status == 1">فوریت :
+                      عادی
+                    </h5>
+                    <h5 style="background-color: #f98d3f;padding: 3px;color: white;" *ngIf="item.status == 2">فوریت :
+                      فوری
+                    </h5>
+                    <h5 style="background-color: red;padding: 3px;color: white;" *ngIf="item.status == 3">فوریت :
+                      آنی
+                    </h5>
                   </div>                   
                 </div>
                 <div class="col-md-4">
@@ -46,14 +49,15 @@
                 </div>
                 <div class="col-md-4">    
                   <div class="sub-row">
-                      <button type="button" class="btn btn-warning btn-sm btn-block"  (click)=" pagenav(item.ticket_ID)"  style="background-color: #2f9fd3;margin-top: 50px;">مشاهده گفت و گو</button>
+                      <button type="button" class="btn btn-warning btn-sm btn-block"  (click)=" pagenav(item.ticket_ID)"  style="background-color: #00aeff;margin-top: 50px;color: white;">مشاهده گفت و گو</button>
                   </div>
               </div>
             </div>
         </div>
     </div>   
-</div>
-</div>
+    </div>
+    <div class="col-md-3"></div>
+    </div>
       </div>
     </div>
   </div>
