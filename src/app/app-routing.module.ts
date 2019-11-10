@@ -35,16 +35,15 @@ const routes: Routes = [
   {path: 'dev/home', component: DevMainComponent,
   children:
   [
-    {path: 'AddShoaManager', component: AddPersonComponent},
-    {path: 'AddDeveloper', component: AddDeveloperComponent},
+    {path: 'addperson', component: AddPersonComponent},
+    {path: 'AddDeveloperComponent', component: AddDeveloperComponent},
   ]
   },
   {path: 'owner/home', component: OwnersMainComponent},
   {path: 'owner/home', component: OwnersMainComponent,
 children:
 [
-  {path: 'AddPerson', component: AddPersonComponent},
-  {path: 'ShowTickets', component:ShowTicketsComponent},
+  {path: 'ShowTicketsComponent', component:ShowTicketsComponent},
   {path: 'ChatTicket/:id', component:ChatTicketComponent},
 ]
 
@@ -52,6 +51,12 @@ children:
   {path: 'inspeector/home', component: InspeectorComponent},
   {path: 'user-panel', component: UserPanelComponent},
   // صفحه ثبت کردن person
+  {path: 'addperson', component: AddPersonComponent},
+  
+  
+  {path: 'ChatTicket', component:ChatTicketComponent},
+  {path: 'ShowTicketsComponent', component:ShowTicketsComponent},
+  {path: 'AddDeveloperComponent', component:AddDeveloperComponent},
 
 ];
 @NgModule({
