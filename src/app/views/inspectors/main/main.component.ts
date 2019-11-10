@@ -20,7 +20,7 @@ export class InspeectorComponent implements OnInit, OnDestroy {
 
 
  ////////////////// این خط ها متغیرهای مورد نیاز برای sidenav را ایجاد میکنند
- userType = "Inspector" // نام صفحه
+ userType = "پنل کاربری سازمان های ناظر شبکه علمی ایران" // نام صفحه
  fillerNav: MenuItems[] = [
    {name: "1", url:"1"},
    {name: "2", url:"2"},

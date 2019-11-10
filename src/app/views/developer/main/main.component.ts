@@ -16,7 +16,7 @@ export class DevMainComponent implements OnInit, OnDestroy {
 
 
  ////////////////// این خط ها متغیرهای مورد نیاز برای sidenav را ایجاد میکنند
- userType = "Developer" // نام صفحه
+ pageType = "پنل کاربری نرم افزار نویسان شبکه علمی ایران" // نام صفحه
  fillerNav: MenuItems[] = [
   {name: "اضافه کردن توسعه دهنده", url:"/dev/home/AddDeveloper"},
   {name: "اضافه کردن مدیر خاشع", url:"/dev/home/AddShoaManager"},

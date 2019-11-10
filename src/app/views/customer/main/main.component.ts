@@ -18,7 +18,7 @@ export interface MenuItems {
 })
 export class CustMainComponent implements OnInit, OnDestroy {
 
-  userType = "Customer";
+  pageType = "پنل کاربری مشترکین شبکه علمی ایران";
 
   fillerNav: MenuItems[] = [
     { name: "پیگیری درخواست پشتیبانی", url: "/cust/home/cust-Show-User-Ticket" },

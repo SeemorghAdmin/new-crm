@@ -30,7 +30,7 @@
   <mat-sidenav-container class="panel-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav class="panel-sidenav" #snav position="end" [mode]="mobileQuery.matches ? 'over' : 'side'"
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [(opened)]="opened">
-      <mat-nav-list>
+      <mat-nav-list  class="side-nav-list-class">
         <a mat-list-item routerLink="{{nav.url}}" *ngFor="let nav of fillerNav">{{nav.name}}</a>
       </mat-nav-list>
     </mat-sidenav>
@@ -38,7 +38,7 @@
     <mat-sidenav-content class="panel-sidenav-content">
 
       <mat-toolbar class="content-top">
-        <h1>Developer</h1>
+        <h1>{{pageType}}</h1>
       </mat-toolbar>
       <main class="content">
         <router-outlet></router-outlet>
