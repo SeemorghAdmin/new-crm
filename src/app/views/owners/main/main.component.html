@@ -33,7 +33,9 @@
       <mat-nav-list class="side-nav-list-class">
         <a mat-list-item routerLink="{{nav.url}}" *ngFor="let nav of fillerNav">
           <p>
-            <span matBadge="4" matBadgeOverlap="false" matBadgePosition="before" matBadgeColor="warn">{{nav.name}}</span>
+            <span matBadge={{nav.badge}} matBadgeOverlap="false" matBadgePosition="before" matBadgeColor="warn" *ngIf="nav.badge!=0">{{nav.name}}</span>
+            <span *ngIf="nav.badge==0">{{nav.name}}</span>
+
           </p>
         </a>
       </mat-nav-list>

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 export interface MenuItems {
   name: string;
   url: string;
+  badge: number;
 }
 
 @Component({
@@ -17,10 +18,10 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
   ////////////////// این خط ها متغیرهای مورد نیاز برای sidenav را ایجاد میکنند
   pageType = "پنل کاربری کارکنان خاشع" // نام صفحه
   fillerNav: MenuItems[] = [
-    {name: "اضافه کردن کاربر جدید", url:"/owner/home/AddPerson"},
-    {name: "درخواست های پشتیبانی", url:"/owner/home/ShowTickets"},
-  ]; // ایجاد 50 تا آیتم برای نمایش در منو
-   mobileQuery: MediaQueryList;
+    { name: "اضافه کردن کاربر جدید", url: "/owner/home/AddPerson", badge: 0 },
+  ]; // ایجاد آیتم ها برای نمایش در منو
+  unreadMsg= 2;
+  mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
   ////////////////// انهتای بخش sidenav
 
@@ -28,7 +29,8 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
 
   constructor(
     changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, /// متغیرهای مربوط به sidenav
-    private router: Router,) {
+    private router: Router, ) {
+
 
     ////////////////// دستور های مربوط به داینامیک کردن sidenav
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -40,7 +42,8 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.opened=true;
+    this.opened = true;
+    this.fillerNav.push({ name: "درخواست های پشتیبانی", url: "/owner/home/ShowTickets", badge: this.unreadMsg });
   }
 
   onLogout() {
