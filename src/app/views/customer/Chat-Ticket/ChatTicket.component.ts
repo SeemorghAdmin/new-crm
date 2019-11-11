@@ -12,7 +12,8 @@ export interface TicketClass {
 
 @Component({
   selector: 'ChatTicket',
-  templateUrl: './Chat.component.html'
+  templateUrl: './Chat.component.html',
+  styleUrls: ['./chat.component.css']
 })
 export class ChatTicketComponent implements OnInit {
   TicketId;
@@ -25,6 +26,10 @@ export class ChatTicketComponent implements OnInit {
   PersonForDropDownList={};
   DangerAlertShow;
   Moshtari;
+  informationFirstName;
+  informationLastName;
+  informationEmail;
+
   constructor(private api: TicketingService, private route: ActivatedRoute, private router: Router) { }
 
   public Ticket: TicketClass = { ticket_ID : 0 , comment: '' , resiver : '' ,conf :0};
@@ -33,11 +38,11 @@ export class ChatTicketComponent implements OnInit {
     this.TicketId = this.route.snapshot.paramMap.get('id');
     this.api.getTicketChat(this.TicketId).subscribe(res => {
       this.ChatTicketing = res;
-
       this.us = this.ChatTicketing[0].ticket.title;
-
       this.Moshtari = this.ChatTicketing[0].person.personNational_ID;
-
+      this.informationFirstName = this.ChatTicketing[0].person.firstName;
+      this.informationLastName = this.ChatTicketing[0].person.lastName;
+      this.informationEmail = this.ChatTicketing[0].person.email;
       if (this.ChatTicketing[0].ticket.active == false) {
         this.t = 1;
       }
@@ -46,7 +51,6 @@ export class ChatTicketComponent implements OnInit {
       this.PersonForDropDownList = res;
       console.log(this.PersonForDropDownList);
     });
-
     if (localStorage.getItem('token') != null) {
       switch (parseInt(localStorage.getItem('role'))) {
         case 1:

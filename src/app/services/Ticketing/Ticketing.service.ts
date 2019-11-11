@@ -7,12 +7,9 @@ import { ConstantsService } from '../constants/constants.service';
   providedIn: 'root'
 })
 export class TicketingService {
-
   constructor(private fb: FormBuilder, private http: HttpClient, private constants: ConstantsService) { }
-
   readonly BaseURI = this.constants.baseApiUrlNc;
-
-  getService()
+getService()
 {
   return this.http.get(this.BaseURI + '/CreatTicet/'+3);
 }
@@ -24,12 +21,10 @@ getTicket()
 {
   return this.http.get(this.BaseURI + '/GetTicket');
 }
-
 getDiactiveTicket()
 {
   return this.http.get(this.BaseURI + '/GetTicket/DiactiveTicket');
 }
-
 getTicketChat(id)
 {
   return this.http.get(this.BaseURI + '/ChatTicketing/' + id);

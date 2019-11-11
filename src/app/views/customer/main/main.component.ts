@@ -46,6 +46,7 @@ export class CustMainComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
+  localStorage.setItem('CustomerNationalId','14002812508');
     ////////////////////////////////////////////////// دریافت اطلاعات مشترک از EC
     ////////////////////////////////////////////////// کد توسط ماندانا غلامی
     /* this.sessionSt.store("name","");  */
