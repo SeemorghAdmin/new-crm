@@ -51,6 +51,10 @@ import { AddDeveloperComponent } from './views/developer/add-developer/add-devel
 import { ModalComponent } from './views/public/modal/modal.component';
 
 
+
+import { ShowUniReportComponent } from './views/inspectors/show-uni-report/show-uni-report.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,9 +73,12 @@ import { ModalComponent } from './views/public/modal/modal.component';
     TablesComponent,
     AddDeveloperComponent,
     ModalComponent,
+    ShowUniReportComponent,
+
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     CountUpModule,

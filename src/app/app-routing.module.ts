@@ -1,3 +1,4 @@
+import { ShowUniReportComponent } from './views/inspectors/show-uni-report/show-uni-report.component';
 import { AddDeveloperComponent } from './views/developer/add-developer/add-developer.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -52,7 +53,14 @@ children:
   {path: 'inspeector/home', component: InspeectorComponent},
   {path: 'user-panel', component: UserPanelComponent},
   // صفحه ثبت کردن person
-
+  {path: 'addperson', component: AddPersonComponent},
+  
+  
+  {path: 'ChatTicket', component:ChatTicketComponent},
+  {path: 'ChatTicket/:id', component:ChatTicketComponent},
+  {path: 'ShowTicketsComponent', component:ShowTicketsComponent},
+  {path: 'AddDeveloperComponent', component:AddDeveloperComponent},
+  {path: 'ShowUniReportComponent', component:ShowUniReportComponent},
 
 ];
 @NgModule({
