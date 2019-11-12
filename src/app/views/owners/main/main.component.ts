@@ -1,6 +1,7 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 export interface MenuItems {
   name: string;
@@ -29,7 +30,7 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
 
   constructor(
     changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, /// متغیرهای مربوط به sidenav
-    private router: Router, ) {
+    private router: Router, private http:HttpClient) {
 
 
     ////////////////// دستور های مربوط به داینامیک کردن sidenav
@@ -42,6 +43,11 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.http.get('http://localhost:8080/nern_test_war_exploded/api/get-cra-report.jsp?sub-code=0').subscribe(
+      res=> {
+        console.log(res);
+      }
+    )
     this.opened = true;
     this.fillerNav.push({ name: "درخواست های پشتیبانی", url: "/owner/home/ShowTickets", badge: this.unreadMsg });
   }
