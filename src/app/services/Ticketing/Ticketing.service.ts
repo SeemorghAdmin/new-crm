@@ -53,4 +53,8 @@ putSeen(id)
 {
   return this.http.put(this.BaseURI + '/ChatTicketing/'+id ,id );
 }
+getInformation(id)
+{
+  return this.http.get('http://crm.nren.ir/api/get-login-info.jsp?id='+id);
+}
 }
