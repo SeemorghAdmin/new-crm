@@ -21,7 +21,7 @@ import { ChangePasswordComponent } from './views/public/change-password/change-p
 import { AccessCodeComponent } from './views/owners/acsesscode/access-code.component';
 
 const routes: Routes = [
-  
+
   {path: '', component: LoginPageComponent},
   {path: 'table', component: TablesComponent},
   {path: 'panel', component: UserPanelComponent,},
@@ -50,16 +50,23 @@ children:
   {path: 'AddPerson', component: AddPersonComponent},
   {path: 'ShowTickets', component:ShowTicketsComponent},
   {path: 'ChatTicket/:id', component:ChatTicketComponent},
-  {path: 'access-code', component: AccessCodeComponent},    
+  {path: 'access-code', component: AccessCodeComponent},
 ]
 
 },
   {path: 'inspeector/home', component: InspeectorComponent},
+  {path: 'inspeector/home', component: InspeectorComponent,
+  children:
+  [
+    {path: 'ShowUniReport', component: ShowUniReportComponent},
+  ]
+},
   {path: 'user-panel', component: UserPanelComponent},
   // صفحه ثبت کردن person
 
   {path: 'change-password/:id' , component: ChangePasswordComponent},
 
+  {path: 'ShowUniReport', component: ShowUniReportComponent},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
