@@ -3,7 +3,6 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { tap } from "rxjs/operators";
 import { Router } from "@angular/router";
-import { rectangle } from 'leaflet';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
