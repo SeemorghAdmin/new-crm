@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 
 export class ChangePasswordComponent implements OnInit {
     userId: string = '';
-    constructor( private route: ActivatedRoute, private router: Router, private service: PersonService, private toster: ToastrService) {   }
+    constructor( private route: ActivatedRoute, private router: Router, public service: PersonService, private toster: ToastrService) {   }
 
     onSubmit()
     {
