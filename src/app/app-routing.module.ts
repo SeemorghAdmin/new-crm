@@ -17,8 +17,11 @@ import { AddPersonComponent } from './views/owners/manage-person/add-person.comp
 import { InspeectorComponent } from './views/inspectors/main/main.component';
 import { OwnersMainComponent } from './views/owners/main/main.component';
 import { TablesComponent } from './views/public/tables/tables.component';
+import { ChangePasswordComponent } from './views/public/change-password/change-password.component';
+import { AccessCodeComponent } from './views/owners/acsesscode/access-code.component';
 
 const routes: Routes = [
+  
   {path: '', component: LoginPageComponent},
   {path: 'table', component: TablesComponent},
   {path: 'panel', component: UserPanelComponent,},
@@ -47,20 +50,15 @@ children:
   {path: 'AddPerson', component: AddPersonComponent},
   {path: 'ShowTickets', component:ShowTicketsComponent},
   {path: 'ChatTicket/:id', component:ChatTicketComponent},
+  {path: 'access-code', component: AccessCodeComponent},    
 ]
 
 },
   {path: 'inspeector/home', component: InspeectorComponent},
   {path: 'user-panel', component: UserPanelComponent},
   // صفحه ثبت کردن person
-  {path: 'addperson', component: AddPersonComponent},
-  
-  
-  {path: 'ChatTicket', component:ChatTicketComponent},
-  {path: 'ChatTicket/:id', component:ChatTicketComponent},
-  {path: 'ShowTicketsComponent', component:ShowTicketsComponent},
-  {path: 'AddDeveloperComponent', component:AddDeveloperComponent},
-  {path: 'ShowUniReportComponent', component:ShowUniReportComponent},
+
+  {path: 'change-password/:id' , component: ChangePasswordComponent},
 
 ];
 @NgModule({

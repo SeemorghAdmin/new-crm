@@ -103,6 +103,41 @@ export class PersonService
         return this.http.post(this.BaseURI + '/Person' , body);
       }
 
+      // فرم تغیر رمز عبور
+      formModelPasswors = this.fb.group({
+        UserId: [''],
+        OldPassword: ['', Validators.required],
+        Passwords: this.fb.group({
+          Password: ['', [Validators.required, Validators.minLength(4)]],
+          ConfirmPassword: ['', Validators.required]
+        }, { validator: this.comparePasswords })
+    
+      });
+    
+      comparePasswords(fb: FormGroup) {
+        let confirmPswrdCtrl = fb.get('ConfirmPassword');
+        //passwordMismatch
+        //confirmPswrdCtrl.errors={passwordMismatch:true}
+        if (confirmPswrdCtrl.errors == null || 'passwordMismatch' in confirmPswrdCtrl.errors) {
+          if (fb.get('Password').value != confirmPswrdCtrl.value)
+            confirmPswrdCtrl.setErrors({ passwordMismatch: true });
+          else
+            confirmPswrdCtrl.setErrors(null);
+        }
+      }
+
+      //متد تغیر پسورد
+      ChangePassword()
+      {
+        var body =
+        {
+          OldPassword: this.formModelPasswors.value.OldPassword,
+          Password: this.formModelPasswors.value.Passwords.Password,
+          UserId: this.formModelPasswors.value.UserId
+        }
+        return this.http.post( this.BaseURI + '/person/changepassword', body)
+      }
+
       //مشخصات حساب کاربری
       GetUserProfile()
       {

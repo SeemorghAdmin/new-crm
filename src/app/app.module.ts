@@ -39,6 +39,9 @@ import { UserPanelComponent } from './views/public/user-panel/user-panel.compone
 // رضا
 import { AddPersonComponent } from './views/owners/manage-person/add-person.component';
 import { InspeectorComponent } from './views/inspectors/main/main.component';
+import { ChangePasswordComponent } from './views/public/change-password/change-password.component';
+import { AccessCodeComponent } from './views/owners/acsesscode/access-code.component';
+
 // سعید
 import { TicketingService } from './services/Ticketing/Ticketing.service'
 import { ChatTicketComponent } from './views/customer/Chat-Ticket/ChatTicket.component';
@@ -57,7 +60,7 @@ import { ShowUniReportComponent } from './views/inspectors/show-uni-report/show-
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent, AccessCodeComponent,
     AddPersonComponent,
     LoginPageComponent,
     CreatNewTicketComponent,
@@ -75,6 +78,7 @@ import { ShowUniReportComponent } from './views/inspectors/show-uni-report/show-
     ModalComponent,
     ShowUniReportComponent,
 
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

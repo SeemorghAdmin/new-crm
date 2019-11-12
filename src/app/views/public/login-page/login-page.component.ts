@@ -58,24 +58,33 @@ export class LoginPageComponent implements OnInit {
         //console.log(res.user.token)
         localStorage.setItem('token', res.user.token);
         localStorage.setItem('role', res.user.role1 );
-        switch (res.user.role1)
+        
+        if (res.user.needChangePassword == true) 
         {
-          case 1:
-            this.router.navigateByUrl('/dev/home');
-            break;
-            case 2:
-            this.router.navigateByUrl('/owner/home');
-            break;
-            case 3:
-            this.router.navigateByUrl('/cust/home');
-            break;
-            case 4:
-            this.router.navigateByUrl('/inspeector/home');
-            break;
-
-          default:
-            break;
+          this.router.navigateByUrl('/change-password/' + res.user.personNational_ID);
+        } else
+        {
+          switch (res.user.role1)
+          {
+            case 1:
+              this.router.navigateByUrl('/dev/home');
+              break;
+              case 2:
+              this.router.navigateByUrl('/owner/home');
+              break;
+              case 3:
+              this.router.navigateByUrl('/cust/home');
+              break;
+              case 4:
+              this.router.navigateByUrl('/inspeector/home');
+              break;
+  
+            default:
+              break;
+          }
         }
+       
+        
       }
     }, (err : any) =>
     {
