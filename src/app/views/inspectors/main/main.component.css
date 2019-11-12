@@ -25,6 +25,10 @@
   padding: 2vh;
 }
 
+.main-page-title{
+  font-family: IranSanse;
+}
+
 .content-top {
   background-color: #c0dcde;
   justify-content: center;

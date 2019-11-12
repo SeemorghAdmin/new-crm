@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 export interface MenuItems {
   name: string;
   url: string;
+  badge: number;
 }
 
 @Component({
@@ -18,8 +19,8 @@ export class DevMainComponent implements OnInit, OnDestroy {
  ////////////////// این خط ها متغیرهای مورد نیاز برای sidenav را ایجاد میکنند
  pageType = "پنل کاربری نرم افزار نویسان شبکه علمی ایران" // نام صفحه
  fillerNav: MenuItems[] = [
-  {name: "اضافه کردن توسعه دهنده", url:"/dev/home/AddDeveloper"},
-  {name: "اضافه کردن مدیر خاشع", url:"/dev/home/AddShoaManager"},
+  {name: "اضافه کردن توسعه دهنده", url:"/dev/home/AddDeveloper", badge:0},
+  {name: "اضافه کردن مدیر خاشع", url:"/dev/home/AddShoaManager", badge:0},
 ]; // ایجاد 50 تا آیتم برای نمایش در منو
  mobileQuery: MediaQueryList;
  private _mobileQueryListener: () => void;
