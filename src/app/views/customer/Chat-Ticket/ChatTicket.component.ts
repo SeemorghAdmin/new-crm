@@ -9,7 +9,6 @@ export interface TicketClass {
   resiver: string;
   conf : number;
 }
-
 @Component({
   selector: 'ChatTicket',
   templateUrl: './Chat.component.html',
@@ -18,7 +17,6 @@ export interface TicketClass {
 export class ChatTicketComponent implements OnInit {
   TicketId;
   ChatTicketing;
- 
   t;
   ta;
   us;
@@ -29,11 +27,12 @@ export class ChatTicketComponent implements OnInit {
   informationFirstName;
   informationLastName;
   informationEmail;
-
+  Test;
+  Uni;
+  city;
+  state;
   constructor(private api: TicketingService, private route: ActivatedRoute, private router: Router) { }
-
   public Ticket: TicketClass = { ticket_ID : 0 , comment: '' , resiver : '' ,conf :0};
-
   ngOnInit() {
     this.TicketId = this.route.snapshot.paramMap.get('id');
     this.api.getTicketChat(this.TicketId).subscribe(res => {
@@ -43,13 +42,19 @@ export class ChatTicketComponent implements OnInit {
       this.informationFirstName = this.ChatTicketing[0].person.firstName;
       this.informationLastName = this.ChatTicketing[0].person.lastName;
       this.informationEmail = this.ChatTicketing[0].person.email;
+      this.api.getInformation(this.Moshtari).subscribe(res =>{
+        this.Test=res;
+        this.Uni=this.Test.uniName;
+        this.city=this.Test.uniCity;
+        this.state=this.Test.uniState;
+console.log(res);
+      });
       if (this.ChatTicketing[0].ticket.active == false) {
         this.t = 1;
       }
     });
     this.api.getPerson().subscribe(res => {
       this.PersonForDropDownList = res;
-      console.log(this.PersonForDropDownList);
     });
     if (localStorage.getItem('token') != null) {
       switch (parseInt(localStorage.getItem('role'))) {
@@ -66,11 +71,11 @@ export class ChatTicketComponent implements OnInit {
           break;
       }
     }
+   
   }
   getName(id) {
     this.PersonNationalId = id;
   }
-
   post(Ticket) {
     if (this.PersonNationalId == null || this.PersonNationalId == 'متقاضی دریافت پیام را انتخاب کنید') {
       this.DangerAlertShow = 1;
@@ -99,8 +104,7 @@ export class ChatTicketComponent implements OnInit {
       }
     });
   }
-  postt(Ticket) {
-    
+  postt(Ticket) {  
     Ticket.ticket_ID = this.TicketId;
     this.api.putResiver(Ticket).subscribe(res => {
     });
@@ -110,5 +114,4 @@ export class ChatTicketComponent implements OnInit {
       }
     });
   }
-
 }

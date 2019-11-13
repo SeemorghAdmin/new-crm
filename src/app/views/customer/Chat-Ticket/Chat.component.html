@@ -58,10 +58,7 @@
          </div>
       </div>
    </div>
-
-
-
-   <div class="col col-md-3">
+   <div class="col col-md-3" *ngIf="ta == 2 || ta == 1">
       <div class="CustomCard hoverCustomCard">
          <div class="CustomCardheader btn-primary" style="background-color: #f5f3f3;">
             <h5 class="col pt-2">
@@ -83,7 +80,18 @@
                <p style="margin-right: 20px;"> شماره ملی: </p>
                <p style="margin-right: 5px;color: darkgreen;">{{Moshtari}} </p>
             </div>
-            <p class="row" style="margin-right: 5px;">نام دانشگاه: </p>
+            <div class="row">
+               <p style="margin-right: 20px;"> نام دانشگاه: </p>
+               <p style="margin-right: 5px;color: darkgreen;">{{Uni}} </p>
+            </div>
+            <div class="row">
+               <p style="margin-right: 20px;"> نام استان: </p>
+               <p style="margin-right: 5px;color: darkgreen;">{{state}} </p>
+            </div>
+            <div class="row">
+               <p style="margin-right: 20px;"> نام شهر: </p>
+               <p style="margin-right: 5px;color: darkgreen;">{{city}} </p>
+            </div>
             <div class="row">
                <p style="margin-right: 20px;"> ایمیل: </p>
                <p style="margin-right: 5px;color: darkgreen;">{{informationEmail}} </p>

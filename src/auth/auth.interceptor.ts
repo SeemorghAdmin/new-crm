@@ -6,11 +6,8 @@ import { Router } from "@angular/router";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-
     constructor(private router: Router) {
-
     }
-
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if (localStorage.getItem('token') != null && !req.url.includes('crm.nren.ir')) {
             const clonedReq = req.clone({

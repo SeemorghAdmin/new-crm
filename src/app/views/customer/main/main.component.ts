@@ -9,6 +9,7 @@ import { PersonService } from '../../../services/person/person.service';
 export interface MenuItems {
   name: string;
   url: string;
+  badge: number;
 }
 
 @Component({
@@ -21,8 +22,8 @@ export class CustMainComponent implements OnInit, OnDestroy {
   pageType = "پنل کاربری مشترکین شبکه علمی ایران";
 
   fillerNav: MenuItems[] = [
-    { name: "پیگیری درخواست پشتیبانی", url: "/cust/home/cust-Show-User-Ticket" },
-    { name: "ثبت درخواست پشتیبانی", url: "/cust/home/cust-creat-new-Ticket" },
+    { name: "پیگیری درخواست پشتیبانی", url: "/cust/home/cust-Show-User-Ticket", badge:0},
+    { name: "ثبت درخواست پشتیبانی", url: "/cust/home/cust-creat-new-Ticket", badge:0},
   ]; // ایجاد 50 تا آیتم برای نمایش در منو
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
