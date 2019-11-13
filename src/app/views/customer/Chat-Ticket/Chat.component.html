@@ -42,8 +42,8 @@
                <div class="chat_bottom">
                   <a class="pull-left upload_btn" (click)="DiactiveChat()">
                      بستن چت</a>
-                  <a class="pull-right btn btn-success" (click)="post(Ticket)" *ngIf="ta != 3">
-                     ارسال</a>
+                  <a class="pull-right btn btn-success" (click)="post(Ticket)" *ngIf="ta != 3"  >
+                    ارسال</a>
                   <a class="pull-right btn btn-success" (click)="postt(Ticket)" *ngIf="ta == 3">
                      ارسال</a>
                   <select id="ddl" dir="rtl" style="width: 250px;" (change)="getName($event.target.value)"

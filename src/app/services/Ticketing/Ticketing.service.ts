@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormBuilder} from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
 import { ConstantsService } from '../constants/constants.service';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,8 @@ import { ConstantsService } from '../constants/constants.service';
 export class TicketingService {
   constructor(private fb: FormBuilder, private http: HttpClient, private constants: ConstantsService) { }
   readonly BaseURI = this.constants.baseApiUrlNc;
+  private TicketCount = new Subject <any> ();
+  TicketCountSelected = this.TicketCount.asObservable();
 getService()
 {
   return this.http.get(this.BaseURI + '/CreatTicet/'+3);
@@ -56,5 +59,11 @@ putSeen(id)
 getInformation(id)
 {
   return this.http.get('http://crm.nren.ir/api/get-login-info.jsp?id='+id);
+}
+getCountTicket()
+{
+  return this.http.get(this.BaseURI + '/GetTicket/countTicket').subscribe(res =>{
+this.TicketCount.next(res);
+  });
 }
 }

@@ -31,6 +31,7 @@ export class ChatTicketComponent implements OnInit {
   Uni;
   city;
   state;
+  url;
   constructor(private api: TicketingService, private route: ActivatedRoute, private router: Router) { }
   public Ticket: TicketClass = { ticket_ID : 0 , comment: '' , resiver : '' ,conf :0};
   ngOnInit() {
@@ -47,7 +48,6 @@ export class ChatTicketComponent implements OnInit {
         this.Uni=this.Test.uniName;
         this.city=this.Test.uniCity;
         this.state=this.Test.uniState;
-console.log(res);
       });
       if (this.ChatTicketing[0].ticket.active == false) {
         this.t = 1;
@@ -71,7 +71,6 @@ console.log(res);
           break;
       }
     }
-   
   }
   getName(id) {
     this.PersonNationalId = id;
@@ -90,11 +89,11 @@ console.log(res);
         Ticket.Conf = 1;
       }
       this.api.postTicketChat(Ticket).subscribe(res => {
-      
-      });
+      });   
       this.api.putResiver(Ticket).subscribe(res => {
-        this.router.navigateByUrl('/owner/home/ShowTickets');
-      });
+        this.router.navigate(['/owner/home/ShowTickets']);
+      });   
+     
     }
   }
   DiactiveChat() {
@@ -110,7 +109,7 @@ console.log(res);
     });
     this.api.postTicketChat(Ticket).subscribe(res => {
       if (res == true) {
-        this.router.navigateByUrl('/cust/home/cust-Show-User-Ticket');
+        this.router.navigate(['/cust/home/cust-Show-User-Ticket']);
       }
     });
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TicketingService } from './../../../../services/Ticketing/Ticketing.service';
 import { Router } from '@angular/router';
 @Component({
@@ -7,36 +7,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./show-tickets.component.css']
 })
 export class ShowTicketsComponent implements OnInit {
-t;
-  constructor(private api: TicketingService ,private router: Router) { }
-AllTickets;
+  t;
+  constructor(private api: TicketingService, private router: Router) { }
+  AllTickets;
   ngOnInit() {
+    this.api.getCountTicket();
     this.api.getAllTickets().subscribe(res => {
-      this.AllTickets = res;    
-      console.log(res);
+      this.AllTickets = res;
     });
+    
   }
-  pagenav(id)
-  {
-  this.api.putSeen(id).subscribe(res =>{
-      if(res == true)
-      {
-        this.router.navigateByUrl('/owner/home/ChatTicket/'+id);
+  pagenav(id) {
+    this.api.putSeen(id).subscribe(res => {
+      if (res == true) {
+        this.router.navigateByUrl('/owner/home/ChatTicket/' + id);
       }
     });
-  
   }
-  getcolor(item)
-  {
-    
-  
-   
-  }
-  get(index)
-  {
-    console.log(index);
-    if(index %2 == 0)
-    {
+
+  get(index) {
+    if (index % 2 == 0) {
       return '#eeeded';
     }
   }
