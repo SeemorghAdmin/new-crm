@@ -14,16 +14,17 @@ import { faBell, faCoffee, faSignOutAlt } from '@fortawesome/free-solid-svg-icon
 
 
 // کامپوننت ها و سرویس های خودمان
+import { AccessCodeModalComponent } from './views/owners/access-code-modal/access-code-modal.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginPageComponent } from './views/public/login-page/login-page.component';
+import { AuthService } from './services/auth/auth.service';
+import { CustMainComponent } from './views/customer/main/main.component';
 import { CreatNewTicketComponent } from './views/customer/create-new-ticket/create-new-ticket.component';
 import { DevMainComponent } from './views/developer/main/main.component';
 import { OwnersMainComponent } from './views/owners/main/main.component';
-import { CustMainComponent } from './views/customer/main/main.component';
-import { AuthService } from './services/auth/auth.service';
-
+import { LoginPageComponent } from './views/public/login-page/login-page.component';
 import { ShowUserTicketComponent } from './views/customer/Show-User-Ticket/Show-User-Ticket';
+import { ShowUniReportComponent } from './views/inspectors/show-uni-report/show-uni-report.component';
 
 import { MaterialModule } from './matrial-module'; // این ماژول مخصوص کار با کتابخانه های متریال است
 
@@ -43,7 +44,7 @@ import { ChangePasswordComponent } from './views/public/change-password/change-p
 import { AccessCodeComponent } from './views/owners/acsesscode/access-code.component';
 
 // سعید
-import { TicketingService } from './services/Ticketing/Ticketing.service'
+import { TicketingService } from './services/Ticketing/Ticketing.service';
 import { ChatTicketComponent } from './views/customer/Chat-Ticket/ChatTicket.component';
 import { ShowTicketsComponent } from './views/owners/Ticketing/show-tickets/show-tickets.component';
 import { TablesComponent } from './views/public/tables/tables.component';
@@ -55,12 +56,13 @@ import { ModalComponent } from './views/public/modal/modal.component';
 
 
 
-import { ShowUniReportComponent } from './views/inspectors/show-uni-report/show-uni-report.component';
+
+
 
 
 @NgModule({
   declarations: [
-    AppComponent, AccessCodeComponent,
+    AppComponent,
     AddPersonComponent,
     LoginPageComponent,
     CreatNewTicketComponent,
@@ -77,8 +79,9 @@ import { ShowUniReportComponent } from './views/inspectors/show-uni-report/show-
     AddDeveloperComponent,
     ModalComponent,
     ShowUniReportComponent,
-
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    AccessCodeComponent,
+    AccessCodeModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -100,10 +103,11 @@ import { ShowUniReportComponent } from './views/inspectors/show-uni-report/show-
   ],
 
   entryComponents: [
-    ModalComponent
+    ModalComponent,
+    AccessCodeModalComponent
   ],
 
-  providers: [AuthService,TicketingService, {
+  providers: [AuthService, TicketingService, {
     // توسط نوید برای لاگین ثبت شده اند
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
