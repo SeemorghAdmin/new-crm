@@ -1,0 +1,33 @@
+<h2 mat-dialog-title dir="rtl" style="direction: rtl; margin-right: 15px; text-align: right;">گزارش های <span style="color: red;">
+        {{data.name}} </span></h2>
+<mat-dialog-content class="mat-typography">
+    <div id="count">
+        <h2>مشخصات کلی</h2>
+        <ul>
+            <li>شناسه ملی: {{d.uniSignatoryNationalId}}</li>
+            <li>نام اصلی: {{d.uniName}}</li>
+            <li>کد اقتصادی: 0</li>
+        </ul>
+        <h2>مشخصات مدیران</h2>
+        <ul>
+            <li>بالاترین مقام: {{d.uniTopManagerName}}</li>
+            <li>سمت: {{d.uniTopManagerPos}}</li>
+            <li>مقام مجاز امضا: {{d.uniSignatoryPos}}</li>
+            <li>سمت: {{d.uniSignatoryPos}}</li>
+            <li>کدملی: 0</li>
+        </ul>
+        <h2>نشانی</h2>
+        <ul>
+            <li>استان: {{d.State}}</li>
+            <li>شهر {{d.City}}</li>
+            <li>آدرس کامل: {{d.uniAddress}}</li>
+            <li>کد پستی: {{d.uniPostalCode}}</li>
+            <li>تلفن: {{d.uniTelNo}}</li>
+        </ul>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+     <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions>

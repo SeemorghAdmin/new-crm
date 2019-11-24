@@ -1,0 +1,26 @@
+<div id="countenr">
+<h2 mat-dialog-title dir="rtl" style="direction: rtl; margin-right: 15px;">گزارش های <span style="color: red;"> {{data.name}} </span></h2>
+<mat-dialog-content class="mat-typography">
+ <div id="countowner">
+   <p>تاریخ: {{d[0].date}}</p>
+   <p>تغییر وضعیت به: {{d[0].uniStatus}}</p>
+   <p>شناسه ملی: {{d[0].uniNationalId}}</p>
+   <p>توسط: {{d[0].approval}}</p>
+   <P>پیام</P>
+   <p id="mssg">{{d[0].message}}</p>
+ </div>
+
+ <div id="countcust">
+  <p>تاریخ: {{d[1].date}}</p>
+  <p>تغییر وضعیت به: {{d[1].uniStatus}}</p>
+  <p>شناسه ملی: {{d[1].uniNationalId}}</p>
+  <p>توسط: {{d[1].approval}}</p>
+  <P>پیام</P>
+  <p id="mssg">{{d[1].message}}</p>
+</div>
+</mat-dialog-content>
+</div>
+<mat-dialog-actions align="end">
+<!--  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>-->
+</mat-dialog-actions>
