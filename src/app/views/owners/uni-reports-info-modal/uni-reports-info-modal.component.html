@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>اطلاعات کلی <span style="color: red;"> {{element.custName}} </span></h2>
+<mat-dialog-content class="mat-typography" dir="rtl">
+  <h3>
+    مشخصات کلی
+
+  </h3>
+  <div class="row">
+    <div class="col-md-auto modal-item">شناسه ملی: {{element.custNationalID}}</div>
+    <div class="col-md-auto modal-item">نام اصلی: {{element.custName}}</div>
+    <div class="col-md-auto modal-item">کد اقتصادی: 1111111</div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>بستن</button>
+</mat-dialog-actions>

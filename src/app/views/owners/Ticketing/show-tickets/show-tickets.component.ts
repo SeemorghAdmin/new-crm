@@ -15,7 +15,7 @@ export class ShowTicketsComponent implements OnInit {
     this.api.getAllTickets().subscribe(res => {
       this.AllTickets = res;
     });
-    
+
   }
   pagenav(id) {
     this.api.putSeen(id).subscribe(res => {
@@ -23,10 +23,18 @@ export class ShowTicketsComponent implements OnInit {
         this.router.navigateByUrl('/owner/home/ChatTicket/' + id);
       }
     });
-  }
 
-  get(index) {
-    if (index % 2 == 0) {
+  }
+  getcolor(item)
+  {
+
+
+
+  }
+  get(index)
+  {
+    if(index %2 == 0)
+    {
       return '#eeeded';
     }
   }

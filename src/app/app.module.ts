@@ -55,6 +55,8 @@ import { AddDeveloperComponent } from './views/developer/add-developer/add-devel
 import { ModalComponent } from './views/public/modal/modal.component';
 import { LandingPageComponent } from './views/public/landing-page/landing-page.component';
 import { ManageUniStatusComponent } from './views/owners/manage-uni-status/manage-uni-status.component';
+import { UniReportsComponent } from './views/owners/uni-reports/uni-reports.component';
+import { UniReportsInfoModalComponent } from './views/owners/uni-reports-info-modal/uni-reports-info-modal.component';
 
 
 
@@ -86,6 +88,8 @@ import { ManageUniStatusComponent } from './views/owners/manage-uni-status/manag
     AccessCodeModalComponent,
     LandingPageComponent,
     ManageUniStatusComponent,
+    UniReportsComponent,
+    UniReportsInfoModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -108,6 +112,7 @@ import { ManageUniStatusComponent } from './views/owners/manage-uni-status/manag
 
   entryComponents: [
     ModalComponent,
+    UniReportsInfoModalComponent,
     AccessCodeModalComponent
   ],
 

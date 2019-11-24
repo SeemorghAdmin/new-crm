@@ -29,4 +29,12 @@ export class ShowUserTicketComponent implements OnInit {
   gheyrfaal() {
     this.t = 2;
   }
+  get(index)
+  {
+    console.log(index);
+    if(index %2 == 0)
+    {
+      return '#eeeded';
+    }
+  }
 }
