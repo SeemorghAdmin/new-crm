@@ -51,6 +51,13 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
     this.unreadMsg = res;
   this.updateBadgeNumbers();
     });
+    this.service.GetUserProfile().subscribe(
+      res =>
+      {
+        this.user = res as Person;
+        this.CheckRoel(this.user);
+      }
+    );
     this.opened = true;
   }
 
@@ -62,13 +69,7 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
       }
     });
 
-    this.service.GetUserProfile().subscribe(
-      res =>
-      {
-        this.user = res as Person;
-        this.CheckRoel(this.user);
-      }
-    );
+   
   }
 
   onLogout() {
