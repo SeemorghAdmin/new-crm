@@ -21,6 +21,7 @@ import { ChangePasswordComponent } from './views/public/change-password/change-p
 import { AccessCodeComponent } from './views/owners/acsesscode/access-code.component';
 import { LandingPageComponent } from './views/public/landing-page/landing-page.component';
 import { ManageUniStatusComponent } from './views/owners/manage-uni-status/manage-uni-status.component';
+import { UniReportsComponent } from './views/owners/uni-reports/uni-reports.component';
 
 const routes: Routes = [
 
@@ -51,10 +52,11 @@ const routes: Routes = [
 children:
 [
   {path: 'app-manage-uni-status', component: ManageUniStatusComponent},
+  {path: 'uni-reports', component: UniReportsComponent},
   {path: 'AddPerson', component: AddPersonComponent},
-  {path: 'ShowTickets', component:ShowTicketsComponent},
   {path: 'ChatTicket/:id', component:ChatTicketComponent},
   {path: 'access-code', component: AccessCodeComponent},
+  {path: 'ShowTickets', component:ShowTicketsComponent},
 ]
 
 },

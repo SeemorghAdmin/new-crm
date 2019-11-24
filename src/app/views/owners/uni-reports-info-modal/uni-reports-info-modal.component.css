@@ -4,3 +4,15 @@
     border: 2px solid black;
     text-align: right;
 }
+.mat-h3, .mat-subheading-2, .mat-typography h3 {
+  font-family: IranSanse;
+}
+
+.mat-typography{
+  text-align: right;
+}
+
+.mat-dialog-title{
+  text-align: right;
+  font-family: IranSanse;
+}

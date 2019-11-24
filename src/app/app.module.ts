@@ -56,8 +56,8 @@ import { ModalComponent } from './views/public/modal/modal.component';
 import { LandingPageComponent } from './views/public/landing-page/landing-page.component';
 import { ManageUniStatusComponent } from './views/owners/manage-uni-status/manage-uni-status.component';
 import { UniStatusLogModalComponent } from './views/owners/uni-status-log-modal/uni-status-log-modal.component';
+import { UniReportsComponent } from './views/owners/uni-reports/uni-reports.component';
 import { UniReportsInfoModalComponent } from './views/owners/uni-reports-info-modal/uni-reports-info-modal.component';
-
 
 
 
@@ -90,6 +90,7 @@ import { UniReportsInfoModalComponent } from './views/owners/uni-reports-info-mo
     LandingPageComponent,
     ManageUniStatusComponent,
     UniStatusLogModalComponent,
+    UniReportsComponent,
     UniReportsInfoModalComponent,
   ],
   imports: [
@@ -115,7 +116,7 @@ import { UniReportsInfoModalComponent } from './views/owners/uni-reports-info-mo
     ModalComponent,
     AccessCodeModalComponent,
     UniStatusLogModalComponent,
-    UniReportsInfoModalComponent
+    UniReportsInfoModalComponent,
   ],
 
   providers: [AuthService, TicketingService, {

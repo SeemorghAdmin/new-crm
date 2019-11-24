@@ -1,4 +1,4 @@
-<div class="col-md-12 table-container" dir="rtl">
+<div class="col-md-8 table-container" dir="rtl">
     <div class="row search-form">
       <div>
         <mat-form-field>
@@ -67,4 +67,27 @@
         <mat-paginator class="paginator--centered" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
     </div>
 
+</div>
+
+<div id="roles" dir="rtl">
+  <mat-card>
+    <mat-card-content>
+      <h4 dir="rtl" class="example-h2t"> تخصیص دسترسی  {{item}}</h4>
+
+      <section *ngFor="let item2 of AccessData" class="example-section">
+        <mat-checkbox class="example-margin" name="addUser" *ngIf="item2.iString == 'aa'"  [(ngModel)]="item2.selected">{{item2.title}}</mat-checkbox>
+        <mat-checkbox class="example-margin" *ngIf="item2.iString == 'ab'"  [(ngModel)]="item2.selected">{{item2.title}}</mat-checkbox>
+        <mat-checkbox class="example-margin" *ngIf="item2.iString == 'ac'"  [(ngModel)]="item2.selected">{{item2.title}}</mat-checkbox>
+
+
+      </section>
+
+
+
+    </mat-card-content>
+    <button id="btn" (click)="onSubmit()" mat-button>ثبت</button>
+
+
+
+  </mat-card>
 </div>

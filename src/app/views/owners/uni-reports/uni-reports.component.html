@@ -1,0 +1,131 @@
+<div class="col-md-12 table-container" dir="rtl">
+
+  <div class="row search-form">
+    <div class="col-md-2">
+      <mat-form-field>
+        <input matInput class="form-field" [formControl]="custNationalIDFilter" placeholder="شماره ملی مشترک">
+      </mat-form-field>
+    </div>
+    <div class="col-md-2">
+      <mat-form-field>
+        <input matInput class="form-field" [formControl]="custNameFilter" placeholder="نام مشترک">
+      </mat-form-field>
+    </div>
+    <div class="col-md-2">
+      <mat-form-field>
+        <input matInput class="form-field" [formControl]="custTypeFilter" placeholder="نوع">
+      </mat-form-field>
+    </div>
+    <div class="col-md-2">
+      <mat-form-field>
+        <input matInput class="form-field" [formControl]="custStateFilter" placeholder="استان">
+      </mat-form-field>
+    </div>
+    <div class="col-md-2">
+      <mat-form-field>
+        <input matInput class="form-field" [formControl]="custCityFilter" placeholder="شهر">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="custNationalID">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> شماره ملی مشترک
+
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.custNationalID}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="custName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> نام مشترک
+
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.custName}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="custType">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> نوع </th>
+        <td mat-cell *matCellDef="let element"> {{element.custType}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> استان </th>
+        <td mat-cell *matCellDef="let element"> {{element.custState}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> شهر </th>
+        <td mat-cell *matCellDef="let element"> {{element.custCity}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="info">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> اطلاعات کامل </th>
+        <td mat-cell *matCellDef="let element">
+          <a (click)="openDialog(element)">
+            <img src="./../../../../assets/images/test-img/info.png" style="width: 25px; margin-right: 15px;">
+          </a>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> وضعیت </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="subStatus">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> زیر وضعیت </th>
+        <td mat-cell *matCellDef="let element"> {{element.subStatus}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastEditTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> تاریخ آخرین تغییرات </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastEditTime}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="subscriptionTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> تاریخ عضویت </th>
+        <td mat-cell *matCellDef="let element"> {{element.subscriptionTime}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="map">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> نقشه </th>
+        <td mat-cell *matCellDef="let element">
+          <a (click)="openDialog(element)" style="cursor: pointer;">
+            <img src="./../../../../assets/images/test-img/chat.png" style="width: 33px; margin-right: 1px;">
+          </a>
+        </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> عملیات </th>
+        <td mat-cell *matCellDef="let element">
+
+          <a (click)="openDialog(element)">
+            <img src="./../../../../assets/images/test-img/log.png" style="width: 20px; margin-right: 15px;">
+          </a>
+          <a (click)="openDialog(element)">
+            <img src="./../../../../assets/images/test-img/registered.png" style="width: 25px; margin-right: 15px;">
+          </a>
+          <a (click)="openDialog(element)">
+            <img src="./../../../../assets/images/test-img/edit.png" style="width: 23px; margin-right: 15px;">
+          </a>
+          <a (click)="openDialog(element)">
+            <img src="./../../../../assets/images/test-img/plus.png" style="width: 25px; margin-right: 15px;">
+          </a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator class="paginator--centered" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+
+</div>

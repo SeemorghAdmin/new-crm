@@ -30,4 +30,10 @@ export class AccessCodeService
   {
       return this.http.get(this.BaseURI + '/Person/getPersonAll')
   }
+
+  GetAccessModifer()
+  {
+    return this.http.get(this.BaseURI + '/AccessCode/getaccessmodifier');
+  }
+
 }
