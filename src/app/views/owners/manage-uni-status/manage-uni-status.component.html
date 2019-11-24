@@ -5,17 +5,17 @@
             <h5 style="margin-top: 30px;margin-right: 20px;">تغییر در وضعیت دانشگاه</h5>
             <div class="row" style="margin-right: 20px;margin-top: 30px;">
                 <p>نوع تغییر : </p>
-                <select id="ddl" dir="rtl" style="width: 300px;" (change)="ServiceTypeNumber($event.target.value)"
+                <select id="ddl" dir="rtl" style="width: 300px;" 
                     class="custom-select custom-select-sm">
                     <option>اصلاح خطا در در فرم درخواست عضویت</option>
-                    <option *ngFor="let item of Service; let i = index" value="{{item.services_ID}}">{{item.faName}}
+                    <option>item1
                     </option>
                 </select>
                 <p style="margin-right: 30px;"> زیروضعیت : </p>
-                <select id="ddl" dir="rtl" style="width: 300px;" (change)="ServiceTypeNumber($event.target.value)"
+                <select id="ddl" dir="rtl" style="width: 300px;" 
                     class="custom-select custom-select-sm">
                     <option>مشکل در فرم درخواست عضویت</option>
-                    <option *ngFor="let item of Service; let i = index" value="{{item.services_ID}}">{{item.faName}}
+                    <option>item1
                     </option>
                 </select>
             </div>
