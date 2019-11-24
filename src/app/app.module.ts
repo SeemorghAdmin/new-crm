@@ -58,6 +58,7 @@ import { ManageUniStatusComponent } from './views/owners/manage-uni-status/manag
 import { UniStatusLogModalComponent } from './views/owners/uni-status-log-modal/uni-status-log-modal.component';
 import { UniReportsComponent } from './views/owners/uni-reports/uni-reports.component';
 import { UniReportsInfoModalComponent } from './views/owners/uni-reports-info-modal/uni-reports-info-modal.component';
+import { AddUniPreDataComponent } from './views/owners/add-uni-pre-data/add-uni-pre-data.component';
 
 
 
@@ -92,6 +93,7 @@ import { UniReportsInfoModalComponent } from './views/owners/uni-reports-info-mo
     UniStatusLogModalComponent,
     UniReportsComponent,
     UniReportsInfoModalComponent,
+    AddUniPreDataComponent,
   ],
   imports: [
     BrowserModule,

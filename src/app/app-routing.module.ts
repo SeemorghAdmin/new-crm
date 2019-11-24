@@ -1,3 +1,4 @@
+import { AddUniPreDataComponent } from './views/owners/add-uni-pre-data/add-uni-pre-data.component';
 import { ShowUniReportComponent } from './views/inspectors/show-uni-report/show-uni-report.component';
 import { AddDeveloperComponent } from './views/developer/add-developer/add-developer.component';
 import { NgModule, Component } from '@angular/core';
@@ -73,6 +74,9 @@ children:
   {path: 'change-password/:id' , component: ChangePasswordComponent},
 
   {path: 'ShowUniReport', component: ShowUniReportComponent},
+
+  {path: 'add-uni-pre-data', component: AddUniPreDataComponent},
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
