@@ -1,0 +1,48 @@
+<div class="row" style="direction: rtl;">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="card card-user" style="text-align: right;">
+            <h5 style="margin-top: 30px;margin-right: 20px;">تغییر در وضعیت دانشگاه</h5>
+            <div class="row" style="margin-right: 20px;margin-top: 30px;">
+                <p>نوع تغییر : </p>
+                <select id="ddl" dir="rtl" style="width: 300px;" (change)="ServiceTypeNumber($event.target.value)"
+                    class="custom-select custom-select-sm">
+                    <option>اصلاح خطا در در فرم درخواست عضویت</option>
+                    <option *ngFor="let item of Service; let i = index" value="{{item.services_ID}}">{{item.faName}}
+                    </option>
+                </select>
+                <p style="margin-right: 30px;"> زیروضعیت : </p>
+                <select id="ddl" dir="rtl" style="width: 300px;" (change)="ServiceTypeNumber($event.target.value)"
+                    class="custom-select custom-select-sm">
+                    <option>مشکل در فرم درخواست عضویت</option>
+                    <option *ngFor="let item of Service; let i = index" value="{{item.services_ID}}">{{item.faName}}
+                    </option>
+                </select>
+            </div>
+            <div class="row" style="margin-right: 20px;margin-top: 30px;">
+                <p>شناسه ملی :</p>
+                <input type="text" class="form-control" style="width: 200px;height: 30px;" id="formGroupExampleInput"
+                    name="title" disabled>
+                <p>نام دانشگاه :</p>
+                <input type="text" class="form-control" style="width: 200px;height: 30px;" id="formGroupExampleInput"
+                    name="title" disabled>
+            </div>
+            <p style="margin-right: 20px;margin-top: 30px;">پیام :</p>
+            <div class="row" style="margin-right: 20px;margin-left: 20px;">
+                <textarea class="form-control" name="comment" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="row" style="margin-right: 20px;margin-top: 30px;">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <p style="margin-right: 30px;"> آیا نامه الکترونیکی به مشترک ارسال شود؟</p>
+            </div>
+            <div class="row" style="text-align: left;">
+                <div class="col-md-12">
+                    <input class="btn btn-primary" type="submit" value="تایید"
+                        style="margin-bottom: 2%;margin-left: 5%;background-color: #2f9fd3;width: 100px;height: 30px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+

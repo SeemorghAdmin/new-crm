@@ -53,6 +53,8 @@ import { getFarsiPaginatorIntl } from './farsi-paginator-intl';
 import { MatPaginatorIntl } from '@angular/material';
 import { AddDeveloperComponent } from './views/developer/add-developer/add-developer.component';
 import { ModalComponent } from './views/public/modal/modal.component';
+import { LandingPageComponent } from './views/public/landing-page/landing-page.component';
+import { ManageUniStatusComponent } from './views/owners/manage-uni-status/manage-uni-status.component';
 
 
 
@@ -82,6 +84,8 @@ import { ModalComponent } from './views/public/modal/modal.component';
     ChangePasswordComponent,
     AccessCodeComponent,
     AccessCodeModalComponent,
+    LandingPageComponent,
+    ManageUniStatusComponent,
   ],
   imports: [
     BrowserModule,

@@ -19,10 +19,13 @@ import { OwnersMainComponent } from './views/owners/main/main.component';
 import { TablesComponent } from './views/public/tables/tables.component';
 import { ChangePasswordComponent } from './views/public/change-password/change-password.component';
 import { AccessCodeComponent } from './views/owners/acsesscode/access-code.component';
+import { LandingPageComponent } from './views/public/landing-page/landing-page.component';
+import { ManageUniStatusComponent } from './views/owners/manage-uni-status/manage-uni-status.component';
 
 const routes: Routes = [
 
   {path: '', component: LoginPageComponent},
+  {path: 'landing-page', component: LandingPageComponent},
   {path: 'table', component: TablesComponent},
   {path: 'panel', component: UserPanelComponent,},
   {path: 'ChatTicket/:id', component:ChatTicketComponent},
@@ -47,6 +50,7 @@ const routes: Routes = [
   {path: 'owner/home', component: OwnersMainComponent,
 children:
 [
+  {path: 'app-manage-uni-status', component: ManageUniStatusComponent},
   {path: 'AddPerson', component: AddPersonComponent},
   {path: 'ShowTickets', component:ShowTicketsComponent},
   {path: 'ChatTicket/:id', component:ChatTicketComponent},
