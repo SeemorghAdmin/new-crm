@@ -4,6 +4,7 @@ import { FormControl } from '@angular/forms';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import { ModalComponent } from '../modal/modal.component';
+import { UniReportsInfoModalComponent } from './../../owners/uni-reports-info-modal/uni-reports-info-modal.component';
 
 export interface PeriodicElement {
   custName: string;
@@ -98,7 +99,7 @@ export class TablesComponent implements OnInit {
   }
 
   openDialog(element:PeriodicElement) {
-    const dialogRef = this.dialog.open(ModalComponent,{
+    const dialogRef = this.dialog.open(UniReportsInfoModalComponent,{
       data: { name: element.custName },
     });
 

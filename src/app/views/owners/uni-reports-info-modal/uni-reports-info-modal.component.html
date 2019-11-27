@@ -2,32 +2,75 @@
         {{data.name}} </span></h2>
 <mat-dialog-content class="mat-typography">
     <div id="count">
-        <h2>مشخصات کلی</h2>
-        <ul>
-            <li>شناسه ملی: {{d.uniSignatoryNationalId}}</li>
-            <li>نام اصلی: {{d.uniName}}</li>
-            <li>کد اقتصادی: 0</li>
+        <div> <h2 style="float: right;">مشخصات کلی</h2> <img style="width: 30px; cursor: pointer;" src="./../../../../assets/images/test-img/edit.png" (click)="editMosh()"></div>
+        <ul id="moshakhasatkoli">
+            <li *ngIf="edit1 == false">شناسه ملی: {{d.uniSignatoryNationalId}}</li>
+            <li *ngIf="edit1 == false">نام اصلی: {{d.uniName}}</li>
+            <li *ngIf="edit1 == false">کد اقتصادی: 0</li>
+            <li *ngIf="edit1 == true">شناسه ملی: <input style="width: 125px;" class="form-control" type="text" name="" value="{{d.uniSignatoryNationalId}}" id=""></li>
+            <li *ngIf="edit1 == true">نام اصلی: <input  class="form-control" type="text" name="" value="{{d.uniName}}" id=""></li>
+            <li *ngIf="edit1 == true">کد اقتصادی: <input style="width: 125px;"  class="form-control" type="text" name="" value="0" id=""></li>
         </ul>
-        <h2>مشخصات مدیران</h2>
-        <ul>
-            <li>بالاترین مقام: {{d.uniTopManagerName}}</li>
-            <li>سمت: {{d.uniTopManagerPos}}</li>
-            <li>مقام مجاز امضا: {{d.uniSignatoryPos}}</li>
-            <li>سمت: {{d.uniSignatoryPos}}</li>
-            <li>کدملی: 0</li>
+        <div> <h2 style="float: right;">مشخصات مدیران</h2> <img style="width: 30px; cursor: pointer;" src="./../../../../assets/images/test-img/edit.png" (click)="editMod()"></div>
+        <ul id="moshakhasatmodiran">
+            <li *ngIf="edit2 == false">بالاترین مقام: {{d.uniTopManagerName}}</li>
+            <li *ngIf="edit2 == false">سمت: {{d.uniTopManagerPos}}</li>
+            <li *ngIf="edit2 == false">مقام مجاز امضا: {{d.uniSignatoryPos}}</li>
+            <li *ngIf="edit2 == false">سمت: {{d.uniSignatoryPos}}</li>
+            <li *ngIf="edit2 == false">کدملی: 0</li>
+            <li *ngIf="edit2 == true">بالاترین مقام: <input style="width: 200px;" class="form-control" type="text" name="" value="{{d.uniTopManagerName}}" id=""></li>
+            <li *ngIf="edit2 == true">سمت: <input  class="form-control" type="text" name="" value="{{d.uniTopManagerPos}}" id=""></li>
+            <li *ngIf="edit2 == true">مقام مجاز امضا: <input style="width: 245px;"  class="form-control" type="text" name="" value="{{d.uniSignatoryPos}}" id=""></li>
+            <li *ngIf="edit2 == true">سمت: <input  class="form-control" type="text" name="" value="{{d.uniSignatoryPos}}" id=""></li>
+            <li *ngIf="edit2 == true">کدملی: <input style="width: 125px;"  class="form-control" type="text" name="" value="0" id=""></li>
         </ul>
-        <h2>نشانی</h2>
-        <ul>
-            <li>استان: {{d.State}}</li>
-            <li>شهر {{d.City}}</li>
-            <li>آدرس کامل: {{d.uniAddress}}</li>
-            <li>کد پستی: {{d.uniPostalCode}}</li>
-            <li>تلفن: {{d.uniTelNo}}</li>
+        <div style="clear: both;"> <h2 style="float: right;">نشانی</h2> <img style="width: 30px; cursor: pointer;" src="./../../../../assets/images/test-img/edit.png" (click)="editAdr()"></div>
+        <ul id="adrres">
+            <li *ngIf="edit3 == false">استان: {{d.State}}</li>
+            <li *ngIf="edit3 == false">شهر {{d.City}}</li>
+            <li *ngIf="edit3 == false">آدرس کامل: {{d.uniAddress}}</li>
+            <li *ngIf="edit3 == false">کد پستی: {{d.uniPostalCode}}</li>
+            <li *ngIf="edit3 == false">تلفن: {{d.uniTelNo}}</li>
+            <li *ngIf="edit3 == true">استان: <input style="width: 200px;" class="form-control" type="text" name="" value="{{d.State}}" id=""></li>
+            <li *ngIf="edit3 == true">شهر: <input  class="form-control" type="text" name="" value="{{d.City}}" id=""></li>
+            <li *ngIf="edit3 == true">آدرس کامل: <input style="width: 700px;"  class="form-control" type="text" name="" value="{{d.uniAddress}}" id=""></li>
+            <li *ngIf="edit3 == true">کد پستی: <input style="width: 150px;" class="form-control" type="text" name="" value="{{d.uniPostalCode}}" id=""></li>
+            <li *ngIf="edit3 == true">تلفن: <input style="width: 150px;"  class="form-control" type="text" name="" value="{{d.uniTelNo}}" id=""></li>
+        </ul>
+        <ul id="adrres2">
+            <li *ngIf="edit3 == false">دورنگار: {{d.agentFaxNo}}</li>
+            <li *ngIf="edit3 == false">وب سایت: {{d.uniWebsite}}</li>
+            <li *ngIf="edit3 == false">پست الکترونیک: {{d.uniEmail}}</li>
+            <li *ngIf="edit3 == true">دورنگار: <input style="width: 200px;" class="form-control" type="text" name="" value="{{d.agentFaxNo}}" id=""></li>
+            <li *ngIf="edit3 == true">وب سایت: <input style="width: 320px;"  class="form-control" type="text" name="" value="{{d.uniWebsite}}" id=""></li>
+            <li *ngIf="edit3 == true">پست الکترونیک: <input style="width: 245px;"  class="form-control" type="text" name="" value="{{d.uniEmail}}" id=""></li>
+        </ul>
+        <h2>فایل ها</h2>
+        <p> فرم درخواست عضویت</p>
+
+        <div > <h2 style="float: right;">مشخصات نماینده تام الختیار</h2> <img style="width: 30px; cursor: pointer;" src="./../../../../assets/images/test-img/edit.png" (click)="editNam()"></div>
+        <ul id="agent">
+            <li *ngIf="edit4 == false">نام: {{d.agentFname}}</li>
+            <li *ngIf="edit4 == false">نام خانوادگی: {{d.agentLname}}</li>
+            <li *ngIf="edit4 == false">کد ملی: {{d.agentNationalId}}</li>
+            <li *ngIf="edit4 == false">سمت: {{d.agentPos}}</li>
+            <li *ngIf="edit4 == true">نام: <input style="width: 220px;" class="form-control" type="text" name="" value="{{d.agentFname}}" id=""></li>
+            <li *ngIf="edit4 == true">نام خانوادگی: <input  style="width: 220px;" class="form-control" type="text" name="" value="{{d.agentLname}}" id=""></li>
+            <li *ngIf="edit4 == true">کدملی : <input style="width: 220px;"  class="form-control" type="text" name="" value="{{d.agentNationalId}}" id=""></li>
+            <li *ngIf="edit4 == true">سمت : <input style="width: 220px;" class="form-control" type="text" name="" value="{{d.agentPos}}" id=""></li>
+        </ul>
+        <ul id="agent2">
+            <li *ngIf="edit4 == false">شماره ثابت {{d.agentTeleNo}}</li>
+            <li *ngIf="edit4 == false">موبایل: {{d.agentMobileNo}}</li>
+            <li *ngIf="edit4 == false">دورنگار: {{d.agentFaxNo}}</li>
+            <li *ngIf="edit4 == true">شماره تلفن ثابت: <input style="width: 200px;" class="form-control" type="text" name="" value="{{d.agentTeleNo}}" id=""></li>
+            <li *ngIf="edit4 == true">موبایل : <input style="width: 200px;"  class="form-control" type="text" name="" value="{{d.agentMobileNo}}" id=""></li>
+            <li *ngIf="edit4 == true">دورنگار : <input style="width: 150px;" class="form-control" type="text" name="" value="{{d.agentFaxNo}}" id=""></li>
         </ul>
     </div>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
      <button mat-button mat-dialog-close>Cancel</button>
-      <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+     <button class="btn btn-primary" [mat-dialog-close]="true" cdkFocusInitial>Install</button>
 </mat-dialog-actions>

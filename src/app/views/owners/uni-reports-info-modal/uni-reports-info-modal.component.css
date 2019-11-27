@@ -1,10 +1,14 @@
 #count {
     width: 800px;
-    height: 620px;
+    height: 100%;
     border: 2px solid black;
     text-align: right;
+    direction: rtl;
 }
 .mat-h3, .mat-subheading-2, .mat-typography h3 {
+  font-family: IranSanse;
+}
+.mat-h2, .mat-subheading-2, .mat-typography h2 {
   font-family: IranSanse;
 }
 
@@ -16,3 +20,77 @@
   text-align: right;
   font-family: IranSanse;
 }
+
+#moshakhasatkoli {
+  clear: both;
+}
+
+#moshakhasatkoli li {
+  float: right;
+  list-style-type: none;
+  margin-left: 20px;
+}
+
+#moshakhasatkoli :last-child {
+  float: none;
+}
+
+#moshakhasatmodiran{
+  clear: both;
+}
+
+#moshakhasatmodiran li {
+  float: right;
+  list-style-type: none;
+  margin-left: 20px;
+}
+
+#moshakhasatmodiran :last-child {
+  float: none;
+}
+
+#adrres{
+  clear: both; 
+}
+#adrres li {
+  float: right;
+  list-style-type: none;
+  margin-left: 20px;
+}
+
+#adrres :last-child {
+  float: none;
+}
+
+#adrres2 li {
+  float: right;
+  list-style-type: none;
+  margin-left: 20px;
+}
+
+#adrres2 :last-child {
+  float: none;
+}
+#agent {
+  clear: both;
+}
+#agent li {
+  float: right;
+  list-style-type: none;
+  margin-left: 20px;
+}
+
+#agent :last-child {
+  float: none;
+}
+
+#agent2 li {
+  float: right;
+  list-style-type: none;
+  margin-left: 20px;
+}
+
+#agent2 :last-child {
+  float: none;
+}
+
