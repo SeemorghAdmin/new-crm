@@ -4,24 +4,22 @@ import { FormControl } from '@angular/forms';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import { UniReportsInfoModalComponent } from '../uni-reports-info-modal/uni-reports-info-modal.component';
+import { EcCustomersService } from 'src/app/services/owners/ec-customers.service';
+import { UniStatusLogModalComponent } from '../uni-status-log-modal/uni-status-log-modal.component';
 
-export interface PeriodicElement {
-  custName: string;
-  custNationalID: number;
-  custType: string;
-  custState: string;
-  custCity: string;
+export interface Customer {
+  uniName: string;
+  uniNationalId: number;
+  uniType: string;
+  state: string;
+  city: string;
   status: string;
   subStatus: string;
   lastEditTime: string;
   subscriptionTime: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  { custNationalID: 1, custName: 'مرکز آموزش علمی کاربردی بیرجند1', custType: 'مراکز و موسسات آموزش علمی و کاربردی با کد مستقل', custState: 'خراسان جنوبی', custCity:'بیرجند', status:'ارسال قرارداد اشتراک جهت امضاء متقاضی', subStatus:'-', lastEditTime:'شنبه , ۲۵ آبان ۱۳۹۸ ۱۴:۳۰:۲۶',  subscriptionTime:'شنبه , ۲۵ آبان ۱۳۹۸ ۱۴:۲۹:۵۸	'},
-  { custNationalID: 2, custName: 'مرکز آموزش علمی کاربردی بیرجند2', custType: 'مراکز و موسسات آموزش علمی و کاربردی با کد مستقل', custState: 'یزد', custCity:'یزد', status:'ارسال قرارداد اشتراک جهت امضاء متقاضی', subStatus:'-', lastEditTime:'شنبه , ۲۵ آبان ۱۳۹۸ ۱۴:۳۰:۲۶',  subscriptionTime:'شنبه , ۲۵ آبان ۱۳۹۸ ۱۴:۲۹:۵۸	'},
-  { custNationalID: 3, custName: 'مرکز آموزش علمی کاربردی بیرجند3', custType: 'مراکز و موسسات آموزش علمی و کاربردی با کد مستقل', custState: 'تهران', custCity:'تهران', status:'ارسال قرارداد اشتراک جهت امضاء متقاضی', subStatus:'-', lastEditTime:'شنبه , ۲۵ آبان ۱۳۹۸ ۱۴:۳۰:۲۶',  subscriptionTime:'شنبه , ۲۵ آبان ۱۳۹۸ ۱۴:۲۹:۵۸	'},
-];
+
 
 
 @Component({
@@ -31,54 +29,57 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class UniReportsComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public service: EcCustomersService) { }
 
-
-  displayedColumns: string[] = ['custNationalID', 'custName', 'custType', 'state', 'city', 'info', 'status', 'subStatus', 'lastEditTime', 'subscriptionTime', 'map', 'actions'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  CUSTOMER_DATA: Customer[] = [];
+  displayedColumns: string[] = ['uniNationalId', 'uniName', 'uniType', 'state', 'city', 'info', 'status', 'subStatus', 'lastEditTime', 'subscriptionTime', 'map', 'actions'];
+  dataSource : MatTableDataSource<Customer>;
 
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  custNationalIDFilter = new FormControl();
-  custNameFilter = new FormControl();
-  custTypeFilter = new FormControl();
-  custStateFilter = new FormControl();
-  custCityFilter = new FormControl();
+  uniNationalIdFilter = new FormControl();
+  uniNameFilter = new FormControl();
+  uniTypeFilter = new FormControl();
+  stateFilter = new FormControl();
+  cityFilter = new FormControl();
 
   filteredValues = {
-    custNationalID: '', custName: '', custType: '',
-    custState: '', custCity: ''
+    uniNationalId: '', uniName: '', uniType: '',
+    state: '', city: ''
   };
 
   ngOnInit() {
 
+    this.dataSource = new MatTableDataSource();
     this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator.pageSize = 10;
     this.dataSource.sort = this.sort;
+    this.getUniData();
 
-    this.custNationalIDFilter.valueChanges.subscribe((custNationalIDFilterValue) => {
-      this.filteredValues['custNationalID'] = custNationalIDFilterValue;
+    this.uniNationalIdFilter.valueChanges.subscribe((uniNationalIdFilterValue) => {
+      this.filteredValues['uniNationalId'] = uniNationalIdFilterValue;
       this.dataSource.filter = JSON.stringify(this.filteredValues);
     });
 
-    this.custNameFilter.valueChanges.subscribe((custNameFilterValue) => {
-      this.filteredValues['custName'] = custNameFilterValue;
+    this.uniNameFilter.valueChanges.subscribe((uniNameFilterValue) => {
+      this.filteredValues['uniName'] = uniNameFilterValue;
       this.dataSource.filter = JSON.stringify(this.filteredValues);
     });
 
-    this.custTypeFilter.valueChanges.subscribe((custTypeFilterValue) => {
-      this.filteredValues['custType'] = custTypeFilterValue;
+    this.uniTypeFilter.valueChanges.subscribe((uniTypeFilterValue) => {
+      this.filteredValues['uniType'] = uniTypeFilterValue;
       this.dataSource.filter = JSON.stringify(this.filteredValues);
     });
 
-    this.custStateFilter.valueChanges.subscribe((custStateFilterValue) => {
-      this.filteredValues['custState'] = custStateFilterValue;
+    this.stateFilter.valueChanges.subscribe((stateFilterValue) => {
+      this.filteredValues['state'] = stateFilterValue;
       this.dataSource.filter = JSON.stringify(this.filteredValues);
     });
 
-    this.custCityFilter.valueChanges.subscribe((custCityFilterValue) => {
-      this.filteredValues['custCity'] = custCityFilterValue;
+    this.cityFilter.valueChanges.subscribe((cityFilterValue) => {
+      this.filteredValues['city'] = cityFilterValue;
       this.dataSource.filter = JSON.stringify(this.filteredValues);
     });
 
@@ -91,32 +92,50 @@ export class UniReportsComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+
   }
 
+  getUniData(): Array<Customer>{
+    this.service.GetList(0).subscribe( res => {
+      this.CUSTOMER_DATA = res as Customer[];
+      this.dataSource.data = this.CUSTOMER_DATA;
+    });
+    return this.CUSTOMER_DATA;
+  }
   // numFilter(filterValue: string) {
   //   this.dataSource.filter = filterValue.trim().toLowerCase();
   //   this.dataSource.filterPredicate = (data: any, fitlerString: string) => {
 
-  //       return data.custNationalID == filterValue;
+  //       return data.uniNationalId == filterValue;
   //   };
   //   this.dataSource.filter = filterValue;
   // }
 
   customFilterPredicate() {
-    const myFilterPredicate = (data: PeriodicElement, filter: string): boolean => {
+    const myFilterPredicate = (data: Customer, filter: string): boolean => {
 
       let searchString = JSON.parse(filter);
-      return data.custNationalID.toString().trim().indexOf(searchString.custNationalID) !== -1 &&
-        data.custName.toString().trim().toLowerCase().indexOf(searchString.custName.toLowerCase()) !== -1 &&
-        data.custType.toString().trim().toLowerCase().indexOf(searchString.custType.toLowerCase()) !== -1 &&
-        data.custState.toString().trim().toLowerCase().indexOf(searchString.custState.toLowerCase()) !== -1 &&
-        data.custCity.toString().trim().toLowerCase().indexOf(searchString.custCity.toLowerCase()) !== -1;
+      return data.uniNationalId.toString().trim().indexOf(searchString.uniNationalId) !== -1 &&
+        data.uniName.toString().trim().toLowerCase().indexOf(searchString.uniName.toLowerCase()) !== -1 &&
+        data.uniType.toString().trim().toLowerCase().indexOf(searchString.uniType.toLowerCase()) !== -1 &&
+        data.state.toString().trim().toLowerCase().indexOf(searchString.state.toLowerCase()) !== -1 &&
+        data.city.toString().trim().toLowerCase().indexOf(searchString.city.toLowerCase()) !== -1;
     }
     return myFilterPredicate;
   }
 
-  openDialog(element:PeriodicElement) {
+  openDialog(element:Customer) {
     const dialogRef = this.dialog.open(UniReportsInfoModalComponent,{
+      data: element,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openLog(element:Customer) {
+    const dialogRef = this.dialog.open(UniStatusLogModalComponent,{
       data: element,
     });
 

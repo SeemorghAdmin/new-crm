@@ -2,6 +2,7 @@
     width: 800px;
     height: 100%;
     border: 2px solid black;
+    padding: 10px;
     text-align: right;
     direction: rtl;
 }
@@ -50,7 +51,7 @@
 }
 
 #adrres{
-  clear: both; 
+  clear: both;
 }
 #adrres li {
   float: right;

@@ -6,5 +6,5 @@ import { Injectable } from '@angular/core';
 export class ConstantsService {
 
   readonly baseApiUrlNc = "http://185.79.99.245/new-crm-api/api";
-  readonly baseApiUrlEc = "";
+  readonly baseApiUrlEc = "http://crm.nren.ir/api";
 }

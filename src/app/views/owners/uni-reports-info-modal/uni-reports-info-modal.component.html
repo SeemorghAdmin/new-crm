@@ -1,30 +1,30 @@
 <h2 mat-dialog-title dir="rtl" style="direction: rtl; margin-right: 15px; text-align: right;">گزارش های <span style="color: red;">
-        {{data.name}} </span></h2>
+        {{data.uniName}} </span></h2>
 <mat-dialog-content class="mat-typography">
     <div id="count">
-        <div> <h2 style="float: right;">مشخصات کلی</h2> <img style="width: 30px; cursor: pointer;" src="./../../../../assets/images/test-img/edit.png" (click)="editMosh()"></div>
+        <div> <h2 style="float: right;">مشخصات کلی</h2> <img style="width: 30px; cursor: pointer;" src="assets/images/test-img/edit.png" (click)="editMosh()"></div>
         <ul id="moshakhasatkoli">
-            <li *ngIf="edit1 == false">شناسه ملی: {{d.uniSignatoryNationalId}}</li>
+            <li *ngIf="edit1 == false">شناسه ملی: {{d.uniNationalId}}</li>
             <li *ngIf="edit1 == false">نام اصلی: {{d.uniName}}</li>
-            <li *ngIf="edit1 == false">کد اقتصادی: 0</li>
-            <li *ngIf="edit1 == true">شناسه ملی: <input style="width: 125px;" class="form-control" type="text" name="" value="{{d.uniSignatoryNationalId}}" id=""></li>
+            <li *ngIf="edit1 == false">کد اقتصادی: {{d.uniEcoCode}}</li>
+            <li *ngIf="edit1 == true">شناسه ملی: <input style="width: 125px;" class="form-control" type="text" name="" value="{{d.uniNationalId}}" id=""></li>
             <li *ngIf="edit1 == true">نام اصلی: <input  class="form-control" type="text" name="" value="{{d.uniName}}" id=""></li>
-            <li *ngIf="edit1 == true">کد اقتصادی: <input style="width: 125px;"  class="form-control" type="text" name="" value="0" id=""></li>
+            <li *ngIf="edit1 == true">کد اقتصادی: <input style="width: 125px;"  class="form-control" type="text" name="" value="{{d.uniEcoCode}}" id=""></li>
         </ul>
-        <div> <h2 style="float: right;">مشخصات مدیران</h2> <img style="width: 30px; cursor: pointer;" src="./../../../../assets/images/test-img/edit.png" (click)="editMod()"></div>
+        <div> <h2 style="float: right;">مشخصات مدیران</h2> <img style="width: 30px; cursor: pointer;" src="assets/images/test-img/edit.png" (click)="editMod()"></div>
         <ul id="moshakhasatmodiran">
             <li *ngIf="edit2 == false">بالاترین مقام: {{d.uniTopManagerName}}</li>
             <li *ngIf="edit2 == false">سمت: {{d.uniTopManagerPos}}</li>
             <li *ngIf="edit2 == false">مقام مجاز امضا: {{d.uniSignatoryPos}}</li>
             <li *ngIf="edit2 == false">سمت: {{d.uniSignatoryPos}}</li>
-            <li *ngIf="edit2 == false">کدملی: 0</li>
+            <li *ngIf="edit2 == false">کدملی: {{d.uniSignatoryNationalId}}</li>
             <li *ngIf="edit2 == true">بالاترین مقام: <input style="width: 200px;" class="form-control" type="text" name="" value="{{d.uniTopManagerName}}" id=""></li>
             <li *ngIf="edit2 == true">سمت: <input  class="form-control" type="text" name="" value="{{d.uniTopManagerPos}}" id=""></li>
             <li *ngIf="edit2 == true">مقام مجاز امضا: <input style="width: 245px;"  class="form-control" type="text" name="" value="{{d.uniSignatoryPos}}" id=""></li>
             <li *ngIf="edit2 == true">سمت: <input  class="form-control" type="text" name="" value="{{d.uniSignatoryPos}}" id=""></li>
-            <li *ngIf="edit2 == true">کدملی: <input style="width: 125px;"  class="form-control" type="text" name="" value="0" id=""></li>
+            <li *ngIf="edit2 == true">کدملی: <input style="width: 125px;"  class="form-control" type="text" name="" value="{{d.uniSignatoryNationalId}}" id=""></li>
         </ul>
-        <div style="clear: both;"> <h2 style="float: right;">نشانی</h2> <img style="width: 30px; cursor: pointer;" src="./../../../../assets/images/test-img/edit.png" (click)="editAdr()"></div>
+        <div style="clear: both;"> <h2 style="float: right;">نشانی</h2> <img style="width: 30px; cursor: pointer;" src="assets/images/test-img/edit.png" (click)="editAdr()"></div>
         <ul id="adrres">
             <li *ngIf="edit3 == false">استان: {{d.State}}</li>
             <li *ngIf="edit3 == false">شهر {{d.City}}</li>
@@ -45,10 +45,16 @@
             <li *ngIf="edit3 == true">وب سایت: <input style="width: 320px;"  class="form-control" type="text" name="" value="{{d.uniWebsite}}" id=""></li>
             <li *ngIf="edit3 == true">پست الکترونیک: <input style="width: 245px;"  class="form-control" type="text" name="" value="{{d.uniEmail}}" id=""></li>
         </ul>
-        <h2>فایل ها</h2>
+        <div style="clear: both;">
+          <h2 tyle="float: right;">فایل ها</h2>
+        </div>
         <p> فرم درخواست عضویت</p>
+        <a href="http://{{d.uniRequestForm}}">
+          <img src="assets/images/pdf-icon.png">
+        </a>
 
-        <div > <h2 style="float: right;">مشخصات نماینده تام الختیار</h2> <img style="width: 30px; cursor: pointer;" src="./../../../../assets/images/test-img/edit.png" (click)="editNam()"></div>
+
+        <div > <h2 style="float: right;">مشخصات نماینده تام الختیار</h2> <img style="width: 30px; cursor: pointer;" src="assets/images/test-img/edit.png" (click)="editNam()"></div>
         <ul id="agent">
             <li *ngIf="edit4 == false">نام: {{d.agentFname}}</li>
             <li *ngIf="edit4 == false">نام خانوادگی: {{d.agentLname}}</li>
@@ -72,5 +78,5 @@
 
 <mat-dialog-actions align="end">
      <button mat-button mat-dialog-close>Cancel</button>
-     <button class="btn btn-primary" [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+     <button class="btn btn-primary" [mat-dialog-close]="true" cdkFocusInitial *ngIf="edit1 || edit2 || edit3 || edit4 == true">Save</button>
 </mat-dialog-actions>

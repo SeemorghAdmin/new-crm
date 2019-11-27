@@ -59,6 +59,7 @@ import { UniStatusLogModalComponent } from './views/owners/uni-status-log-modal/
 import { UniReportsComponent } from './views/owners/uni-reports/uni-reports.component';
 import { UniReportsInfoModalComponent } from './views/owners/uni-reports-info-modal/uni-reports-info-modal.component';
 import { AddUniPreDataComponent } from './views/owners/add-uni-pre-data/add-uni-pre-data.component';
+import { EcCustomersService } from './services/owners/ec-customers.service';
 
 
 
@@ -121,7 +122,9 @@ import { AddUniPreDataComponent } from './views/owners/add-uni-pre-data/add-uni-
     UniReportsInfoModalComponent,
   ],
 
-  providers: [AuthService, TicketingService, {
+  providers: [AuthService,
+    TicketingService,
+    EcCustomersService, {
     // توسط نوید برای لاگین ثبت شده اند
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
