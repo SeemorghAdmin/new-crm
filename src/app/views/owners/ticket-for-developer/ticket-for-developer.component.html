@@ -1,0 +1,123 @@
+<div class="row">
+    <div class="col-md-12" style="text-align: center;">
+        <div class="card card-user">
+            <div class="card-body" style="direction: rtl;">
+                <div class="row">
+                    <div class="col-md-3" style="text-align: center;">
+                    </div>
+                    <div class="col-md-6" style="text-align: center;">
+                        <form>
+                            <div class="card card-user">
+                                <div class="card-header">
+                                    <h5 class="card-title">ارتباط با برنامه نویسان</h5>
+                                </div>
+                                <div class="card-body" style="direction: rtl;">
+                                    <div class="row" style="margin-top: 20px;">
+                                        <p>درخواست خود را وارد نمایید:</p>
+                                    </div>
+                                    <textarea class="form-control" name="comment" [(ngModel)]="Ticket.comment"
+                                        id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <div class="row">
+                                    </div>
+                                    <div class="row" style="margin-top: 20px;">
+                                        <p> وضعیت درخواست خود را مشخص کنید :</p>
+                                        <div class="form-group required">
+                                            <label class="form-check-inline">
+                                                عادی
+                                                <input class="form-check-input" type="radio" name="typeDance1"
+                                                    [value]="1" [(ngModel)]="Ticket.status">
+                                            </label>
+                                        </div>
+                                        <div class="form-group required">
+                                            <label class="form-check-inline">
+                                                فوری
+                                                <input class="form-check-input" type="radio" name="typeDance2"
+                                                    [value]="2" [(ngModel)]="Ticket.status">
+                                            </label>
+                                        </div>
+                                        <div class="form-group required">
+                                            <label class="form-check-inline">
+                                                آنی
+                                                <input class="form-check-input" type="radio" name="typeDance3"
+                                                    [value]="3" [(ngModel)]="Ticket.status">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="alert alert-danger" role="alert" style="text-align: center;"
+                                        *ngIf="t == 3">
+                                        لطفا متن پیام خود را وارد نمایی
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 center-block">
+                                            <input class="btn btn-primary" type="submit" (click)="post(Ticket)"
+                                                value="ثبت درخواست" style="margin-top: 2%;background-color: #2f9fd3;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-3" style="text-align: center;">
+                    </div>
+                </div>
+            </div>
+            <div class="card-header">
+                <h5 class="card-title">درخواست های ارسالی شما</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12" style="text-align: center;">
+      <div class="card card-user">
+        <div class="card-body" style="direction: rtl;">
+         <div class="row mb-3">
+  <div class="col-md-7" *ngFor="let item of AllTickets; let i = index" style="padding: 3px;">
+      <div class="card shadow" style="direction: rtl;border-radius: 20px;" [ngStyle]="{'background-color':get(i)}" >
+          <div class="card-body">
+              <div class="row text-center">
+                  <div class="col-md-4" style="text-align: right;">
+                    <div class="row">
+                      <h5>درخواست دهنده: </h5>
+                      <p>{{item.person.firstName}}  {{item.person.lastName}}</p>
+                    </div>
+                    <div class="row">
+                      <h5>تاریخ درخواست: </h5>
+                      <p>{{item.dateOfCreation}}</p>
+                    </div>
+                 
+                  </div>
+                  <div class="col-md-4">
+                  <div class="row">
+                    <h5>پیام های خوانده نشده: </h5>
+                    <p style="color: red;">{{item.unseenNumber}}</p>
+                  </div>
+                  <div class="row">
+                    <h5 style="background-color: gray;padding: 3px;color: white;" *ngIf="item.status == 1">فوریت:
+                      عادی
+                    </h5>
+                    <h5 style="background-color: #f98d3f;padding: 3px;color: white;" *ngIf="item.status == 2">فوریت:
+                      فوری
+                    </h5>
+                    <h5 style="background-color: red;padding: 3px;color: white;" *ngIf="item.status == 3">فوریت:
+                      آنی
+                    </h5>
+                  </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="sub-row">
+                        <button type="button" class="btn btn-warning btn-sm btn-block"  (click)=" pagenav(item.developerTicket_ID)"   style="background-color: #00aeff;margin-top: 50px;color: white;">مشاهده گفت و گو</button>
+                    </div>
+                </div>
+              </div>
+          </div>
+      </div>
+      </div>
+      <div class="col-md-3"></div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

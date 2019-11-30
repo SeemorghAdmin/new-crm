@@ -1,93 +1,86 @@
-<div class="col-md-8 table-container" dir="rtl">
-    <div class="row search-form">
-      <div>
-        <mat-form-field>
-          <input matInput class="form-field" [formControl]="personNational_IDFilter" placeholder="شماره ملی">
-        </mat-form-field>
-      </div>
-
-      <div>
-        <mat-form-field>
-          <input matInput class="form-field" [formControl]="firstNameFilter" placeholder="نام ">
-        </mat-form-field>
-      </div>
-
-      <div>
-        <mat-form-field>
-          <input matInput class="form-field" [formControl]="lastNameFilter" placeholder="نام خانوادگی">
-        </mat-form-field>
-      </div>
-    </div>
-
-
-    <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSource" matSort>
-
-          <!-- national id Column -->
-          <ng-container matColumnDef="personNational_ID">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> شماره ملی
-
-            </th>
-            <td mat-cell *matCellDef="let element">
-              <a (click)="openDialog(element)" style="cursor: pointer;">
-                  {{element.personNational_ID}}
-              </a>
-            </td>
-          </ng-container>
-
-
-          <!-- Name Column -->
-          <ng-container matColumnDef="firstName">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> نام
-
-            </th>
-            <td mat-cell *matCellDef="let element">
-              <a (click)="openDialog(element)" style="cursor: pointer;">
-                  {{element.firstName}}
-              </a>
-            </td>
-          </ng-container>
-
-
-          <!-- last name Column -->
-          <ng-container matColumnDef="lastName">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> نام خانوادگی </th>
-            <td mat-cell *matCellDef="let element">
-              <a (click)="openDialog(element)" style="cursor: pointer;">
-                {{element.lastName}}
-              </a>
-            </td>
-          </ng-container>
-
-
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-
-        <mat-paginator class="paginator--centered" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-    </div>
-
+<div class="row search-form" dir="rtl">
+  <div>
+    <mat-form-field>
+      <input matInput class="form-field" [formControl]="firstNameFilter" placeholder="نام ">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput class="form-field" [formControl]="lastNameFilter" placeholder="نام خانوادگی">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput class="form-field" [formControl]="personNational_IDFilter" placeholder="شماره ملی">
+    </mat-form-field>
+  </div>
 </div>
 
-<div id="roles" dir="rtl">
-  <mat-card>
-    <mat-card-content>
-      <h4 dir="rtl" class="example-h2t"> تخصیص دسترسی  {{item}}</h4>
-
-      <section *ngFor="let item2 of AccessData" class="example-section">
-        <mat-checkbox class="example-margin" name="addUser" *ngIf="item2.iString == 'aa'"  [(ngModel)]="item2.selected">{{item2.title}}</mat-checkbox>
-        <mat-checkbox class="example-margin" *ngIf="item2.iString == 'ab'"  [(ngModel)]="item2.selected">{{item2.title}}</mat-checkbox>
-        <mat-checkbox class="example-margin" *ngIf="item2.iString == 'ac'"  [(ngModel)]="item2.selected">{{item2.title}}</mat-checkbox>
-
-
-      </section>
 
 
 
-    </mat-card-content>
-    <button id="btn" (click)="onSubmit()" mat-button>ثبت</button>
+<div class="row" dir="rtl">
 
 
 
-  </mat-card>
+<div class="col-md-8 table-container" dir="rtl">
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- national id Column -->
+      <ng-container matColumnDef="personNational_ID">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> شماره ملی
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <a (click)="openDialog(element)" style="cursor: pointer;">
+            {{element.personNational_ID}}
+          </a>
+        </td>
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> نام
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <a (click)="openDialog(element)" style="cursor: pointer;">
+            {{element.firstName}}
+          </a>
+        </td>
+      </ng-container>
+      <!-- last name Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> نام خانوادگی </th>
+        <td mat-cell *matCellDef="let element">
+          <a (click)="openDialog(element)" style="cursor: pointer;">
+            {{element.lastName}}
+          </a>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator class="paginator--centered" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>
+
+
+<div class="col-md-4">
+    <div id="roles" dir="rtl">
+        <mat-card>
+          <mat-card-content>
+            <h4 dir="rtl" class="example-h2t"> تخصیص دسترسی {{item}}</h4>
+            <section *ngFor="let item2 of AccessData" class="example-section">
+              <mat-checkbox class="example-margin" name="addUser" *ngIf="item2.iString == 'aa'" [(ngModel)]="item2.selected">
+                {{item2.title}}</mat-checkbox>
+              <mat-checkbox class="example-margin" *ngIf="item2.iString == 'ab'" [(ngModel)]="item2.selected">{{item2.title}}
+              </mat-checkbox>
+              <mat-checkbox class="example-margin" *ngIf="item2.iString == 'ac'" [(ngModel)]="item2.selected">{{item2.title}}
+              </mat-checkbox>
+            </section>
+          </mat-card-content>
+          <button id="btn" (click)="onSubmit()" mat-button>ثبت</button>
+        </mat-card>
+      </div>
+    </div>
+
+
 </div>

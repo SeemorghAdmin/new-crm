@@ -60,6 +60,10 @@ import { UniReportsComponent } from './views/owners/uni-reports/uni-reports.comp
 import { UniReportsInfoModalComponent } from './views/owners/uni-reports-info-modal/uni-reports-info-modal.component';
 import { AddUniPreDataComponent } from './views/owners/add-uni-pre-data/add-uni-pre-data.component';
 import { EcCustomersService } from './services/owners/ec-customers.service';
+import { TicketForDeveloperComponent } from './views/owners/ticket-for-developer/ticket-for-developer.component';
+import { ShowTicketForOwnersManagerComponent } from './views/owners/ticket-for-developer/show-ticket-for-owners-manager/show-ticket-for-owners-manager.component';
+import { ChatTicketForDeveloperComponent } from './views/owners/ticket-for-developer/chat-ticket-for-developer/chat-ticket-for-developer.component';
+import { ShowTicketForDeveloperComponent } from './views/developer/show-ticket-for-developer/show-ticket-for-developer.component';
 
 
 
@@ -95,6 +99,10 @@ import { EcCustomersService } from './services/owners/ec-customers.service';
     UniReportsComponent,
     UniReportsInfoModalComponent,
     AddUniPreDataComponent,
+    TicketForDeveloperComponent,
+    ShowTicketForOwnersManagerComponent,
+    ChatTicketForDeveloperComponent,
+    ShowTicketForDeveloperComponent,
   ],
   imports: [
     BrowserModule,

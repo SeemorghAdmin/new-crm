@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TicketingService } from './../../../services/Ticketing/Ticketing.service';
+import {  Router } from '@angular/router';
 @Component({
   selector: 'Show-User-Ticket',
   templateUrl: './Show-User-Ticket.html',
@@ -7,7 +8,7 @@ import { TicketingService } from './../../../services/Ticketing/Ticketing.servic
 })
 export class ShowUserTicketComponent implements OnInit {
 
-  constructor(private api: TicketingService) { }
+  constructor(private api: TicketingService,private router:Router) { }
   UserTicket;
   UserDiactiveTicket;
   t = 1;
@@ -36,5 +37,13 @@ export class ShowUserTicketComponent implements OnInit {
     {
       return '#eeeded';
     }
+  }
+  pagenav(id) {
+    this.api.putSeen(id).subscribe(res => {
+      if (res == true) {
+        this.router.navigateByUrl('/cust/home/ChatTicket/' + id);
+      }
+    });
+
   }
 }

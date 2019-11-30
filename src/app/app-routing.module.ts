@@ -23,6 +23,10 @@ import { AccessCodeComponent } from './views/owners/acsesscode/access-code.compo
 import { LandingPageComponent } from './views/public/landing-page/landing-page.component';
 import { ManageUniStatusComponent } from './views/owners/manage-uni-status/manage-uni-status.component';
 import { UniReportsComponent } from './views/owners/uni-reports/uni-reports.component';
+import { TicketForDeveloperComponent } from './views/owners/ticket-for-developer/ticket-for-developer.component';
+import { ShowTicketForOwnersManagerComponent } from './views/owners/ticket-for-developer/show-ticket-for-owners-manager/show-ticket-for-owners-manager.component';
+import { ChatTicketForDeveloperComponent } from './views/owners/ticket-for-developer/chat-ticket-for-developer/chat-ticket-for-developer.component';
+import { ShowTicketForDeveloperComponent } from './views/developer/show-ticket-for-developer/show-ticket-for-developer.component';
 
 const routes: Routes = [
 
@@ -46,6 +50,8 @@ const routes: Routes = [
   [
     {path: 'AddShoaManager', component: AddPersonComponent},
     {path: 'AddDeveloper', component: AddDeveloperComponent},
+    {path: 'app-show-ticket-for-developer', component: ShowTicketForDeveloperComponent},
+    {path: 'app-chat-ticket-for-developer/:id', component:ChatTicketForDeveloperComponent},
   ]
   },
   {path: 'owner/home', component: OwnersMainComponent},
@@ -56,8 +62,11 @@ children:
   {path: 'uni-reports', component: UniReportsComponent},
   {path: 'AddPerson', component: AddPersonComponent},
   {path: 'ChatTicket/:id', component:ChatTicketComponent},
+  {path: 'app-chat-ticket-for-developer/:id', component:ChatTicketForDeveloperComponent},
   {path: 'access-code', component: AccessCodeComponent},
   {path: 'ShowTickets', component:ShowTicketsComponent},
+  {path: 'app-ticket-for-developer', component:TicketForDeveloperComponent},
+  {path: 'app-show-ticket-for-owners-manager', component:ShowTicketForOwnersManagerComponent},
 ]
 
 },

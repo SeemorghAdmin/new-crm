@@ -21,6 +21,7 @@ export class DevMainComponent implements OnInit, OnDestroy {
  fillerNav: MenuItems[] = [
   {name: "اضافه کردن توسعه دهنده", url:"/dev/home/AddDeveloper", badge:0},
   {name: "اضافه کردن مدیر خاشع", url:"/dev/home/AddShoaManager", badge:0},
+  {name: "مشاهده درخواست های ارسالی", url:"/dev/home/app-show-ticket-for-developer", badge:0},
 ]; // ایجاد 50 تا آیتم برای نمایش در منو
  mobileQuery: MediaQueryList;
  private _mobileQueryListener: () => void;

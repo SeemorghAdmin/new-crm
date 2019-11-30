@@ -6,6 +6,7 @@ import { NgForm } from '@angular/forms';
 import { PersonService } from '../../../services/person/person.service';
 
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { TicketForDeveloperService } from 'src/app/services/Ticketing/ticket-for-developer.service';
 
 @Component({
   selector: 'app-login-page',
@@ -16,7 +17,7 @@ export class LoginPageComponent implements OnInit {
   panelOpenState = true;
   clicked = false;
 
-  constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService, public service: PersonService) { }
+  constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService, public service: PersonService, private api :TicketForDeveloperService) { }
 
 
   ngOnInit() {
@@ -58,7 +59,7 @@ export class LoginPageComponent implements OnInit {
         //console.log(res.user.token)
         localStorage.setItem('token', res.user.token);
         localStorage.setItem('role', res.user.role1 );
-        
+        localStorage.setItem('role2',res.user.role2);
         if (res.user.needChangePassword == true) 
         {
           this.router.navigateByUrl('/change-password/' + res.user.personNational_ID);
