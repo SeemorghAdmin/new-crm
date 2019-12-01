@@ -4,8 +4,12 @@ import { FormControl } from '@angular/forms';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import { UniReportsInfoModalComponent } from '../uni-reports-info-modal/uni-reports-info-modal.component';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { EcCustomersService } from 'src/app/services/owners/ec-customers.service';
 import { UniStatusLogModalComponent } from '../uni-status-log-modal/uni-status-log-modal.component';
+import { UniDeleteComponent } from './../uni-delete/uni-delete.component';
+import { PersonService } from './../../../services/person/person.service';
 
 export interface Customer {
   uniName: string;
@@ -29,12 +33,14 @@ export interface Customer {
 })
 export class UniReportsComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, public service: EcCustomersService) { }
+  constructor(public dialog: MatDialog, public service: EcCustomersService, private route: ActivatedRoute, private router: Router, private ser: PersonService) { }
 
   CUSTOMER_DATA: Customer[] = [];
   displayedColumns: string[] = ['uniNationalId', 'uniName', 'uniType', 'state', 'city', 'info', 'status', 'subStatus', 'lastEditTime', 'subscriptionTime', 'map', 'actions'];
   dataSource : MatTableDataSource<Customer>;
 
+  id;
+  isOstani:boolean = false;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -53,10 +59,19 @@ export class UniReportsComponent implements OnInit {
   ngOnInit() {
 
     this.dataSource = new MatTableDataSource();
+    this.route.paramMap.subscribe( res => {
+      this.id = res.get('id');
+      if (this.id == 4) {
+        this.id= this.ser.userId;
+        this.isOstani = true;
+      }
+        this.getUniData();
+    });
+    
     this.dataSource.paginator = this.paginator;
     this.dataSource.paginator.pageSize = 10;
     this.dataSource.sort = this.sort;
-    this.getUniData();
+    
 
     this.uniNationalIdFilter.valueChanges.subscribe((uniNationalIdFilterValue) => {
       this.filteredValues['uniNationalId'] = uniNationalIdFilterValue;
@@ -96,7 +111,8 @@ export class UniReportsComponent implements OnInit {
   }
 
   getUniData(): Array<Customer>{
-    this.service.GetList(0).subscribe( res => {
+    this.service.GetList(this.id, this.isOstani).subscribe( res => {
+      this.isOstani = false;
       this.CUSTOMER_DATA = res as Customer[];
       this.dataSource.data = this.CUSTOMER_DATA;
     });
@@ -133,6 +149,18 @@ export class UniReportsComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+  openDelete(element:Customer) {
+    const dialogRef = this.dialog.open(UniDeleteComponent,{
+      data: element,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  
 
   openLog(element:Customer) {
     const dialogRef = this.dialog.open(UniStatusLogModalComponent,{

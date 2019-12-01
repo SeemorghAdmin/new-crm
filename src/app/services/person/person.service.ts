@@ -9,7 +9,7 @@ import { ConstantsService } from '../constants/constants.service';
 export class PersonService {
   constructor(private fb: FormBuilder, private http: HttpClient, private constants: ConstantsService) { }
   readonly BaseURI = this.constants.baseApiUrlNc;
-
+  public userId: string = '3333333333';
   // ایجاد فرم مدل استف
   formModel = this.fb.group(
     {

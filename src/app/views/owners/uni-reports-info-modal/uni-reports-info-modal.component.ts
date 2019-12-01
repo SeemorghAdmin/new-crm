@@ -43,4 +43,13 @@ export class UniReportsInfoModalComponent implements OnInit {
     this.edit4 = true;
   }
 
+  onSubmit()
+  {
+    this.service.UniPut().subscribe(res =>
+      {
+        console.log(res);
+      }
+      );
+  }
+
 }

@@ -64,12 +64,8 @@ import { TicketForDeveloperComponent } from './views/owners/ticket-for-developer
 import { ShowTicketForOwnersManagerComponent } from './views/owners/ticket-for-developer/show-ticket-for-owners-manager/show-ticket-for-owners-manager.component';
 import { ChatTicketForDeveloperComponent } from './views/owners/ticket-for-developer/chat-ticket-for-developer/chat-ticket-for-developer.component';
 import { ShowTicketForDeveloperComponent } from './views/developer/show-ticket-for-developer/show-ticket-for-developer.component';
-
-
-
-
-
-
+import { UniDeleteComponent } from './views/owners/uni-delete/uni-delete.component';
+import { DeleteUniService } from './services/owners/delete-uni.service';
 
 @NgModule({
   declarations: [
@@ -103,6 +99,7 @@ import { ShowTicketForDeveloperComponent } from './views/developer/show-ticket-f
     ShowTicketForOwnersManagerComponent,
     ChatTicketForDeveloperComponent,
     ShowTicketForDeveloperComponent,
+    UniDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -128,10 +125,12 @@ import { ShowTicketForDeveloperComponent } from './views/developer/show-ticket-f
     AccessCodeModalComponent,
     UniStatusLogModalComponent,
     UniReportsInfoModalComponent,
+    UniDeleteComponent,
   ],
 
   providers: [AuthService,
     TicketingService,
+    DeleteUniService,
     EcCustomersService, {
     // توسط نوید برای لاگین ثبت شده اند
     provide: HTTP_INTERCEPTORS,

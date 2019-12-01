@@ -30,13 +30,34 @@
   <mat-sidenav-container class="panel-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav class="panel-sidenav" #snav position="end" [mode]="mobileQuery.matches ? 'over' : 'side'"
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [(opened)]="opened">
-      <mat-nav-list class="side-nav-list-class">
-        <a mat-list-item routerLink="{{nav.url}}" *ngFor="let nav of fillerNav">
-          <p>
+      <mat-nav-list class="side-nav-list-class" >
+        <a mat-list-item routerLink="{{nav.url}}" id="{{nav.id}}" *ngFor="let nav of fillerNav" >
+          <p >
             <span matBadge={{nav.badge}} matBadgeOverlap="false" matBadgePosition="before" matBadgeColor="warn" *ngIf="nav.badge!=0">{{nav.name}}</span>
             <span *ngIf="nav.badge==0">{{nav.name}}</span>
+            
           </p>
         </a>
+        <mat-accordion style="text-align: right;" >
+         
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false" style=" background-color: rgb(192, 220, 222); box-shadow: none; padding-right: 0px;"> 
+            <mat-expansion-panel-header style="padding-right: 0px;">
+              <mat-panel-title>
+                امور مشترکین
+              </mat-panel-title>
+              <mat-panel-description >
+               
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+           <div class="subMenu"><a [routerLink]="[ '/owner/home/uni-reports/0' ]" >دانشگاه ها و مراکز آموزش عالی</a><br></div>
+           <div class="subMenu"><a [routerLink]="[ '/owner/home/uni-reports', 1 ]">حوزه علمیه</a><br></div>
+           <div class="subMenu"><a [routerLink]="[ '/owner/home/uni-reports/2' ]" >مراکز پژوهشی و تحقیقاتی</a><br></div>
+           <div class="subMenu"><a [routerLink]="[ '/owner/home/uni-reports/3' ]" >مراکز زیر نظر وزارت بهداشت</a></div>
+           <div class="subMenu"><a [routerLink]="[ '/owner/home/uni-reports/4' ]" >مشترکان استان</a></div>
+          </mat-expansion-panel>
+        </mat-accordion>
+        
       </mat-nav-list>
     </mat-sidenav>
 

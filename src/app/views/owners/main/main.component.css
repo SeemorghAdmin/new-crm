@@ -80,6 +80,29 @@ h1.panel-app-name {
      `<body>` to be our scrolling element for mobile layouts. */
   flex: 1 0 auto;
 }
+#test {
+  clear: both;
+}
 
+#panel {
+  padding: 5px;
+  text-align: center;
+  background-color: #e5eecc;
+  border: solid 1px #c3c3c3;
+}
 
+#panel {
+  
+  display: block;
+}
+
+.subMenu {
+  padding-bottom: 7px;
+  padding-top: 7px;
+
+}
+
+.subMenu:hover {
+  background-color: #b8d3d5;
+}
 /* test */

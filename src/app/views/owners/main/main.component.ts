@@ -3,11 +3,14 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit, Input } from '@angular
 import { Router } from '@angular/router';
 import { TicketingService } from 'src/app/services/Ticketing/Ticketing.service';
 import { PersonService } from './../../../services/person/person.service';
+import * as $ from 'jquery';
 
 export interface MenuItems {
   name: string;
   url: string;
   badge: number;
+  id: string;
+  
 }
 
 export interface Person {
@@ -47,7 +50,7 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
     ////////////////// انتهای بخش sidenav
   }
-  ngOnInit() {
+  public ngOnInit() {
     this.api.getCountTicket();
     this.api.TicketCountSelected.subscribe(res =>{
     this.unreadMsg = res;
@@ -61,6 +64,9 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
       }
     );
     this.opened = true;
+    
+
+  
   }
 
   updateBadgeNumbers(){
@@ -83,7 +89,8 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
     // tslint:disable-next-line: deprecation
     this.mobileQuery.removeListener(this._mobileQueryListener); // جهت پاکسازی sidenav
   }
-
+  
+  
   addUser: boolean;
   ticketingRequest: boolean;
   accessModi: boolean;
@@ -93,13 +100,13 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
         const element = person.accessCodes[index] + person.accessCodes[index + 1];
          switch (element) {
            case 'aa':
-            this.fillerNav.push({ name: "اضافه کردن کاربر جدید", url: "/owner/home/AddPerson", badge: 0 });
+            this.fillerNav.push({ name: "اضافه کردن کاربر جدید", url: "/owner/home/AddPerson", badge: 0, id:'' });
              break;
            case 'ab':
-            this.fillerNav.push({ name: "درخواست های پشتیبانی", url: "/owner/home/ShowTickets", badge: this.unreadMsg });
+            this.fillerNav.push({ name: "درخواست های پشتیبانی", url: "/owner/home/ShowTickets", badge: this.unreadMsg, id:'' });
              break;
            case 'ac':
-            this.fillerNav.push({ name: "ویرایش دسترسی کارکنان خاشع", url: "/owner/home/access-code", badge: 0 });
+            this.fillerNav.push({ name: "ویرایش دسترسی کارکنان خاشع", url: "/owner/home/access-code", badge: 0, id:''  });
              break;
            default:
              break;

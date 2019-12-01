@@ -59,7 +59,7 @@ const routes: Routes = [
 children:
 [
   {path: 'app-manage-uni-status', component: ManageUniStatusComponent},
-  {path: 'uni-reports', component: UniReportsComponent},
+  {path: 'uni-reports/:id', component: UniReportsComponent},
   {path: 'AddPerson', component: AddPersonComponent},
   {path: 'ChatTicket/:id', component:ChatTicketComponent},
   {path: 'app-chat-ticket-for-developer/:id', component:ChatTicketForDeveloperComponent},
