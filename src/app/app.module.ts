@@ -66,6 +66,7 @@ import { ChatTicketForDeveloperComponent } from './views/owners/ticket-for-devel
 import { ShowTicketForDeveloperComponent } from './views/developer/show-ticket-for-developer/show-ticket-for-developer.component';
 import { UniDeleteComponent } from './views/owners/uni-delete/uni-delete.component';
 import { DeleteUniService } from './services/owners/delete-uni.service';
+import { UniServiceRequstComponent } from './views/owners/uni-service-requst/uni-service-requst.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import { DeleteUniService } from './services/owners/delete-uni.service';
     ChatTicketForDeveloperComponent,
     ShowTicketForDeveloperComponent,
     UniDeleteComponent,
+    UniServiceRequstComponent,
   ],
   imports: [
     BrowserModule,

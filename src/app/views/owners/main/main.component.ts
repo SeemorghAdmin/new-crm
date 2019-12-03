@@ -9,7 +9,7 @@ export interface MenuItems {
   name: string;
   url: string;
   badge: number;
-  id: string;
+  
   
 }
 
@@ -100,13 +100,13 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
         const element = person.accessCodes[index] + person.accessCodes[index + 1];
          switch (element) {
            case 'aa':
-            this.fillerNav.push({ name: "اضافه کردن کاربر جدید", url: "/owner/home/AddPerson", badge: 0, id:'' });
+            this.fillerNav.push({ name: "اضافه کردن کاربر جدید", url: "/owner/home/AddPerson", badge: 0});
              break;
            case 'ab':
-            this.fillerNav.push({ name: "درخواست های پشتیبانی", url: "/owner/home/ShowTickets", badge: this.unreadMsg, id:'' });
+            this.fillerNav.push({ name: "درخواست های پشتیبانی", url: "/owner/home/ShowTickets", badge: this.unreadMsg});
              break;
            case 'ac':
-            this.fillerNav.push({ name: "ویرایش دسترسی کارکنان خاشع", url: "/owner/home/access-code", badge: 0, id:''  });
+            this.fillerNav.push({ name: "ویرایش دسترسی کارکنان خاشع", url: "/owner/home/access-code", badge: 0  });
              break;
            default:
              break;

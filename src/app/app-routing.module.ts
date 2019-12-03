@@ -27,9 +27,10 @@ import { TicketForDeveloperComponent } from './views/owners/ticket-for-developer
 import { ShowTicketForOwnersManagerComponent } from './views/owners/ticket-for-developer/show-ticket-for-owners-manager/show-ticket-for-owners-manager.component';
 import { ChatTicketForDeveloperComponent } from './views/owners/ticket-for-developer/chat-ticket-for-developer/chat-ticket-for-developer.component';
 import { ShowTicketForDeveloperComponent } from './views/developer/show-ticket-for-developer/show-ticket-for-developer.component';
+import { UniServiceRequstComponent } from './views/owners/uni-service-requst/uni-service-requst.component';
 
 const routes: Routes = [
-
+  
   {path: '', component: LoginPageComponent},
   {path: 'landing-page', component: LandingPageComponent},
   {path: 'table', component: TablesComponent},
@@ -67,6 +68,8 @@ children:
   {path: 'ShowTickets', component:ShowTicketsComponent},
   {path: 'app-ticket-for-developer', component:TicketForDeveloperComponent},
   {path: 'app-show-ticket-for-owners-manager', component:ShowTicketForOwnersManagerComponent},
+  {path: 'uni-services', component: UniServiceRequstComponent},
+  
 ]
 
 },
