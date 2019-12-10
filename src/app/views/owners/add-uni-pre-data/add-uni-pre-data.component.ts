@@ -47,8 +47,8 @@ export class AddUniPreDataComponent implements OnInit {
 
   uniNationalIDFilter = new FormControl();
   uniNameFilter = new FormControl();
-  stateNameFilter = new FormControl();
-  cityNameFilter = new FormControl();
+  uniTypeFilter = new FormControl();
+  addressFilter = new FormControl();
 
   filteredValues = {
     id: '', uniInternalCode: '',  uniType: '', name:'' , address:'' 
@@ -73,13 +73,13 @@ export class AddUniPreDataComponent implements OnInit {
       this.dataSource.filter = JSON.stringify(this.filteredValues);
     });
 
-    this.stateNameFilter.valueChanges.subscribe((stateNameFilterValue) => {
-      this.filteredValues['stateName'] = stateNameFilterValue;
+    this.uniTypeFilter.valueChanges.subscribe((uniTypeFilterValue) => {
+      this.filteredValues['stateName'] = uniTypeFilterValue;
       this.dataSource.filter = JSON.stringify(this.filteredValues);
     });
 
-    this.cityNameFilter.valueChanges.subscribe((cityNameFilterValue) => {
-      this.filteredValues['cityName'] = cityNameFilterValue;
+    this.addressFilter.valueChanges.subscribe((addressFilterValue) => {
+      this.filteredValues['cityName'] = addressFilterValue;
       this.dataSource.filter = JSON.stringify(this.filteredValues);
     });
 
@@ -92,6 +92,23 @@ export class AddUniPreDataComponent implements OnInit {
       res=>{
         this.dataSource.data = res as ReportUni[];
       });
+  }
+
+  postUniData(){
+    this.service.formModel.value.uniType = 1;
+    this.service.PostpostUniData().subscribe(
+      ress => {
+          // tslint:disable: triple-equals
+          if (ress == true) {
+             this.toster.success('ثبت نام با موفقیت انجام شد');
+          }
+      },
+      (err: any) => {
+          if (err.status == 400) {
+          this.toster.error(err.error);
+          }
+      });
+
   }
 
 

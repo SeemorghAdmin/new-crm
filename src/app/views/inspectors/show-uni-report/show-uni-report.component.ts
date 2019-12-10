@@ -34,9 +34,7 @@ export class ShowUniReportComponent implements OnInit {
 
   ELEMENT_DATA: ReportUni[] = [];
 
-  constructor(public dialog: MatDialog, public http: HttpClient) {
-
-  }
+  constructor(public dialog: MatDialog, public http: HttpClient) { }
 
   displayedColumns: string[] = ['uniNationalId', 'uniName', 'uniSubCode','stateName','cityName', 'registerDate','numService'
  ];

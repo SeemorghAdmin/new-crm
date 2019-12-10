@@ -11,12 +11,14 @@ export class AddUniPreDataService {
 
   constructor(private fb: FormBuilder, private http: HttpClient, private constants: ConstantsService) { }
   readonly BaseURI = this.constants.baseApiUrlNc;
+  readonly BaseURL = this.constants.baseApiUrlEc;
 
 
    // ایجاد فرم مدل افزودن دانشگاه ها
    formModel = this.fb.group(
     {
-      unicode : ['', Validators.required],
+      uniType:['', Validators.required],
+      unicode: ['', Validators.required],
       uniname: ['', Validators.required],
       address: ['', Validators.required],
     
@@ -31,18 +33,19 @@ export class AddUniPreDataService {
 
 
 
-      // ساخت متد پست دولوپر
-      PostAddDeveloper()
+      // ساخت متد پست دانشگاه
+      PostpostUniData()
       {
           var body =
           {
+            uniType:this.formModel.value.unicode,
             unicode : this.formModel.value.unicode,
             uniname : this.formModel.value.uniname,
             address: this.formModel.value.address,
             
           };
 
-          return this.http.post(this.BaseURI + '/Owners', body);
+          return this.http.post(this.BaseURL + '/post-pre-university.jsp', body);
       }
 
       // متد ورود به حساب کاربری
@@ -53,17 +56,12 @@ export class AddUniPreDataService {
           UserName: this.loginModel.value.UserName,
           Password: this.loginModel.value.Password
         };
-        return this.http.post(this.BaseURI + '/add-uni-pre-data' , body);
+        return this.http.post(this.BaseURL + '/add-uni-pre-data' , body);
       }
 
       //مشخصات حساب کاربری
       GetUserProfile()
       {
-        return this.http.get(this.BaseURI + '/add-uni-pre-data');
+        return this.http.get(this.BaseURL + '/add-uni-pre-data');
       }
 }
-
-
-
-
-

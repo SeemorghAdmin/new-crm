@@ -1,9 +1,18 @@
-<form id="send-pre-data" method="post" action="add-uni-pre-data.jsp" onsubmit=" return validateForm('#send-pre-data');" class=" col-md-12" style="float: right;">
+
+    <form id="form" class="was-validated" [formGroup]="service.formModel" autocomplete="off" (submit)="postUniData()">
+    
+
+
     <input type="hidden" name="action" value="send-pre-data" style="float: right;">
     <div class="formBox col-md-12" style="float: right;">
+        <div style="align-content:center ;">
         <h3 style="float: right;">اضافه کردن اطلاعات دانشگاه های پیش فرض</h3>
+    </div>
         <br>
         <br>
+        
+
+
         <div class="formRow" style="float: right;">
             <select class="formSelect" id="select-source" name="source" style="width: 200px;margin-left: 20px">
                 <option value="" disabled="" selected="" hidden="">نوع مرکز خود را انتخاب کنید&nbsp;...</option>
@@ -37,26 +46,25 @@
         <div class="formRow" style="float: right;" >
             <div class="formItem" style="float: right;">
                 <label>کد دانشگاه :</label>
-                <input class="formInput numberInput" name="internal-code" maxlength="5" minlength="1" style="width: 100px;margin-left: 20px;" type="text">
+                <input class="formInput numberInput" name="internal-code" maxlength="5" minlength="1" style="width: 100px;margin-left: 20px;" type="text" formControlName="uniNationalIDFilter" required>
             </div>
             <div class="formItem" style="float: right;">
                 <label>نام دانشگاه :</label>
-                <input class="formInput persianInput" name="name" maxlength="40" style="width: 200px;margin-left: 20px;" type="text">
+                <input class="formInput persianInput" name="name" maxlength="40" style="width: 200px;margin-left: 20px;" type="text" formControlName=" uniNameFilter" required> 
             </div>
         </div>
         <div class="formRow" style="float: right;">
             <div class="formItem" style="float: right;">
                 <label>آدرس :</label>
-                <input class="formInput" name="address" maxlength="200" style="width: 400px;margin-left: 20px;" type="text">
+                <input class="formInput" name="address" maxlength="200" style="width: 400px;margin-left: 20px;" type="text" formControlName=" addressFilter" required >
             </div>
         </div>
         <div class="formRow" style=" display: table; width: 100%;">
             <input type="submit" value="تایید" class="btn btn-primary formBtn" style="margin-right: 10px;float: left">
         </div>
     </div>
+
 </form>
-
-
 
 
 
