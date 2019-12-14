@@ -10,6 +10,6 @@ export class DeleteUniService {
 
     DeleteUni(id)
     {
-        return this.http.post(this.BaseURI + '/Univercity?id='+id, id);
+        return this.http.post(this.BaseURI + '/Univercity?id=' + id, id);
     }
 }

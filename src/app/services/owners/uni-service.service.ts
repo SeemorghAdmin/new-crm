@@ -17,4 +17,9 @@ export class UniService {
   {
       return this.http.get(this.BaseURI + '/Univercity');
   }
+
+  Delete(id)
+  {
+    return this.http.delete(this.BaseURI + '/Univercity?id=' + id)
+  }
 }

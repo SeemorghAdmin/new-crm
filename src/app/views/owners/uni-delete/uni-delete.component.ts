@@ -15,12 +15,12 @@ export class UniDeleteComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private service: DeleteUniService, public toster: ToastrService) { }
 
   ngOnInit() {
+    
   }
 
   delete(uniId)
   {
-    uniId = 1;
-      this.service.DeleteUni(uniId).subscribe(
+      this.service.DeleteUni(this.data.uniNationalId).subscribe(
         res => 
         {
           if (res == true) {
