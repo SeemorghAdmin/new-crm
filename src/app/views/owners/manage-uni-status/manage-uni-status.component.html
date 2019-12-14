@@ -1,48 +1,72 @@
-<div class="row" style="direction: rtl;">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-        <div class="card card-user" style="text-align: right;">
-            <h5 style="margin-top: 30px;margin-right: 20px;">تغییر در وضعیت دانشگاه</h5>
-            <div class="row" style="margin-right: 20px;margin-top: 30px;">
-                <p>نوع تغییر : </p>
-                <select id="ddl" dir="rtl" style="width: 300px;" 
-                    class="custom-select custom-select-sm">
-                    <option>اصلاح خطا در در فرم درخواست عضویت</option>
-                    <option>item1
-                    </option>
-                </select>
-                <p style="margin-right: 30px;"> زیروضعیت : </p>
-                <select id="ddl" dir="rtl" style="width: 300px;" 
-                    class="custom-select custom-select-sm">
-                    <option>مشکل در فرم درخواست عضویت</option>
-                    <option>item1
-                    </option>
-                </select>
-            </div>
-            <div class="row" style="margin-right: 20px;margin-top: 30px;">
-                <p>شناسه ملی :</p>
-                <input type="text" class="form-control" style="width: 200px;height: 30px;" id="formGroupExampleInput"
-                    name="title" disabled>
-                <p>نام دانشگاه :</p>
-                <input type="text" class="form-control" style="width: 200px;height: 30px;" id="formGroupExampleInput"
-                    name="title" disabled>
-            </div>
-            <p style="margin-right: 20px;margin-top: 30px;">پیام :</p>
-            <div class="row" style="margin-right: 20px;margin-left: 20px;">
-                <textarea class="form-control" name="comment" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <div class="row" style="margin-right: 20px;margin-top: 30px;">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <p style="margin-right: 30px;"> آیا نامه الکترونیکی به مشترک ارسال شود؟</p>
-            </div>
-            <div class="row" style="text-align: left;">
-                <div class="col-md-12">
-                    <input class="btn btn-primary" type="submit" value="تایید"
-                        style="margin-bottom: 2%;margin-left: 5%;background-color: #2f9fd3;width: 100px;height: 30px;">
+<div id="countenr">
+    <h2 mat-dialog-title dir="rtl" style="direction: rtl; margin-right: 15px;">تغییر وضعیت <span style="color: red;">
+            {{data.uniName}} </span></h2>
+    <mat-dialog-content class="mat-typography">
+        <div class="row" style="direction: rtl;">
+            <div class="col-md-12">
+                <div style="text-align: right;">
+                    <div class="row" style="margin-right: 20px;margin-top: 30px;">
+                        <p>نوع تغییر : </p>
+                        <select id="ddl" dir="rtl" (change)="log($event.target.value)" style="width: 40%;"
+                            class="custom-select custom-select-sm">
+                            <option>وضعیت</option>
+                            <option *ngFor="let item of firstDropDown; let i = index" value="{{item.value}}">
+                                {{item.faStr}}
+                            </option>
+                        </select>
+                        <div class="row" *ngIf="t == 1">
+                        <p style="margin-right: 30px;" *ngIf="ta == 1"> زیروضعیت : </p>
+                        <select id="ddl" dir="rtl" style="width: 40%;" *ngIf="ta == 1"  (change)="logg($event.target.value)"
+                            class="custom-select custom-select-sm">
+                            <option>زیر وضعیت</option>
+                            <option *ngFor="let item of mySentences; let i = index" value="{{item.id}}">{{item.text}}</option>
+                        </select>
+                        <p style="margin-right: 30px;" *ngIf="ta == 2"> زیروضعیت : </p>
+                        <select id="ddl" dir="rtl" style="width: 40%;" *ngIf="ta == 2"   (change)="logg($event.target.value)"
+                        class="custom-select custom-select-sm">
+                        <option>زیر وضعیت</option>
+                        <option *ngFor="let item of mySentences1; let i = index" value="{{item.id}}">{{item.text}}</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="row" style="margin-right: 20px;margin-top: 30px;">
+                        <p>شناسه ملی :</p>
+                        <input type="text" class="form-control" placeholder="{{data.uniNationalId}}" style="width: 200px;height: 30px;" 
+                            id="formGroupExampleInput" name="title" disabled>
+                        <p>نام دانشگاه :</p>
+                        <input type="text" class="form-control" placeholder="{{data.uniName}}" style="width: 300px;height: 30px;"  
+                            id="formGroupExampleInput" name="title" disabled>
+                    </div>
+                    <p style="margin-right: 20px;margin-top: 30px;" *ngIf="t == 1">پیام :</p>
+                    <div class="row" style="margin-right: 20px;margin-left: 20px;" *ngIf="t == 1">
+                        <textarea class="form-control" name="msg" id="exampleFormControlTextarea1"  [(ngModel)]="Unilog.msg"
+                            rows="3"></textarea>
+                    </div>
+                    <div class="row" style="margin-right: 20px;margin-top: 30px;" *ngIf="t == 1">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" disabled>
+                        <p style="margin-right: 30px;"> آیا نامه الکترونیکی به مشترک ارسال شود؟</p>
+                    </div>
+                    <div class="row" style="margin-right: 20px;margin-top: 30px;" *ngIf="t == 2">
+                        <p style="margin-right: 30px;"> ضمیمه فایل:</p>
+                        <app-upload style=" width: 100px;" (onUploadFinished)="uploadFinished($event)"
+                            ></app-upload>
+                    </div> 
+                    <div class="row" style="margin-right: 20px;" >
+                        <span style="color: black;margin-right: 10px; " class="upload" *ngIf="progress > 0">
+                            {{progress}}%
+                          </span>
+                          <span style="color: black;margin-right: 10px;" class="upload" *ngIf="message">
+                            {{message}}
+                          </span> 
+                    </div>
+                    <div class="row" style="text-align: left;">
+                        <div class="col-md-12">
+                            <input class="btn btn-primary" (click)="upload(Unilog)" type="submit" value="تایید"
+                                style="margin-bottom: 2%;margin-left: 5%;background-color: #2f9fd3;width: 100px;height: 30px;">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-2"></div>
+    </mat-dialog-content>
 </div>
-

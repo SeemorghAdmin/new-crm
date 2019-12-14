@@ -22,6 +22,7 @@ export interface Customer{
   finalContract: string;
   letter: string;
   receiptPost: string;
+  iD: number;
 }
 
 @Component({
@@ -113,6 +114,10 @@ export class UniServiceRequstComponent implements OnInit {
         data.number.toString().trim().toLowerCase().indexOf(searchString.state.toLowerCase()) !== -1;
     }
     return myFilterPredicate;
+  }
+  getUploadPage(id)
+  {
+    this.router.navigateByUrl('/owner/home/app-service-file-upload/' + id);
   }
 
 }

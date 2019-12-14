@@ -59,7 +59,6 @@ import { UniStatusLogModalComponent } from './views/owners/uni-status-log-modal/
 import { UniReportsComponent } from './views/owners/uni-reports/uni-reports.component';
 import { UniReportsInfoModalComponent } from './views/owners/uni-reports-info-modal/uni-reports-info-modal.component';
 import { AddUniPreDataComponent } from './views/owners/add-uni-pre-data/add-uni-pre-data.component';
-<<<<<<< Updated upstream
 import { EcCustomersService } from './services/owners/ec-customers.service';
 import { TicketForDeveloperComponent } from './views/owners/ticket-for-developer/ticket-for-developer.component';
 import { ShowTicketForOwnersManagerComponent } from './views/owners/ticket-for-developer/show-ticket-for-owners-manager/show-ticket-for-owners-manager.component';
@@ -68,16 +67,11 @@ import { ShowTicketForDeveloperComponent } from './views/developer/show-ticket-f
 import { UniDeleteComponent } from './views/owners/uni-delete/uni-delete.component';
 import { DeleteUniService } from './services/owners/delete-uni.service';
 import { UniServiceRequstComponent } from './views/owners/uni-service-requst/uni-service-requst.component';
-=======
-import { ReportSubsComponent } from './views/owners/report-subs/report-subs.component';
+import { UploadComponent } from './views/owners/manage-uni-status/upload/upload.component';
+import { ServiceFileUploadComponent } from './views/owners/uni-service-requst/service-file-upload/service-file-upload.component';
 
 
 
-
-
-
-
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -107,17 +101,14 @@ import { ReportSubsComponent } from './views/owners/report-subs/report-subs.comp
     UniReportsComponent,
     UniReportsInfoModalComponent,
     AddUniPreDataComponent,
-<<<<<<< Updated upstream
     TicketForDeveloperComponent,
     ShowTicketForOwnersManagerComponent,
     ChatTicketForDeveloperComponent,
     ShowTicketForDeveloperComponent,
     UniDeleteComponent,
     UniServiceRequstComponent,
-=======
-    ReportSubsComponent,
-  
->>>>>>> Stashed changes
+    UploadComponent,
+    ServiceFileUploadComponent,
   ],
   imports: [
     BrowserModule,

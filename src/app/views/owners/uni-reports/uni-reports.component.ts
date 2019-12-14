@@ -10,6 +10,7 @@ import { EcCustomersService } from 'src/app/services/owners/ec-customers.service
 import { UniStatusLogModalComponent } from '../uni-status-log-modal/uni-status-log-modal.component';
 import { UniDeleteComponent } from './../uni-delete/uni-delete.component';
 import { PersonService } from './../../../services/person/person.service';
+import { ManageUniStatusComponent } from '../manage-uni-status/manage-uni-status.component';
 
 export interface Customer {
   uniName: string;
@@ -164,6 +165,15 @@ export class UniReportsComponent implements OnInit {
 
   openLog(element:Customer) {
     const dialogRef = this.dialog.open(UniStatusLogModalComponent,{
+      data: element,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  openEditlog(element:Customer) {
+    const dialogRef = this.dialog.open(ManageUniStatusComponent,{
       data: element,
     });
 

@@ -13,10 +13,12 @@
             <ul class="list-unstyled" *ngFor="let item of ChatTicketing; let i = index">
                <li class="left clearfix admin_chat">
                   <span class="chat-img1 pull-right">
-                     <img src="assets/images/customer-flat-icon-vector-14992103.jpg" alt="User Avatar"
+                     <img src="assets/images/customer-flat-icon-vector-14992103.jpg" alt="User Avatar" style="width: 50px;height: 50px;"
                         class="img-circle" *ngIf="item.person.role1==3">
-                     <img src="assets/images/118-512.png" alt="User Avatar" class="img-circle"
+                     <img src="assets/images/118-512.png" alt="User Avatar" class="img-circle" style="width: 50px;height: 50px;"
                         *ngIf="item.person.role1==2">
+                        <img src="assets/images/character-operator-call-center-computer-support-vector-14328772.jpg" alt="User Avatar" class="img-circle" style="width: 50px;height: 50px;"
+                        *ngIf="item.person.role1==1">
                   </span>
                   <div class="chat-body1 clearfix">
                      <p style="text-align: right;">{{item.comment}}</p>
@@ -60,6 +62,5 @@
          </div>
       </div>
    </div>
- 
 </div>
 

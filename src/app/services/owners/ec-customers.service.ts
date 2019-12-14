@@ -81,4 +81,9 @@ export class EcCustomersService {
     console.log(body);
     return this.http.post(this.BaseUrlEc + '/post-uni-info.jsp', body);
   }
+  
+  GetManageStatus(id)
+  {
+    return this.http.get(this.BaseUrlEc + '/manage-uni-status.jsp?id=' + id);
+  }
 }
