@@ -1,0 +1,35 @@
+table, th, td { 
+  border: 1px solid black; 
+  border-collapse: collapse; 
+} 
+        
+th, td { 
+  padding: 5px; 
+  text-align: center;
+} 
+
+.formTable{
+    padding: 6px;
+    height: 30px;
+    font-family: BYekan;
+}
+
+.formBox {
+  max-width: 90%;
+  padding: 10px 30px;
+  padding-bottom: 50px;
+  
+  border: 1px solid #41709c;
+}
+
+.center {
+  margin: auto;
+
+}
+
+
+.scroll-div {
+width:100%;
+height: 98%;
+overflow-y: scroll;
+}
