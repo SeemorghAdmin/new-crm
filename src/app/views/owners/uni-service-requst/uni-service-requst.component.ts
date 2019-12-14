@@ -10,8 +10,10 @@ import { UniService } from 'src/app/services/owners/uni-service.service';
 import { UniStatusLogModalComponent } from '../uni-status-log-modal/uni-status-log-modal.component';
 import { UniDeleteComponent } from './../uni-delete/uni-delete.component';
 import { PersonService } from './../../../services/person/person.service';
+import { ToastrService } from 'ngx-toastr';
 
 export interface Customer{
+  id: number;
   uniName: string;
   title: string;
   status: string;
@@ -33,7 +35,7 @@ export interface Customer{
 
 export class UniServiceRequstComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, public service: UniService, private route: ActivatedRoute, private router: Router, private ser: PersonService) { }
+  constructor(public dialog: MatDialog, public service: UniService, private route: ActivatedRoute, private router: Router, private ser: PersonService, private toster: ToastrService) { }
 
   CUSTOMER_DATA: Customer[] = [];
   displayedColumns: string[] = [ 'uniName', 'title', 'status', 'number', 'time', 'formatContract', 'singlSignatureContract',
@@ -96,12 +98,24 @@ export class UniServiceRequstComponent implements OnInit {
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   getUniData(): Array<Customer>{
     this.service.GetList().subscribe( res => {
-      console.log('dfffffffffffffffffffffffffffffffffff')
-      console.log(res);
+      
       this.CUSTOMER_DATA = res as Customer[];
       this.dataSource.data = this.CUSTOMER_DATA;
     });
     return this.CUSTOMER_DATA;
+  }
+
+  delete(element: Customer)
+  {
+    this.service.Delete(element.id).subscribe(
+      res => {
+        if (res == true) {
+          this.toster.success('سرویس فرم ' + element.uniName + ' حذف شد.')
+        } else {
+          this.toster.error('خطایی در انجام عملیات رخ داد.')
+        }
+      }
+    )
   }
 
   customFilterPredicate() {
