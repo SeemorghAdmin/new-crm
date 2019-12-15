@@ -89,7 +89,6 @@ children:
 
   {path: 'ShowUniReport', component: ShowUniReportComponent},
   {path: 'add-uni-pre-data', component: AddUniPreDataComponent},
-  {path:'report-subs', component:ReportSubsComponent },
 
 ];
 @NgModule({

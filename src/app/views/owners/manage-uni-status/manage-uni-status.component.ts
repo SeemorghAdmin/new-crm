@@ -45,17 +45,16 @@ public mySentences1:Array<Object> = [
 public uploadFinished = (event) => {
   this.response = event;
   this.response.append('id',this.data.uniNationalId);
-  this.response.append('type','register');
 };
   ngOnInit() {
     this.api.GetManageStatus(this.data.uniNationalId).subscribe(res => {
       this.firstDropDown = res;
     });
   }
-  logg(id)
+  logg(id) 
   {
     this.substatus =id;
-  } 
+  }  
   log(id) {
     this.status=id;
     if(id == 2)
@@ -94,17 +93,19 @@ public uploadFinished = (event) => {
     Unilog.uniNationalId=this.data.uniNationalId ;
     Unilog.uniSubStatus= parseInt(this.substatus);
    }
-    
-     
-    // this.http.post('http://localhost:50352/api/TesstUpload', this.response, {reportProgress: true, observe: 'events'})
-    // .subscribe(event2 => {
-    //   if (event2.type === HttpEventType.UploadProgress)
-    //       this.progress = Math.round(100 * event2.loaded / event2.total);
-    //       else if (event2.type === HttpEventType.Response) {
-    //         this.message = 'آپلود انجام شد';  
-    //       }
-    // });  
+   
 this.apii.postStatus(Unilog).subscribe(res => {
 });
   }
-} 
+  uploadd()
+  {
+     this.http.post('http://localhost:58989/api/UniStatusLog/Upload', this.response, {reportProgress: true, observe: 'events'})
+    .subscribe(event2 => {
+      if (event2.type === HttpEventType.UploadProgress)
+          this.progress = Math.round(100 * event2.loaded / event2.total);
+          else if (event2.type === HttpEventType.Response) {
+            this.message = 'آپلود انجام شد';  
+          }
+    });  
+  }
+}  
