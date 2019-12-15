@@ -31,7 +31,7 @@ import { UniServiceRequstComponent } from './views/owners/uni-service-requst/uni
 import { ServiceFileUploadComponent } from './views/owners/uni-service-requst/service-file-upload/service-file-upload.component';
 
 const routes: Routes = [
-  
+
   {path: '', component: LoginPageComponent},
   {path: 'landing-page', component: LandingPageComponent},
   {path: 'table', component: TablesComponent},
@@ -70,8 +70,8 @@ children:
   {path: 'app-ticket-for-developer', component:TicketForDeveloperComponent},
   {path: 'app-show-ticket-for-owners-manager', component:ShowTicketForOwnersManagerComponent},
   {path: 'uni-services', component: UniServiceRequstComponent},
-  {path: 'app-service-file-upload/:id', component: ServiceFileUploadComponent}, 
-  
+  {path: 'app-service-file-upload/:id', component: ServiceFileUploadComponent},
+
 ]
 
 },
@@ -92,7 +92,7 @@ children:
 
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{ enableTracing: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

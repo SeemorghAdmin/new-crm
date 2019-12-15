@@ -9,7 +9,7 @@ export class AuthInterceptor implements HttpInterceptor {
     constructor(private router: Router) {
     }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if (localStorage.getItem('token') != null && !req.url.includes('crm.nren.ir')) {
+        if (localStorage.getItem('token') != null && !req.url.includes('crm.nren.ir') && !req.url.includes('localhost:80')) {
             const clonedReq = req.clone({
                 headers: req.headers.set('Authorization', 'Bearer ' + localStorage.getItem('token'))
             });

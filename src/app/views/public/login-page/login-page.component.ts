@@ -56,13 +56,13 @@ export class LoginPageComponent implements OnInit {
       {
         this.service.loginModel.reset();
         //this.service.userId = res.user.personNational_ID;
-        
+
         //this.toastr.success('Ok');
         //console.log(res.user.token)
         localStorage.setItem('token', res.user.token);
         localStorage.setItem('role', res.user.role1 );
         localStorage.setItem('role2',res.user.role2);
-        if (res.user.needChangePassword == true) 
+        if (res.user.needChangePassword == true)
         {
           this.router.navigateByUrl('/change-password/' + res.user.personNational_ID);
         } else
@@ -81,13 +81,13 @@ export class LoginPageComponent implements OnInit {
               case 4:
               this.router.navigateByUrl('/inspeector/home');
               break;
-  
+
             default:
               break;
           }
         }
-       
-        
+
+
       }
     }, (err : any) =>
     {

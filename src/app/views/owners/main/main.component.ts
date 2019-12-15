@@ -9,8 +9,6 @@ export interface MenuItems {
   name: string;
   url: string;
   badge: number;
-  
-  
 }
 
 export interface Person {
@@ -64,9 +62,9 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
       }
     );
     this.opened = true;
-    
 
-  
+
+
   }
 
   updateBadgeNumbers(){
@@ -77,7 +75,7 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
       }
     });
 
-   
+
   }
 
   onLogout() {
@@ -89,8 +87,8 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
     // tslint:disable-next-line: deprecation
     this.mobileQuery.removeListener(this._mobileQueryListener); // جهت پاکسازی sidenav
   }
-  
-  
+
+
   addUser: boolean;
   ticketingRequest: boolean;
   accessModi: boolean;
@@ -100,13 +98,13 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
         const element = person.accessCodes[index] + person.accessCodes[index + 1];
          switch (element) {
            case 'aa':
-            this.fillerNav.push({ name: "اضافه کردن کاربر جدید", url: "/owner/home/AddPerson", badge: 0});
+            this.fillerNav.push({ name: "اضافه کردن کاربر جدید", url: "/owner/home/AddPerson", badge: 0 });
              break;
            case 'ab':
-            this.fillerNav.push({ name: "درخواست های پشتیبانی", url: "/owner/home/ShowTickets", badge: this.unreadMsg});
+            this.fillerNav.push({ name: "درخواست های پشتیبانی", url: "/owner/home/ShowTickets", badge: this.unreadMsg });
              break;
            case 'ac':
-            this.fillerNav.push({ name: "ویرایش دسترسی کارکنان خاشع", url: "/owner/home/access-code", badge: 0  });
+            this.fillerNav.push({ name: "ویرایش دسترسی کارکنان خاشع", url: "/owner/home/access-code", badge: 0 });
              break;
            default:
              break;
