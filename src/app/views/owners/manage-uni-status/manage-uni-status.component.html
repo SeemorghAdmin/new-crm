@@ -15,32 +15,34 @@
                             </option>
                         </select>
                         <div class="row" *ngIf="t == 1">
-                        <p style="margin-right: 30px;" *ngIf="ta == 1"> زیروضعیت : </p>
-                        <select id="ddl" dir="rtl" style="width: 40%;" *ngIf="ta == 1"  (change)="logg($event.target.value)"
-                            class="custom-select custom-select-sm">
-                            <option>زیر وضعیت</option>
-                            <option *ngFor="let item of mySentences; let i = index" value="{{item.id}}">{{item.text}}</option>
-                        </select>
-                        <p style="margin-right: 30px;" *ngIf="ta == 2"> زیروضعیت : </p>
-                        <select id="ddl" dir="rtl" style="width: 40%;" *ngIf="ta == 2"   (change)="logg($event.target.value)"
-                        class="custom-select custom-select-sm">
-                        <option>زیر وضعیت</option>
-                        <option *ngFor="let item of mySentences1; let i = index" value="{{item.id}}">{{item.text}}</option>
-                        </select>
-                    </div>
+                            <p style="margin-right: 30px;" *ngIf="ta == 1"> زیروضعیت : </p>
+                            <select id="ddl" dir="rtl" style="width: 40%;" *ngIf="ta == 1"
+                                (change)="logg($event.target.value)" class="custom-select custom-select-sm">
+                                <option>زیر وضعیت</option>
+                                <option *ngFor="let item of mySentences; let i = index" value="{{item.id}}">
+                                    {{item.text}}</option>
+                            </select>
+                            <p style="margin-right: 30px;" *ngIf="ta == 2"> زیروضعیت : </p>
+                            <select id="ddl" dir="rtl" style="width: 40%;" *ngIf="ta == 2"
+                                (change)="logg($event.target.value)" class="custom-select custom-select-sm">
+                                <option>زیر وضعیت</option>
+                                <option *ngFor="let item of mySentences1; let i = index" value="{{item.id}}">
+                                    {{item.text}}</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="row" style="margin-right: 20px;margin-top: 30px;">
                         <p>شناسه ملی :</p>
-                        <input type="text" class="form-control" placeholder="{{data.uniNationalId}}" style="width: 200px;height: 30px;" 
-                            id="formGroupExampleInput" name="title" disabled>
+                        <input type="text" class="form-control" placeholder="{{data.uniNationalId}}"
+                            style="width: 200px;height: 30px;" id="formGroupExampleInput" name="title" disabled>
                         <p>نام دانشگاه :</p>
-                        <input type="text" class="form-control" placeholder="{{data.uniName}}" style="width: 300px;height: 30px;"  
-                            id="formGroupExampleInput" name="title" disabled>
+                        <input type="text" class="form-control" placeholder="{{data.uniName}}"
+                            style="width: 300px;height: 30px;" id="formGroupExampleInput" name="title" disabled>
                     </div>
                     <p style="margin-right: 20px;margin-top: 30px;" *ngIf="t == 1">پیام :</p>
                     <div class="row" style="margin-right: 20px;margin-left: 20px;" *ngIf="t == 1">
-                        <textarea class="form-control" name="msg" id="exampleFormControlTextarea1"  [(ngModel)]="Unilog.msg"
-                            rows="3"></textarea>
+                        <textarea class="form-control" name="msg" id="exampleFormControlTextarea1"
+                            [(ngModel)]="Unilog.msg" rows="3"></textarea>
                     </div>
                     <div class="row" style="margin-right: 20px;margin-top: 30px;" *ngIf="t == 1">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1" disabled>
@@ -48,18 +50,80 @@
                     </div>
                     <div class="row" style="margin-right: 20px;margin-top: 30px;" *ngIf="t == 2">
                         <p style="margin-right: 30px;"> ضمیمه فایل:</p>
-                        <app-upload style=" width: 100px;" (onUploadFinished)="uploadFinished($event)"
-                            ></app-upload>
-                    </div> 
-                    <div class="row" style="margin-right: 20px;" >
+                        <app-upload style=" width: 100px;" (onUploadFinished)="uploadFinished($event)"></app-upload>
+                    </div>
+                    <div class="row" style="margin-right: 20px;">
                         <span style="color: black;margin-right: 10px; " class="upload" *ngIf="progress > 0">
                             {{progress}}%
-                          </span>
-                          <span style="color: black;margin-right: 10px;" class="upload" *ngIf="message">
+                        </span>
+                        <span style="color: black;margin-right: 10px;" class="upload" *ngIf="message">
                             {{message}}
-                          </span> 
+                        </span>
                     </div>
-                    <div class="row" style="text-align: left;" *ngIf="t != 2">
+                    <div class="row" *ngIf="t == 4" style="margin-right: 20px;margin-top: 30px;">
+                        <p>ضمیمه فایل اشتراک امضا شده توسط طرفین</p>
+                        <a style="cursor: pointer;">
+                            <input type="file" #filee placeholder="Choose file" (change)="uploadFile1(filee.files)"
+                                style="display:none;">
+                            <img src="assets/images/file-choose.png" style="width: 25px; margin-right: 5px;"
+                                (click)="filee.click()">
+                        </a>
+                        <p>{{tb}}</p>
+                        <span style="color: black;margin-right: 10px; " class="upload" *ngIf="progress1 > 0">
+                            {{progress1}}%
+                        </span>
+                        <span style="color: black;margin-right: 10px;" class="upload" *ngIf="message1">
+                            {{message1}}
+                        </span>
+                    </div>
+                    <div class="row" *ngIf="t == 4" style="margin-right: 20px;">
+                        <p>فایل نامه ارسال قرداد</p>
+                        <a style="cursor: pointer;">
+                            <input type="file" #fileee placeholder="Choose file" (change)="uploadFile2(fileee.files)"
+                                style="display:none;">
+                            <img src="assets/images/file-choose.png" style="width: 25px; margin-right: 5px;"
+                                (click)="fileee.click()">
+                        </a>
+                        <p>{{tc}}</p>
+                        <span style="color: black;margin-right: 10px; " class="upload" *ngIf="progress2 > 0">
+                            {{progress2}}%
+                        </span>
+                        <span style="color: black;margin-right: 10px;" class="upload" *ngIf="message2">
+                            {{message2}}
+                        </span>
+                    </div>
+                    <div class="row" *ngIf="t == 4" style="margin-right: 20px;">
+                        <p>فایل رسید پست ارسال قرارداد</p>
+                        <a style="cursor: pointer;">
+                            <input type="file" #fileeee placeholder="Choose file" (change)="uploadFile3(fileeee.files)"
+                                style="display:none;">
+                            <img src="assets/images/file-choose.png" style="width: 25px; margin-right: 5px;"
+                                (click)="fileeee.click()">
+                        </a>
+                        <p>{{td}}</p>
+                        <span style="color: black;margin-right: 10px; " class="upload" *ngIf="progress3 > 0">
+                            {{progress3}}%
+                        </span>
+                        <span style="color: black;margin-right: 10px;" class="upload" *ngIf="message3">
+                            {{message3}}
+                        </span>
+                    </div>
+                    <div class="row" *ngIf="t == 4" style="margin-right: 20px;margin-top: 10px;">
+                        <p>شماره قرارداد اشتراک:</p>
+                        <input type="text" class="form-control" [(ngModel)]="r" id="formGroupExampleInput" name="title"
+                            style="width: 30%;margin-right: 5px;border-color: black;height: 30px;">
+                    </div>
+                   <div class="row" *ngIf="t == 4" style="margin-right: 20px;">
+                    <p >تاریخ قرارداد اشتراک:</p> 
+                    <dp-date-picker 
+                    dir="rtl"
+                    [(ngModel)]="selectedDate"
+                    placeholder="تاریخ"
+                    [config]="datePickerConfig"
+                    theme="dp-material">
+                  </dp-date-picker>
+                   </div>
+                    <div class="row" style="text-align: left;" *ngIf="t == 1">
                         <div class="col-md-12">
                             <input class="btn btn-primary" (click)="upload(Unilog)" type="submit" value="تایید"
                                 style="margin-bottom: 2%;margin-left: 5%;background-color: #2f9fd3;width: 100px;height: 30px;">
@@ -72,10 +136,14 @@
                                 style="margin-bottom: 2%;margin-left: 5%;background-color: #2f9fd3;width: 100px;height: 30px;">
                         </div>
                     </div>
-
-
+                    <div class="row" style="text-align: left;" *ngIf="t == 4">
+                        <div class="col-md-12">
+                            <input class="btn btn-primary" (click)="uploaddd(selectedDate)" type="submit" value="تایید"
+                                style="margin-bottom: 2%;margin-left: 5%;background-color: #2f9fd3;width: 100px;height: 30px;">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </mat-dialog-content>
-</div> 
+</div>

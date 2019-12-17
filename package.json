@@ -13,6 +13,7 @@
   "dependencies": {
     "@amcharts/amcharts4": "^4.6.6",
     "@amcharts/amcharts4-geodata": "^4.1.7",
+    "@angular-persian/material-date-picker": "^1.8.1",
     "@angular/animations": "^8.2.11",
     "@angular/cdk": "^8.2.0",
     "@angular/common": "~8.2.3",
@@ -44,6 +45,7 @@
     "leaflet": "^1.5.1",
     "moment": "^2.24.0",
     "ng-multiselect-dropdown": "^0.2.3",
+    "ng2-jalali-date-picker": "^2.2.7",
     "ngx-echarts": "^4.1.0",
     "ngx-gallery": "^5.10.0",
     "ngx-toastr": "^9.2.0",
