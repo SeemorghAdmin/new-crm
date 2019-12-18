@@ -7,6 +7,7 @@ import { MatSort } from '@angular/material/sort';
 import { ModalComponent } from '../../public/modal/modal.component';
 import { HttpClient } from '@angular/common/http';
 import { removeSummaryDuplicates } from '@angular/compiler';
+import { ConstantsService } from 'src/app/services/constants/constants.service';
 
 
 export interface ReportUni {
@@ -24,9 +25,10 @@ export class ReportSubsComponent implements OnInit {
   strID: string;
   ELEMENT_DATA: ReportUni[] = [];
 
-  constructor(public dialog: MatDialog, public http: HttpClient) { }
+  constructor(public dialog: MatDialog, public http: HttpClient, public constants: ConstantsService) { }
 
 
+  readonly BaseURL = this.constants.baseApiUrlEc;
   dataSource: MatTableDataSource<ReportUni>;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -45,7 +47,7 @@ export class ReportSubsComponent implements OnInit {
   e: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0];
 
   getUniData(): Array<ReportUni> {
-    this.http.get('http://localhost:58989/api/univercity/ReportSubs').subscribe(
+    this.http.get(this.BaseURL + '/univercity/ReportSubs').subscribe(
       res => {
         this.ELEMENT_DATA = res as ReportUni[];
 
@@ -58,7 +60,7 @@ export class ReportSubsComponent implements OnInit {
             if (this.ELEMENT_DATA[i].typeVal == 0) {
               this.total[0] = this.total[0] + 1;
             }
-            
+
 
             //baghie sotoon ha
             if (this.ELEMENT_DATA[i].typeVal == 0 && this.ELEMENT_DATA[i].uniStatus == 1) {
@@ -81,7 +83,7 @@ export class ReportSubsComponent implements OnInit {
             }
 
             //2
-            //kole darkhast ha - دانشگاه‌های دولتی مورد تایید وزارت بهداشت و درمان و آموزش پزشکی	
+            //kole darkhast ha - دانشگاه‌های دولتی مورد تایید وزارت بهداشت و درمان و آموزش پزشکی
             if (this.ELEMENT_DATA[i].typeVal == 1) {
               this.total[1] = this.total[1] + 1;
             }
@@ -129,7 +131,7 @@ export class ReportSubsComponent implements OnInit {
             if (this.ELEMENT_DATA[i].typeVal == 2 && this.ELEMENT_DATA[i].uniStatus == 2000) {
               this.d[2] = this.d[2] + 1;
             }
-            
+
 
             if (this.ELEMENT_DATA[i].typeVal == 1 && this.ELEMENT_DATA[i].uniStatus == 3006) {
               this.e[2] = this.e[2] + 1;
@@ -223,10 +225,9 @@ export class ReportSubsComponent implements OnInit {
               this.total[6] = this.total[6] + 1;
 
               res = this.total;
-              console.log(res);
             }
 
-            //baghie sotoon ha 
+            //baghie sotoon ha
             if (this.ELEMENT_DATA[i].typeVal == 9 && this.ELEMENT_DATA[i].uniStatus == 1) {
               this.a[6] = this.a[6] + 1;
             }
@@ -309,7 +310,7 @@ export class ReportSubsComponent implements OnInit {
             if (this.ELEMENT_DATA[i].typeVal == 1) {
               this.total[9] = this.total[9] + 1;
             }
-            
+
 
             //baghie sotoon ha
             if (this.ELEMENT_DATA[i].typeVal == 1 && this.ELEMENT_DATA[i].uniStatus == 1) {
@@ -498,7 +499,7 @@ export class ReportSubsComponent implements OnInit {
               this.e[15] = this.e[15] + 1;
             }
           }
-        
+
 
 
 
@@ -583,7 +584,6 @@ export class ReportSubsComponent implements OnInit {
 
         this.totalsum = this.sum[0] + this.sum[1] + this.sum[2]+ this.sum[3];
         res = this.sum;
-        console.log(res);
       });
 
     return this.ELEMENT_DATA;

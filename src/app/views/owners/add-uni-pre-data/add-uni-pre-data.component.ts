@@ -7,6 +7,7 @@ import {MatSort} from '@angular/material/sort';
 import { ModalComponent } from '../../public/modal/modal.component';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
+import { ConstantsService } from 'src/app/services/constants/constants.service';
 
 
 
@@ -18,7 +19,7 @@ export interface ReportUni {
   uniType:number;
   address:string;
 
-  
+
 }
 
 
@@ -31,13 +32,15 @@ export interface ReportUni {
 export class AddUniPreDataComponent implements OnInit {
 
 
-  constructor(public dialog: MatDialog, public http: HttpClient, public service: AddUniPreDataService, private toster: ToastrService) {
+  constructor(public dialog: MatDialog, public http: HttpClient, public service: AddUniPreDataService, private toster: ToastrService,
+    public constants: ConstantsService) {
 
   }
 
-  
+  readonly BaseURL = this.constants.baseApiUrlEc;
 
-  displayedColumns: string[] = ['id', 'uniInternalCode', 'uniType' ,  'name', 'address' , 
+
+  displayedColumns: string[] = ['id', 'uniInternalCode', 'uniType' ,  'name', 'address' ,
  ];
   dataSource : MatTableDataSource<ReportUni>;
 
@@ -51,7 +54,7 @@ export class AddUniPreDataComponent implements OnInit {
   addressFilter = new FormControl();
 
   filteredValues = {
-    id: '', uniInternalCode: '',  uniType: '', name:'' , address:'' 
+    id: '', uniInternalCode: '',  uniType: '', name:'' , address:''
   };
 
 
@@ -88,7 +91,7 @@ export class AddUniPreDataComponent implements OnInit {
   }
 
   getUniData(){
-    this.http.get('http://crm.nren.ir/api/get-pre-university-data.jsp?sub-code=0').subscribe(
+    this.http.get(this.BaseURL + '/get-pre-university-data.jsp?sub-code=0').subscribe(
       res=>{
         this.dataSource.data = res as ReportUni[];
       });
@@ -112,11 +115,11 @@ export class AddUniPreDataComponent implements OnInit {
   }
 
 
- 
-
- 
 
 
-  
+
+
+
+
 
 }

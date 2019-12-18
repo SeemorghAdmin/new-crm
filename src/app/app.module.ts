@@ -69,6 +69,7 @@ import { DeleteUniService } from './services/owners/delete-uni.service';
 import { UniServiceRequstComponent } from './views/owners/uni-service-requst/uni-service-requst.component';
 import { UploadComponent } from './views/owners/manage-uni-status/upload/upload.component';
 import { ServiceFileUploadComponent } from './views/owners/uni-service-requst/service-file-upload/service-file-upload.component';
+import { ReportSubsComponent } from './views/owners/report-subs/report-subs.component';
 
 
 
@@ -109,6 +110,7 @@ import { ServiceFileUploadComponent } from './views/owners/uni-service-requst/se
     UniServiceRequstComponent,
     UploadComponent,
     ServiceFileUploadComponent,
+    ReportSubsComponent
   ],
   imports: [
     BrowserModule,

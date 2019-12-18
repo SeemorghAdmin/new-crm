@@ -29,6 +29,7 @@ import { ChatTicketForDeveloperComponent } from './views/owners/ticket-for-devel
 import { ShowTicketForDeveloperComponent } from './views/developer/show-ticket-for-developer/show-ticket-for-developer.component';
 import { UniServiceRequstComponent } from './views/owners/uni-service-requst/uni-service-requst.component';
 import { ServiceFileUploadComponent } from './views/owners/uni-service-requst/service-file-upload/service-file-upload.component';
+import { ReportSubsComponent } from './views/owners/report-subs/report-subs.component';
 
 const routes: Routes = [
 
@@ -71,6 +72,7 @@ children:
   {path: 'app-show-ticket-for-owners-manager', component:ShowTicketForOwnersManagerComponent},
   {path: 'uni-services', component: UniServiceRequstComponent},
   {path: 'app-service-file-upload/:id', component: ServiceFileUploadComponent},
+  {path: 'report-subs', component: ReportSubsComponent},
 
 ]
 
@@ -92,7 +94,7 @@ children:
 
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{ enableTracing: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

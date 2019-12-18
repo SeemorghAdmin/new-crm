@@ -68,11 +68,11 @@ export class UniReportsComponent implements OnInit {
       }
         this.getUniData();
     });
-    
+
     this.dataSource.paginator = this.paginator;
     this.dataSource.paginator.pageSize = 10;
     this.dataSource.sort = this.sort;
-    
+
 
     this.uniNationalIdFilter.valueChanges.subscribe((uniNationalIdFilterValue) => {
       this.filteredValues['uniNationalId'] = uniNationalIdFilterValue;
@@ -114,7 +114,7 @@ export class UniReportsComponent implements OnInit {
   getUniData(): Array<Customer>{
     this.service.GetList(this.id, this.isOstani).subscribe( res => {
       this.isOstani = false;
-      
+
       this.CUSTOMER_DATA = res as Customer[];
       this.dataSource.data = this.CUSTOMER_DATA;
     });
@@ -148,7 +148,7 @@ export class UniReportsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      // console.log(`Dialog result: ${result}`);
     });
   }
 
@@ -158,11 +158,11 @@ export class UniReportsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      // console.log(`Dialog result: ${result}`);
     });
   }
 
-  
+
 
   openLog(element:Customer) {
     const dialogRef = this.dialog.open(UniStatusLogModalComponent,{
@@ -170,7 +170,7 @@ export class UniReportsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      // console.log(`Dialog result: ${result}`);
     });
   }
   openEditlog(element:Customer) {
@@ -179,7 +179,7 @@ export class UniReportsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      // console.log(`Dialog result: ${result}`);
     });
   }
 }

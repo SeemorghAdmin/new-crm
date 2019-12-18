@@ -6,9 +6,7 @@
    <div class="col-md-2"></div>
    <div class="col-md-6 message_section">
       <div class="row">
-         <div class="new_message_head">
-            <p style="text-align: center;">{{us}}</p>
-         </div>
+
          <div class="chat_area" style="height: 500px;">
             <ul class="list-unstyled" *ngFor="let item of ChatTicketing; let i = index">
                <li class="left clearfix admin_chat">
@@ -42,8 +40,6 @@
                [(ngModel)]="Ticket.comment"> </textarea>
                <div class="clearfix"></div>
                <div class="chat_bottom">
-                  <a class="pull-left upload_btn" (click)="DiactiveChat()">
-                     بستن چت</a>
                   <a class="pull-right btn btn-success" (click)="post(Ticket)" *ngIf="ta == 1"  >
                     ارسال</a>
                   <a class="pull-right btn btn-success" (click)="postt(Ticket)" *ngIf="ta == 2">

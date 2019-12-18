@@ -16,12 +16,12 @@ export interface TicketClass {
 })
 export class ChatTicketComponent implements OnInit {
   TicketId;
-  ChatTicketing;
+  ChatTicketing: any=[];
   t;
   ta;
   us;
   PersonNationalId;
-  PersonForDropDownList={};
+  PersonForDropDownList: any=[];
   DangerAlertShow;
   Moshtari;
   informationFirstName;
@@ -89,11 +89,11 @@ export class ChatTicketComponent implements OnInit {
         Ticket.Conf = 1;
       }
       this.api.postTicketChat(Ticket).subscribe(res => {
-      });   
+      });
       this.api.putResiver(Ticket).subscribe(res => {
         this.router.navigate(['/owner/home/ShowTickets']);
-      });   
-     
+      });
+
     }
   }
   DiactiveChat() {
@@ -103,7 +103,7 @@ export class ChatTicketComponent implements OnInit {
       }
     });
   }
-  postt(Ticket) {  
+  postt(Ticket) {
     Ticket.ticket_ID = this.TicketId;
     this.api.putResiver(Ticket).subscribe(res => {
     });

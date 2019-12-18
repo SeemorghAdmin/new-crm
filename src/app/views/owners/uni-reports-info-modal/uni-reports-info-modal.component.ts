@@ -10,8 +10,8 @@ import { EcCustomersService } from 'src/app/services/owners/ec-customers.service
 })
 export class UniReportsInfoModalComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private http: HttpClient, private service: EcCustomersService) { }
-  d;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private http: HttpClient, public service: EcCustomersService) { }
+  d :any=[];
   edit1:boolean = false;
   edit2:boolean = false;
   edit3:boolean = false;
@@ -25,7 +25,6 @@ export class UniReportsInfoModalComponent implements OnInit {
   editMosh()
   {
     this.edit1 = true;
-    console.log('ok');
   }
 
   editMod()

@@ -13,11 +13,10 @@ export class ShowTicketForOwnersManagerComponent implements OnInit {
   AllTickets;
   ngOnInit() {
 this.api.getTicketForOwnerManager().subscribe(res => {
-  console.log(res);
   this.AllTickets=res;
 });
   }
-  
+
   get(index) {
     if (index % 2 == 0) {
       return '#eeeded';
@@ -27,6 +26,6 @@ this.api.getTicketForOwnerManager().subscribe(res => {
     this.api.putSeen(id).subscribe(res =>{
       this.router.navigateByUrl('/owner/home/app-chat-ticket-for-developer/' + id);
     });
-      
+
   }
 }

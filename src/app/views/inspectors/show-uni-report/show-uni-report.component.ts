@@ -5,6 +5,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import { ModalComponent } from '../../public/modal/modal.component';
 import { HttpClient } from '@angular/common/http';
+import { ConstantsService } from 'src/app/services/constants/constants.service';
 
 
 
@@ -34,7 +35,9 @@ export class ShowUniReportComponent implements OnInit {
 
   ELEMENT_DATA: ReportUni[] = [];
 
-  constructor(public dialog: MatDialog, public http: HttpClient) { }
+  constructor(public dialog: MatDialog, public http: HttpClient, public constants: ConstantsService) { }
+
+  readonly BaseURL = this.constants.baseApiUrlEc;
 
   displayedColumns: string[] = ['uniNationalId', 'uniName', 'uniSubCode','stateName','cityName', 'registerDate','numService'
  ];
@@ -88,7 +91,7 @@ export class ShowUniReportComponent implements OnInit {
   }
 
   getUniData(): Array<ReportUni>{
-    this.http.get('http://crm.nren.ir/api/get-cra-report.jsp?sub-code=0').subscribe(
+    this.http.get(this.BaseURL + '/get-cra-report.jsp?sub-code=0').subscribe(
       res=>{
         this.ELEMENT_DATA= res as ReportUni[];
         this.dataSource.data = this.ELEMENT_DATA;

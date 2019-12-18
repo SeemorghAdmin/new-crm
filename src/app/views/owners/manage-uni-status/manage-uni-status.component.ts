@@ -5,6 +5,7 @@ import { EcCustomersService } from 'src/app/services/owners/ec-customers.service
 import { UniStatusService } from 'src/app/services/owners/uni-status.service';
 import { DpDatePickerModule } from 'ng2-jalali-date-picker';
 import * as moment from 'jalali-moment';
+import { ConstantsService } from 'src/app/services/constants/constants.service';
 export interface UniLog {
   uniNationalId: number;
   uniStatus: number;
@@ -17,7 +18,7 @@ export interface UniLog {
   styleUrls: ['./manage-uni-status.component.css']
 })
 export class ManageUniStatusComponent implements OnInit {
-  public mySentences: Array<Object> = [
+  public mySentences: any = [
     { id: 0, text: 'مشکل در فایل درخواست عضویت' },
     { id: 1, text: 'مشکل در نام بالاترین مقام' },
     { id: 2, text: 'مشکل در شماره تلفن' },
@@ -29,12 +30,14 @@ export class ManageUniStatusComponent implements OnInit {
     { id: 8, text: 'مشکل در پست الکترونیک' },
     { id: 9, text: 'مکان اشتباه روی نقشه' },
   ];
-  public mySentences1: Array<Object> = [
+  public mySentences1: any = [
     { id: 1000, text: 'شخص امضاء کننده مجاز به امضاء نبوده' },
     { id: 1001, text: 'فرمت قرارداد ارسالی مطابقت ندارد' },
   ];
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public http: HttpClient, private api: EcCustomersService, private apii: UniStatusService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public http: HttpClient, private api: EcCustomersService, private apii: UniStatusService ,
+  private constants: ConstantsService) { }
 
+  readonly BaseURI = this.constants.baseApiUrlNc;
   public Unilog: UniLog = { uniNationalId: 0, uniStatus: 0, uniSubStatus: 0, msg: '' };
   firstDropDown;
   t = 1;
@@ -134,6 +137,9 @@ export class ManageUniStatusComponent implements OnInit {
       }
     });
   }
+
+
+
   upload(Unilog) {
     if (this.ta == 3) {
       Unilog.uniSubStatus = 0;
@@ -149,7 +155,7 @@ export class ManageUniStatusComponent implements OnInit {
     });
   }
   uploadd() {
-    this.http.post('http://localhost:58989/api/UniStatusLog/Upload', this.response, { reportProgress: true, observe: 'events' })
+    this.http.post( this.BaseURI + '/UniStatusLog/Upload', this.response, { reportProgress: true, observe: 'events' })
       .subscribe(event2 => {
         if (event2.type === HttpEventType.UploadProgress)
           this.progress = Math.round(100 * event2.loaded / event2.total);
@@ -163,21 +169,21 @@ export class ManageUniStatusComponent implements OnInit {
     this.response1.append('number',this.r);
     this.response1.append('date',dateObject);
     this.response1.append('id', this.data.uniNationalId);
-    this.http.post('http://localhost:58989/api/ManageUniStatus', this.response1, { reportProgress: true, observe: 'events' })
+    this.http.post( this.BaseURI + '/ManageUniStatus', this.response1, { reportProgress: true, observe: 'events' })
     .subscribe(event2 => {
       if (event2.type === HttpEventType.UploadProgress)
         this.progress1 = Math.round(100 * event2.loaded / event2.total);
       else if (event2.type === HttpEventType.Response) {
         this.message1 = 'آپلود انجام شد';
         this.response2.append('id', this.data.uniNationalId);
-        this.http.post('http://localhost:58989/api/ManageUniStatus1', this.response2, { reportProgress: true, observe: 'events' })
+        this.http.post(this.BaseURI + '/ManageUniStatus1', this.response2, { reportProgress: true, observe: 'events' })
         .subscribe(event2 => {
           if (event2.type === HttpEventType.UploadProgress)
             this.progress2 = Math.round(100 * event2.loaded / event2.total);
           else if (event2.type === HttpEventType.Response) {
             this.message2 = 'آپلود انجام شد';
             this.response3.append('id', this.data.uniNationalId);
-            this.http.post('http://localhost:58989/api/ManageUniStatus2', this.response3, { reportProgress: true, observe: 'events' })
+            this.http.post(this.BaseURI + '/ManageUniStatus2', this.response3, { reportProgress: true, observe: 'events' })
             .subscribe(event2 => {
               if (event2.type === HttpEventType.UploadProgress)
                 this.progress3 = Math.round(100 * event2.loaded / event2.total);
@@ -190,4 +196,4 @@ export class ManageUniStatusComponent implements OnInit {
       }
     });
   }
-}  
+}

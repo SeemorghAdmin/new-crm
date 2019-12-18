@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpEventType, HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { ConstantsService } from 'src/app/services/constants/constants.service';
 
 @Component({
   selector: 'app-service-file-upload',
@@ -14,7 +15,9 @@ export class ServiceFileUploadComponent implements OnInit {
   public message1: string;
   public progress2: number;
   public message2: string;
-  constructor(public http: HttpClient, private route: ActivatedRoute) { }
+  constructor(public http: HttpClient, private route: ActivatedRoute, private constants: ConstantsService) { }
+
+  readonly BaseURI = this.constants.baseApiUrlNc;
   ta;
   tb;
   tc;
@@ -62,19 +65,19 @@ export class ServiceFileUploadComponent implements OnInit {
     this.tc = fileToUpload.name;
   }
   upload() {
-    this.http.post('http://localhost:58989/api/ServiceFileUpload2', this.response, { reportProgress: true, observe: 'events' })
+    this.http.post(this.BaseURI + '/ServiceFileUpload2', this.response, { reportProgress: true, observe: 'events' })
       .subscribe(event2 => {
         if (event2.type === HttpEventType.UploadProgress)
           this.progress = Math.round(100 * event2.loaded / event2.total);
         else if (event2.type === HttpEventType.Response) {
           this.message = 'آپلود انجام شد';
-          this.http.post('http://localhost:58989/api/ServiceFileUpload1', this.response1, { reportProgress: true, observe: 'events' })
+          this.http.post(this.BaseURI + '/ServiceFileUpload1', this.response1, { reportProgress: true, observe: 'events' })
             .subscribe(event2 => {
               if (event2.type === HttpEventType.UploadProgress)
                 this.progress1 = Math.round(100 * event2.loaded / event2.total);
               else if (event2.type === HttpEventType.Response) {
                 this.message1 = 'آپلود انجام شد';
-                this.http.post('http://localhost:58989/api/ServiceFileUpload', this.response2, { reportProgress: true, observe: 'events' })
+                this.http.post(this.BaseURI + '/ServiceFileUpload', this.response2, { reportProgress: true, observe: 'events' })
                   .subscribe(event2 => {
                     if (event2.type === HttpEventType.UploadProgress)
                       this.progress2 = Math.round(100 * event2.loaded / event2.total);

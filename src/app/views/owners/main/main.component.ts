@@ -25,21 +25,22 @@ export interface Person {
 })
 export class OwnersMainComponent implements OnInit, OnDestroy {
 
-  user : Person;
+  user: Person;
+  panelOpenState = false;
 
   ////////////////// این خط ها متغیرهای مورد نیاز برای sidenav را ایجاد میکنند
   pageType = "پنل کاربری کارکنان خاشع" // نام صفحه
-  fillerNav: MenuItems[] = [  { name: "ارتباط با برنامه نویسان", url: "/owner/home/app-ticket-for-developer", badge:0},
-  { name: "درخواست های ارسالی پشتیبان ها", url: "/owner/home/app-show-ticket-for-owners-manager", badge:0},
-]; // ایجاد آیتم ها برای نمایش در منو
-  unreadMsg= 2;
+  fillerNav: MenuItems[] = [{ name: "ارتباط با برنامه نویسان", url: "/owner/home/app-ticket-for-developer", badge: 0 },
+  { name: "درخواست های ارسالی پشتیبان ها", url: "/owner/home/app-show-ticket-for-owners-manager", badge: 0 },
+  ]; // ایجاد آیتم ها برای نمایش در منو
+  unreadMsg = 2;
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
   ////////////////// انهتای بخش sidenav
   public opened: boolean;
   constructor(
     changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, /// متغیرهای مربوط به sidenav
-    private router: Router,private api: TicketingService, public service: PersonService) {
+    private router: Router, private api: TicketingService, public service: PersonService) {
 
     ////////////////// دستور های مربوط به داینامیک کردن sidenav
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -50,13 +51,12 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
   }
   public ngOnInit() {
     this.api.getCountTicket();
-    this.api.TicketCountSelected.subscribe(res =>{
-    this.unreadMsg = res;
-  this.updateBadgeNumbers();
+    this.api.TicketCountSelected.subscribe(res => {
+      this.unreadMsg = res;
+      this.updateBadgeNumbers();
     });
     this.service.GetUserProfile().subscribe(
-      res =>
-      {
+      res => {
         this.user = res as Person;
         this.CheckRoel(this.user);
       }
@@ -67,10 +67,9 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
 
   }
 
-  updateBadgeNumbers(){
+  updateBadgeNumbers() {
     this.fillerNav.forEach(element => {
-      if(element.name == 'درخواست های پشتیبانی')
-      {
+      if (element.name == 'درخواست های پشتیبانی') {
         element.badge = this.unreadMsg;
       }
     });
@@ -94,22 +93,22 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
   accessModi: boolean;
   CheckRoel(person: Person) {
 
-      for (let index = 1; index < person.accessCodes.lastIndexOf('&'); index = index + 3) {
-        const element = person.accessCodes[index] + person.accessCodes[index + 1];
-         switch (element) {
-           case 'aa':
-            this.fillerNav.push({ name: "اضافه کردن کاربر جدید", url: "/owner/home/AddPerson", badge: 0 });
-             break;
-           case 'ab':
-            this.fillerNav.push({ name: "درخواست های پشتیبانی", url: "/owner/home/ShowTickets", badge: this.unreadMsg });
-             break;
-           case 'ac':
-            this.fillerNav.push({ name: "ویرایش دسترسی کارکنان خاشع", url: "/owner/home/access-code", badge: 0 });
-             break;
-           default:
-             break;
-         }
+    for (let index = 1; index < person.accessCodes.lastIndexOf('&'); index = index + 3) {
+      const element = person.accessCodes[index] + person.accessCodes[index + 1];
+      switch (element) {
+        case 'aa':
+          this.fillerNav.push({ name: "اضافه کردن کاربر جدید", url: "/owner/home/AddPerson", badge: 0 });
+          break;
+        case 'ab':
+          this.fillerNav.push({ name: "درخواست های پشتیبانی", url: "/owner/home/ShowTickets", badge: this.unreadMsg });
+          break;
+        case 'ac':
+          this.fillerNav.push({ name: "ویرایش دسترسی کارکنان خاشع", url: "/owner/home/access-code", badge: 0 });
+          break;
+        default:
+          break;
       }
+    }
 
   }
 }

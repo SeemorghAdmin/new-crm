@@ -34,10 +34,10 @@
                     <div class="row" style="margin-right: 20px;margin-top: 30px;">
                         <p>شناسه ملی :</p>
                         <input type="text" class="form-control" placeholder="{{data.uniNationalId}}"
-                            style="width: 200px;height: 30px;" id="formGroupExampleInput" name="title" disabled>
+                            style="width: 200px;height: 30px;" name="title" disabled>
                         <p>نام دانشگاه :</p>
                         <input type="text" class="form-control" placeholder="{{data.uniName}}"
-                            style="width: 300px;height: 30px;" id="formGroupExampleInput" name="title" disabled>
+                            style="width: 300px;height: 30px;" name="title" disabled>
                     </div>
                     <p style="margin-right: 20px;margin-top: 30px;" *ngIf="t == 1">پیام :</p>
                     <div class="row" style="margin-right: 20px;margin-left: 20px;" *ngIf="t == 1">
@@ -114,8 +114,8 @@
                             style="width: 30%;margin-right: 5px;border-color: black;height: 30px;">
                     </div>
                    <div class="row" *ngIf="t == 4" style="margin-right: 20px;">
-                    <p >تاریخ قرارداد اشتراک:</p> 
-                    <dp-date-picker 
+                    <p >تاریخ قرارداد اشتراک:</p>
+                    <dp-date-picker
                     dir="rtl"
                     [(ngModel)]="selectedDate"
                     placeholder="تاریخ"
@@ -132,7 +132,7 @@
 
                     <div class="row" style="text-align: left;" *ngIf="t == 2">
                         <div class="col-md-12">
-                            <input class="btn btn-primary" (click)="uploadd(Unilog)" type="submit" value="تایید"
+                            <input class="btn btn-primary" (click)="uploadd()" type="submit" value="تایید"
                                 style="margin-bottom: 2%;margin-left: 5%;background-color: #2f9fd3;width: 100px;height: 30px;">
                         </div>
                     </div>
