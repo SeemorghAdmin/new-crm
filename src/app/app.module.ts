@@ -71,6 +71,7 @@ import { UploadComponent } from './views/owners/manage-uni-status/upload/upload.
 import { ServiceFileUploadComponent } from './views/owners/uni-service-requst/service-file-upload/service-file-upload.component';
 import { ReportSubsComponent } from './views/owners/report-subs/report-subs.component';
 import { StaffListComponent } from './views/owners/staff-list/staff-list.component';
+import { EditStaffComponent } from './views/owners/edit-staff/edit-staff.component';
 
 
 
@@ -111,8 +112,9 @@ import { StaffListComponent } from './views/owners/staff-list/staff-list.compone
     UniServiceRequstComponent,
     UploadComponent,
     ServiceFileUploadComponent,
-    ReportSubsComponent
+    ReportSubsComponent,
     StaffListComponent,
+    EditStaffComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,7 @@ import { ConstantsService } from '../constants/constants.service';
 export class PersonService {
   constructor(private fb: FormBuilder, private http: HttpClient, private constants: ConstantsService) { }
   readonly BaseURI = this.constants.baseApiUrlNc;
-  public userId: string = '3333333333';
+  public userId: string = '';
   // ایجاد فرم مدل استف
   formModel = this.fb.group(
     {
@@ -139,6 +139,11 @@ export class PersonService {
     return this.http.get(this.BaseURI + '/Person/userprofile');
   }
 
+  //ویرایش staff
+  //PutStaff(id)
+  //{
+  //  return this.http.put(this.BaseURI + id,  )
+  //}
 
   // ثبت اطلاعات کاربری در صورت ورود از سایت قدیمی
   postRedirectInformation(information) {

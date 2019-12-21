@@ -98,7 +98,7 @@ export class UniServiceRequstComponent implements OnInit {
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   getUniData(): Array<Customer>{
     this.service.GetList().subscribe( res => {
-      
+      console.log(res)
       this.CUSTOMER_DATA = res as Customer[];
       this.dataSource.data = this.CUSTOMER_DATA;
     });

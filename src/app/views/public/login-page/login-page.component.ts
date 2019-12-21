@@ -55,8 +55,8 @@ export class LoginPageComponent implements OnInit {
       if (res.statusCode == 200)
       {
         this.service.loginModel.reset();
-        //this.service.userId = res.user.personNational_ID;
-
+        this.service.userId = res.user.personNational_ID;
+        
         //this.toastr.success('Ok');
         //console.log(res.user.token)
         localStorage.setItem('token', res.user.token);
