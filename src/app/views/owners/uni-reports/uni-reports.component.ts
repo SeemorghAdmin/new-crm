@@ -109,7 +109,7 @@ export class UniReportsComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
 
-  }
+  } 
 
   getUniData(): Array<Customer>{
     this.service.GetList(this.id, this.isOstani).subscribe( res => {

@@ -1,0 +1,85 @@
+<div class="col-md-12 table-container" dir="rtl">
+
+    <div class="row search-form">
+      <div class="col-md-2">
+        <mat-form-field>
+          <input matInput class="form-field" [formControl]="NationalIdFilter" placeholder="شماره ملی ">
+        </mat-form-field>
+      </div>
+      <div class="col-md-2">
+        <mat-form-field>
+          <input matInput class="form-field" [formControl]="NameFilter" placeholder="نام ">
+        </mat-form-field>
+      </div>
+      <div class="col-md-2">
+        <mat-form-field>
+          <input matInput class="form-field" [formControl]="LastNameFilter" placeholder=" نام خانوادگی">
+        </mat-form-field>
+      </div>
+      <div class="col-md-2">
+        <mat-form-field>
+          <input matInput class="form-field" [formControl]="StaffNumberFilter" placeholder="شماره پرسنلی">
+        </mat-form-field>
+      </div>
+    </div>
+  
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+  
+        <!-- Position Column -->
+        <ng-container matColumnDef="personNational_ID">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> شماره ملی 
+  
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.personNational_ID}} </td>
+        </ng-container>
+  
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> نام 
+  
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.person.firstName}} </td>
+        </ng-container>
+  
+        <!-- Weight Column -->
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> نام خانوادگی </th>
+          <td mat-cell *matCellDef="let element"> {{element.person.lastName}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="staffNumber">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> شماره پرسنلی </th>
+          <td mat-cell *matCellDef="let element"> {{element.staffNumber}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="positionId">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> سمت </th>
+          <td mat-cell *matCellDef="let element"> {{element.positionId}} </td>
+        </ng-container>
+        <ng-container matColumnDef="eduDegree">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> مدرک </th>
+            <td mat-cell *matCellDef="let element"> {{element.eduDegree}} </td> 
+          </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> عملیات </th>
+          <td mat-cell *matCellDef="let element">
+            <a (click)="openEditlog(element)" style="cursor: pointer;">
+              <img src="assets/images/test-img/edit.png" style="width: 23px; margin-right: 15px;">
+            </a>
+            <a (click)="openDelete(element)" style="cursor: pointer;">
+              <img src="assets/images/test-img/trashbin.png" style="width: 20px; margin-right: 15px;">
+            </a>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  
+      <mat-paginator class="paginator--centered" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+  
+  </div>
+  

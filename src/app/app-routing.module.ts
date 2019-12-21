@@ -30,6 +30,7 @@ import { ShowTicketForDeveloperComponent } from './views/developer/show-ticket-f
 import { UniServiceRequstComponent } from './views/owners/uni-service-requst/uni-service-requst.component';
 import { ServiceFileUploadComponent } from './views/owners/uni-service-requst/service-file-upload/service-file-upload.component';
 import { ReportSubsComponent } from './views/owners/report-subs/report-subs.component';
+import { StaffListComponent } from './views/owners/staff-list/staff-list.component';
 
 const routes: Routes = [
 
@@ -71,6 +72,7 @@ children:
   {path: 'app-ticket-for-developer', component:TicketForDeveloperComponent},
   {path: 'app-show-ticket-for-owners-manager', component:ShowTicketForOwnersManagerComponent},
   {path: 'uni-services', component: UniServiceRequstComponent},
+  {path: 'app-staff-list', component: StaffListComponent}, 
   {path: 'app-service-file-upload/:id', component: ServiceFileUploadComponent},
   {path: 'report-subs', component: ReportSubsComponent},
 

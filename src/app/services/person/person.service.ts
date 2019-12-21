@@ -144,4 +144,8 @@ export class PersonService {
   postRedirectInformation(information) {
     return this.http.post(this.BaseURI + '/Staff/LandingPagePerson', information);
   }
+  getStaffList()
+  {
+    return this.http.get(this.BaseURI + '/Staff')
+  }
 }
