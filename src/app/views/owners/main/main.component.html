@@ -32,7 +32,7 @@
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [(opened)]="opened">
       <mat-nav-list class="side-nav-list-class" >
         <a mat-list-item routerLink="{{nav.url}}" *ngFor="let nav of fillerNav" >
-          <p >
+          <p style="text-align: right; margin-top: 1rem;">
             <span matBadge={{nav.badge}} matBadgeOverlap="false" matBadgePosition="before" matBadgeColor="warn" *ngIf="nav.badge!=0">{{nav.name}}</span>
             <span *ngIf="nav.badge==0">{{nav.name}}</span>
 
