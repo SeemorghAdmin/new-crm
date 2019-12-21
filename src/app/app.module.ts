@@ -1,3 +1,4 @@
+
 // کتابخانه هایی که در انگولار نصب هستند
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';

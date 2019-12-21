@@ -27,7 +27,7 @@
                 
                 <option value="3">
                     دانشگاه فنی حرفه ای
-                </option>
+                </option> 
                 
                 <option value="4">
                     دانشگاه جامع علمی و کاربردی
@@ -98,9 +98,9 @@
   
   
           <!-- uniType Column -->
-          <ng-container matColumnDef="uniType">
+          <ng-container matColumnDef="sourceVal">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> نوع دانشگاه </th>
-            <td mat-cell *matCellDef="let element"> {{element.uniType}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.sourceVal}} </td>
           </ng-container>
   
           <!-- name Column -->
@@ -120,7 +120,7 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
   
-        <mat-paginator class="paginator--centered" [pageSizeOptions]="[10, 15, 20,100]"></mat-paginator>
+        <mat-paginator class="paginator--centered" [pageSizeOptions]="[10, 15, 20,100, 200,300, 400, 500,600, 700, 800, 900, 1000, 1100,1200 ]"></mat-paginator>
       </div>
   
 

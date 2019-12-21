@@ -224,7 +224,6 @@ export class ReportSubsComponent implements OnInit {
             if (this.ELEMENT_DATA[i].typeVal == 9) {
               this.total[6] = this.total[6] + 1;
 
-              res = this.total;
             }
 
             //baghie sotoon ha
@@ -501,8 +500,6 @@ export class ReportSubsComponent implements OnInit {
           }
 
 
-
-
           if (this.ELEMENT_DATA[i].uniSubCode == 3) {
            //16
             //kole darkhast ha - مراکز پژوهشی مورد تایید مرکز مدیریت حوزه های علمیه
@@ -559,8 +556,6 @@ export class ReportSubsComponent implements OnInit {
           }
 
 
-
-
         for (let j = 0; j < 8; j++) {
 
           this.sum[0] = this.sum[0] + this.total[j];
@@ -583,7 +578,6 @@ export class ReportSubsComponent implements OnInit {
 
 
         this.totalsum = this.sum[0] + this.sum[1] + this.sum[2]+ this.sum[3];
-        res = this.sum;
       });
 
     return this.ELEMENT_DATA;

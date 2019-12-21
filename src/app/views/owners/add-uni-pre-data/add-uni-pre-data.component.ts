@@ -13,15 +13,14 @@ import { ConstantsService } from 'src/app/services/constants/constants.service';
 
 export interface ReportUni {
 
-  row: number;
-  uniName:string;
-  uniCode:number;
-  uniType:number;
+  id:number;
+  uniInternalCode:number;
+  sourceVal:number;
+  name:string;
   address:string;
 
 
 }
-
 
 @Component({
   selector: 'add-uni-pre-data',
@@ -40,7 +39,7 @@ export class AddUniPreDataComponent implements OnInit {
   readonly BaseURL = this.constants.baseApiUrlEc;
 
 
-  displayedColumns: string[] = ['id', 'uniInternalCode', 'uniType' ,  'name', 'address' ,
+  displayedColumns: string[] = ['id', 'uniInternalCode', 'sourceVal', 'name', 'address' , 
  ];
   dataSource : MatTableDataSource<ReportUni>;
 
@@ -48,13 +47,14 @@ export class AddUniPreDataComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  uniNationalIDFilter = new FormControl();
+  uniInternalCodeFilter = new FormControl();
   uniNameFilter = new FormControl();
-  uniTypeFilter = new FormControl();
   addressFilter = new FormControl();
+  sourceValFilter = new FormControl();
+  idFilter = new FormControl();
 
   filteredValues = {
-    id: '', uniInternalCode: '',  uniType: '', name:'' , address:''
+    uniInternalCode: '', name:'' , address:'' ,sourceVal:'', id:''
   };
 
 
@@ -65,28 +65,32 @@ export class AddUniPreDataComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.getUniData();
+   
 
-    this.uniNationalIDFilter.valueChanges.subscribe((uniNationalIDFilterValue) => {
-      this.filteredValues['uniNationalId'] = uniNationalIDFilterValue;
+    this.uniInternalCodeFilter.valueChanges.subscribe((uniInternalCodeFilterValue) => {
+      this.filteredValues['uniInternalCode'] = uniInternalCodeFilterValue;
       this.dataSource.filter = JSON.stringify(this.filteredValues);
     });
 
     this.uniNameFilter.valueChanges.subscribe((uniNameFilterValue) => {
-      this.filteredValues['uniName'] = uniNameFilterValue;
-      this.dataSource.filter = JSON.stringify(this.filteredValues);
-    });
-
-    this.uniTypeFilter.valueChanges.subscribe((uniTypeFilterValue) => {
-      this.filteredValues['stateName'] = uniTypeFilterValue;
+      this.filteredValues['name'] = uniNameFilterValue;
       this.dataSource.filter = JSON.stringify(this.filteredValues);
     });
 
     this.addressFilter.valueChanges.subscribe((addressFilterValue) => {
-      this.filteredValues['cityName'] = addressFilterValue;
+      this.filteredValues['address'] = addressFilterValue;
       this.dataSource.filter = JSON.stringify(this.filteredValues);
     });
 
 
+    this.addressFilter.valueChanges.subscribe((sourceValFilterValue) => {
+      this.filteredValues['sourceVal'] = sourceValFilterValue;
+      this.dataSource.filter = JSON.stringify(this.filteredValues);
+    });
+    this.idFilter.valueChanges.subscribe((idFilterValue) => {
+      this.filteredValues['id'] = idFilterValue;
+      this.dataSource.filter = JSON.stringify(this.filteredValues);
+    });
 
   }
 
