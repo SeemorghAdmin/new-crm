@@ -1,9 +1,6 @@
 <div id="form" dir="rtl">
     <form  autocomplete="off" >
       <h3 class="heading">  ویرایش کاربر </h3>
-      <div class="alert alert-primary" role="alert" *ngIf="success" style="text-align: center;">
-        ثبت با موفقیت انجام شد
-      </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="PersonNationalId"><span style="color: red;">*</span> شماره ملی</label>
@@ -24,7 +21,7 @@
           <label class="text-danger"
             *ngIf="service.formModel.get('FirstName').touched && service.formModel.get('FirstName').errors?.required">نام
             نمیتواند خالی باشد</label>
-  
+
         </div>
       </div>
       <div class="form-row">
@@ -34,19 +31,19 @@
           <label class="text-danger"
             *ngIf="service.formModel.get('LastName').touched && service.formModel.get('LastName').errors?.required">نام
             خانوادگی نمیتواند خالی باشد</label>
-  
+
         </div>
         <div class="form-group col-md-6">
           <label for="inputPassword4">نام پدر</label>
           <input type="text" class="form-control" placeholder="نام پدر" name="fatherName" [(ngModel)]="staff.fatherName">
-  
+
         </div>
       </div>
       <div class="form-group">
         <label for="inputAddress">آدرس</label>
         <input type="text" class="form-control" id="inputAddress"  placeholder="آدرس" name="address" [(ngModel)]="staff.address">
       </div>
-  
+
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputEmail4">تاریخ تولد</label>
@@ -57,9 +54,9 @@
           <input type="text" class="form-control" placeholder="شماره پرسنلی" name="staffNumber" [(ngModel)]="staff.staffNumber">
         </div>
       </div>
-  
-  
-      
+
+
+
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputPassword4">تلفن</label>
@@ -70,9 +67,9 @@
           <input type="text" class="form-control" placeholder="رشته تحصیلی" name="eduField" [(ngModel)]="staff.eduField">
         </div>
       </div>
-  
+
       <div class="form-row">
-        <div *ngIf="!isDeveloper" class="form-group col-md-6">
+        <div class="form-group col-md-6">
           <label for="inputEmail4">سمت</label>
           <input type="text" class="form-control" placeholder="سمت" name="positionId" [(ngModel)]="staff.positionId">
         </div>
@@ -91,10 +88,9 @@
           <input type="text" class="form-control" placeholder="مدرک تحصیلی" name="eduDegree" [(ngModel)]="staff.eduDegree">
         </div>
       </div>
-      
-  
-      
+
+
+
       <button type="submit" class="btn btn-primary" (click)="edit(staff)" >ثبت</button>
     </form>
   </div>
-  

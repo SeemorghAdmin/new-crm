@@ -25,8 +25,8 @@ export interface StaffClass {
 })
 export class EditPersonComponent implements OnInit {
   id;
-  staff = {};
-  constructor(private service: PersonService, private route: ActivatedRoute, private router: Router ) { }
+  staff : any =[];
+  constructor(public service: PersonService, private route: ActivatedRoute, private router: Router ) { }
   public Staff: StaffClass = { address : '', birthDate : '', eduDegree : '', eduField : '',positionId : '', staffNumber : '',teleNumber : '', firstName : '',lastName : '', fatherName : '', shenasSerial : '', shenasNum : '',};
 
   ngOnInit() {
