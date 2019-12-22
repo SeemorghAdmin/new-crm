@@ -1,12 +1,8 @@
-import { element } from 'protractor';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatDialog } from '@angular/material';
-import { FormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { ModalComponent } from '../../public/modal/modal.component';
 import { HttpClient } from '@angular/common/http';
-import { removeSummaryDuplicates } from '@angular/compiler';
 import { ConstantsService } from 'src/app/services/constants/constants.service';
 
 
