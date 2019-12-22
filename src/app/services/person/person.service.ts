@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ConstantsService } from '../constants/constants.service';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,9 @@ import { ConstantsService } from '../constants/constants.service';
 export class PersonService {
   constructor(private fb: FormBuilder, private http: HttpClient, private constants: ConstantsService) { }
   readonly BaseURI = this.constants.baseApiUrlNc;
+  private person = new Subject<any>();
+  staff = this.person.asObservable();
+
   public userId: string = '';
   // ایجاد فرم مدل استف
   formModel = this.fb.group(
@@ -153,4 +157,15 @@ export class PersonService {
   {
     return this.http.get(this.BaseURI + '/Staff')
   }
+
+  getStaffEdit(id)
+  {
+    return this.http.get(this.BaseURI + '/Staff/geteditstaff?id=' + id)
+  }
+
+ StaffEdit(data, id)
+ {
+   console.log(data)
+   return this.http.put(this.BaseURI + '/Staff/' + id, data)
+ }
 }

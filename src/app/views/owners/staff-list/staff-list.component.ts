@@ -4,7 +4,8 @@ import { FormControl } from '@angular/forms';
 import { PersonService } from 'src/app/services/person/person.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
-
+import { EditStaffComponent } from '../edit-staff/edit-staff.component';
+import { Router } from '@angular/router';
 
 
 export interface Customer {
@@ -25,7 +26,7 @@ export interface Customer {
 })
 export class StaffListComponent implements OnInit {
 
-  constructor(private ser: PersonService) { }
+  constructor(private ser: PersonService, public dialog: MatDialog, private router: Router,) { }
   CUSTOMER_DATA: Customer[] = [];
   displayedColumns: string[] = ['personNational_ID', 'name', 'lastName','staffNumber', 'positionId', 'eduDegree','actions', ];
   dataSource : MatTableDataSource<Customer>;
@@ -103,6 +104,13 @@ export class StaffListComponent implements OnInit {
         data.person.lastName.toString().trim().toLowerCase().indexOf(searchString.LastName.toLowerCase()) !== -1 
     }
     return myFilterPredicate;
+  }
+
+  openEditlog(element: Customer) {
+    
+    this.router.navigateByUrl('/owner/home/edit-person/' + element.personNational_ID);
+     
+    
   }
  
 }

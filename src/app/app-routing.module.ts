@@ -31,6 +31,8 @@ import { UniServiceRequstComponent } from './views/owners/uni-service-requst/uni
 import { ServiceFileUploadComponent } from './views/owners/uni-service-requst/service-file-upload/service-file-upload.component';
 import { ReportSubsComponent } from './views/owners/report-subs/report-subs.component';
 import { StaffListComponent } from './views/owners/staff-list/staff-list.component';
+import { EditPersonComponent } from './views/owners/manage-person/edit-person/edit-person.component';
+
 
 const routes: Routes = [
 
@@ -75,7 +77,7 @@ children:
   {path: 'app-staff-list', component: StaffListComponent}, 
   {path: 'app-service-file-upload/:id', component: ServiceFileUploadComponent},
   {path: 'report-subs', component: ReportSubsComponent},
-
+  {path: 'edit-person/:id', component: EditPersonComponent}
 ]
 
 },
