@@ -31,7 +31,8 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
   ////////////////// این خط ها متغیرهای مورد نیاز برای sidenav را ایجاد میکنند
   pageType = "پنل کاربری کارکنان خاشع" // نام صفحه
   fillerNav: MenuItems[] = [{ name: "ارتباط با برنامه نویسان", url: "/owner/home/app-ticket-for-developer", badge: 0 },
-  { name: "درخواست های ارسالی پشتیبان ها", url: "/owner/home/app-show-ticket-for-owners-manager", badge: 0 },
+  { name: "درخواست های ارسالی به برنامه نویسان", url: "/owner/home/app-show-ticket-for-owners-manager", badge: 0 },
+  { name: "مدیریت اطلاعات کارکنان خاشع", url: "/owner/home/app-staff-list", badge: 0 },
   ]; // ایجاد آیتم ها برای نمایش در منو
   unreadMsg = 2;
   mobileQuery: MediaQueryList;
