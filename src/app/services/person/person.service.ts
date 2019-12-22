@@ -168,4 +168,9 @@ export class PersonService {
    console.log(data)
    return this.http.put(this.BaseURI + '/Staff/' + id, data)
  }
+
+ DeleteStaff(id)
+ {
+   return this.http.delete(this.BaseURI + '/Staff/' + id);
+ }
 }

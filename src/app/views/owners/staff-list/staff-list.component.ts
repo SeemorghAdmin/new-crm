@@ -107,10 +107,13 @@ export class StaffListComponent implements OnInit {
   }
 
   openEditlog(element: Customer) {
-    
     this.router.navigateByUrl('/owner/home/edit-person/' + element.personNational_ID);
-     
-    
+  }
+
+  openDelete(element: Customer){
+    const dialogRef = this.dialog.open(EditStaffComponent,{
+      data: element,
+    });
   }
  
 }
