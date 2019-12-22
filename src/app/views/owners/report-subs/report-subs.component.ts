@@ -28,7 +28,7 @@ export class ReportSubsComponent implements OnInit {
   constructor(public dialog: MatDialog, public http: HttpClient, public constants: ConstantsService) { }
 
 
-  readonly BaseURL = this.constants.baseApiUrlEc;
+  readonly BaseURI = this.constants.baseApiUrlNc;
   dataSource: MatTableDataSource<ReportUni>;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -47,7 +47,7 @@ export class ReportSubsComponent implements OnInit {
   e: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0];
 
   getUniData(): Array<ReportUni> {
-    this.http.get(this.BaseURL + '/univercity/ReportSubs').subscribe(
+    this.http.get(this.BaseURI + '/univercity/ReportSubs').subscribe(
       res => {
         this.ELEMENT_DATA = res as ReportUni[];
 
