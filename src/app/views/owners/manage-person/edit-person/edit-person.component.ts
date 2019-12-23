@@ -31,11 +31,9 @@ export class EditPersonComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    console.log(this.id);
     this.service.getStaffEdit(this.id).subscribe(
       res => {
         this.staff = res;
-        console.log(res)
       }
     );
   }

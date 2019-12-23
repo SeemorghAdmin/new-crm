@@ -46,7 +46,7 @@ export class UniReportsInfoModalComponent implements OnInit {
   {
     this.service.UniPut().subscribe(res =>
       {
-        console.log(res);
+        // console.log(res);
       }
       );
   }

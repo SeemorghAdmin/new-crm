@@ -28,7 +28,7 @@ export class TicketForDeveloperComponent implements OnInit {
     if (Ticket.comment != null && Ticket.comment != '') {
       this.api.postTicket(Ticket).subscribe(res => {
         if (res == true) {
-          this.toastr.success('درخواست شما ثبت شد از طریق صفحه پیگیری درخوست ها میتوانید از آخرین وضعیت درخواست خود مطلع شوید');
+          this.toastr.success('درخواست شما ثبت شد از طریق لیست انتهای صفحه، میتوانید از آخرین وضعیت درخواست خود مطلع شوید');
           Ticket.comment = '';
           this.ngOnInit();
         }
@@ -43,7 +43,7 @@ export class TicketForDeveloperComponent implements OnInit {
     if (index % 2 == 0) {
       return '#eeeded';
     }
-    
+
   }
   pagenav(id) {
     this.api.putSeen(id).subscribe(res =>{
