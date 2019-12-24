@@ -28,7 +28,7 @@ export class StaffListComponent implements OnInit {
 
   constructor(private ser: PersonService, public dialog: MatDialog, private router: Router,) { }
   CUSTOMER_DATA: Customer[] = [];
-  displayedColumns: string[] = ['personNational_ID', 'name', 'lastName','staffNumber', 'positionId', 'eduDegree','actions', ];
+  displayedColumns: string[] = ['personNational_ID', 'person.firstName', 'person.lastName','staffNumber', 'positionId', 'eduDegree','actions', ];
   dataSource : MatTableDataSource<Customer>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -50,6 +50,13 @@ export class StaffListComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.paginator.pageSize = 10;
     this.dataSource.sort = this.sort;
+    this.dataSource.sortingDataAccessor = (item, property) => {
+      switch(property) {
+        case 'person.firstName': return item.person.firstName;
+        case 'person.lastName': return item.person.lastName;
+        default: return item[property];
+      }
+    };
 
     this.NationalIdFilter.valueChanges.subscribe((NationalIdFilterValue) => {
       this.filteredValues['NationalId'] = NationalIdFilterValue;
@@ -71,13 +78,13 @@ export class StaffListComponent implements OnInit {
       this.dataSource.filter = JSON.stringify(this.filteredValues);
     });
 
-   
+
 
     this.dataSource.filterPredicate = this.customFilterPredicate();
   }
   getUniData(): Array<Customer>{
     this.ser.getStaffList().subscribe( res => {
-      
+
       this.CUSTOMER_DATA = res as Customer[];
       this.dataSource.data = this.CUSTOMER_DATA;
     });
@@ -91,17 +98,17 @@ export class StaffListComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
 
-  } 
-  
+  }
+
   customFilterPredicate() {
     const myFilterPredicate = (data: Customer, filter: string): boolean => {
 
       let searchString = JSON.parse(filter);
-      
+
       return data.personNational_ID.toString().trim().indexOf(searchString.NationalId) !== -1 &&
         data.staffNumber.toString().trim().toLowerCase().indexOf(searchString.StaffNumber.toLowerCase()) !== -1 &&
         data.person.firstName.toString().trim().toLowerCase().indexOf(searchString.Name.toLowerCase()) !== -1 &&
-        data.person.lastName.toString().trim().toLowerCase().indexOf(searchString.LastName.toLowerCase()) !== -1 
+        data.person.lastName.toString().trim().toLowerCase().indexOf(searchString.LastName.toLowerCase()) !== -1
     }
     return myFilterPredicate;
   }
@@ -115,5 +122,5 @@ export class StaffListComponent implements OnInit {
       data: element,
     });
   }
- 
+
 }

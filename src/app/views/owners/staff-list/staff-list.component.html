@@ -35,15 +35,13 @@
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> نام
-
-          </th>
+        <ng-container matColumnDef="person.firstName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> نام </th>
           <td mat-cell *matCellDef="let element"> {{element.person.firstName}} </td>
         </ng-container>
 
         <!-- Weight Column -->
-        <ng-container matColumnDef="lastName">
+        <ng-container matColumnDef="person.lastName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> نام خانوادگی </th>
           <td mat-cell *matCellDef="let element"> {{element.person.lastName}} </td>
         </ng-container>
@@ -63,7 +61,7 @@
           </ng-container>
         <!-- Symbol Column -->
         <ng-container matColumnDef="actions">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> عملیات </th>
+          <th mat-header-cell *matHeaderCellDef> عملیات </th>
           <td mat-cell *matCellDef="let element">
             <a (click)="openEditlog(element)" style="cursor: pointer;">
               <img src="assets/images/test-img/edit.png" style="width: 23px; margin-right: 15px;">
