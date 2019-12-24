@@ -109,15 +109,15 @@ export class UniReportsComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
 
-  } 
+  }
 
   getUniData(): Array<Customer>{
     this.service.GetList(this.id, this.isOstani).subscribe( res => {
-      this.isOstani = false;
 
       this.CUSTOMER_DATA = res as Customer[];
       this.dataSource.data = this.CUSTOMER_DATA;
     });
+    this.isOstani = false;
     return this.CUSTOMER_DATA;
   }
   // numFilter(filterValue: string) {
