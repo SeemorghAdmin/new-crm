@@ -92,7 +92,7 @@ h1.panel-app-name {
 }
 
 #panel {
-  
+
   display: block;
 }
 
@@ -105,4 +105,14 @@ h1.panel-app-name {
 .subMenu:hover {
   background-color: #b8d3d5;
 }
+
+
+h2 {
+  font-size: 2.5vw;
+}
+
+h3 {
+  font-size: 2.1vw;
+}
+
 /* test */

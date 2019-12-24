@@ -69,6 +69,15 @@
       </mat-toolbar>
       <main class="content">
         <router-outlet></router-outlet>
+
+        <div class="row align-items-center h-100" *ngIf="showWelcome">
+          <div class="col align-self-center">
+
+            <h2 class="text-center"> <span class="text-primary" *ngIf="user">{{user.firstName}} {{user.lastName}}</span> به صفحه کاربری خود خوش آمدید</h2>
+            <h3 class="text-center">از منوی سمت راست بخش مورد نظر خود را انتخاب کنید</h3>
+          </div>
+
+        </div>
       </main>
 
     </mat-sidenav-content>

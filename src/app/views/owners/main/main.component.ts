@@ -27,6 +27,7 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
 
   user: Person;
   panelOpenState = false;
+  showWelcome=false;
 
   ////////////////// این خط ها متغیرهای مورد نیاز برای sidenav را ایجاد میکنند
   pageType = "پنل کاربری کارکنان خاشع" // نام صفحه
@@ -41,7 +42,7 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
   public opened: boolean;
   constructor(
     changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, /// متغیرهای مربوط به sidenav
-    private router: Router, private api: TicketingService, public service: PersonService) {
+    private router: Router, private api: TicketingService, public service: PersonService, ) {
 
     ////////////////// دستور های مربوط به داینامیک کردن sidenav
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -51,6 +52,9 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
     ////////////////// انتهای بخش sidenav
   }
   public ngOnInit() {
+    if (this.router.url === '/owner/home') {
+      this.showWelcome=true;
+    }
     this.api.getCountTicket();
     this.api.TicketCountSelected.subscribe(res => {
       this.unreadMsg = res;
