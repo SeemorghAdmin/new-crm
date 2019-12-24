@@ -3,6 +3,7 @@ import { ShowUniReportComponent } from './views/inspectors/show-uni-report/show-
 import { AddDeveloperComponent } from './views/developer/add-developer/add-developer.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './services/auth/auth.guard';
 
 import { LoginPageComponent } from './views/public/login-page/login-page.component';
 import { CustMainComponent } from './views/customer/main/main.component';
@@ -39,62 +40,62 @@ const routes: Routes = [
   {path: '', component: LoginPageComponent},
   {path: 'landing-page', component: LandingPageComponent},
   {path: 'table', component: TablesComponent},
-  {path: 'panel', component: UserPanelComponent,},
-  {path: 'ChatTicket/:id', component:ChatTicketComponent},
-  {path: 'cust/home', component: CustMainComponent},
-  {path: 'cust/home', component: CustMainComponent,
+  {path: 'panel', component: UserPanelComponent, canActivate: [AuthGuard]},
+  {path: 'ChatTicket/:id', component:ChatTicketComponent, canActivate: [AuthGuard]},
+  {path: 'cust/home', component: CustMainComponent, canActivate: [AuthGuard]},
+  {path: 'cust/home', component: CustMainComponent, canActivate: [AuthGuard],
   children:
   [
-    {path: 'cust-creat-new-Ticket', component:CreatNewTicketComponent},
-    {path: 'cust-Show-User-Ticket', component:ShowUserTicketComponent},
-    {path: 'ChatTicket/:id', component:ChatTicketComponent},
+    {path: 'cust-creat-new-Ticket', component:CreatNewTicketComponent, canActivate: [AuthGuard]},
+    {path: 'cust-Show-User-Ticket', component:ShowUserTicketComponent, canActivate: [AuthGuard]},
+    {path: 'ChatTicket/:id', component:ChatTicketComponent, canActivate: [AuthGuard]},
   ]
   },
-  {path: 'dev/home', component: DevMainComponent},
+  {path: 'dev/home', component: DevMainComponent, canActivate: [AuthGuard]},
   {path: 'dev/home', component: DevMainComponent,
   children:
   [
-    {path: 'AddShoaManager', component: AddPersonComponent},
-    {path: 'AddDeveloper', component: AddDeveloperComponent},
-    {path: 'app-show-ticket-for-developer', component: ShowTicketForDeveloperComponent},
-    {path: 'app-chat-ticket-for-developer/:id', component:ChatTicketForDeveloperComponent},
+    {path: 'AddShoaManager', component: AddPersonComponent, canActivate: [AuthGuard]},
+    {path: 'AddDeveloper', component: AddDeveloperComponent, canActivate: [AuthGuard]},
+    {path: 'app-show-ticket-for-developer', component: ShowTicketForDeveloperComponent, canActivate: [AuthGuard]},
+    {path: 'app-chat-ticket-for-developer/:id', component:ChatTicketForDeveloperComponent, canActivate: [AuthGuard]},
   ]
   },
-  {path: 'owner/home', component: OwnersMainComponent},
+  {path: 'owner/home', component: OwnersMainComponent, canActivate: [AuthGuard]},
   {path: 'owner/home', component: OwnersMainComponent,
 children:
 [
-  {path: 'app-manage-uni-status', component: ManageUniStatusComponent},
-  {path: 'uni-reports/:id', component: UniReportsComponent},
-  {path: 'AddPerson', component: AddPersonComponent},
-  {path: 'ChatTicket/:id', component:ChatTicketComponent},
-  {path: 'app-chat-ticket-for-developer/:id', component:ChatTicketForDeveloperComponent},
-  {path: 'access-code', component: AccessCodeComponent},
-  {path: 'ShowTickets', component:ShowTicketsComponent},
-  {path: 'app-ticket-for-developer', component:TicketForDeveloperComponent},
-  {path: 'app-show-ticket-for-owners-manager', component:ShowTicketForOwnersManagerComponent},
-  {path: 'uni-services', component: UniServiceRequstComponent},
-  {path: 'app-staff-list', component: StaffListComponent}, 
-  {path: 'app-service-file-upload/:id', component: ServiceFileUploadComponent},
-  {path: 'report-subs', component: ReportSubsComponent},
-  {path: 'edit-person/:id', component: EditPersonComponent}
+  {path: 'app-manage-uni-status', component: ManageUniStatusComponent, canActivate: [AuthGuard]},
+  {path: 'uni-reports/:id', component: UniReportsComponent, canActivate: [AuthGuard]},
+  {path: 'AddPerson', component: AddPersonComponent, canActivate: [AuthGuard]},
+  {path: 'ChatTicket/:id', component:ChatTicketComponent, canActivate: [AuthGuard]},
+  {path: 'app-chat-ticket-for-developer/:id', component:ChatTicketForDeveloperComponent, canActivate: [AuthGuard]},
+  {path: 'access-code', component: AccessCodeComponent, canActivate: [AuthGuard]},
+  {path: 'ShowTickets', component:ShowTicketsComponent, canActivate: [AuthGuard]},
+  {path: 'app-ticket-for-developer', component:TicketForDeveloperComponent, canActivate: [AuthGuard]},
+  {path: 'app-show-ticket-for-owners-manager', component:ShowTicketForOwnersManagerComponent, canActivate: [AuthGuard]},
+  {path: 'uni-services', component: UniServiceRequstComponent, canActivate: [AuthGuard]},
+  {path: 'app-staff-list', component: StaffListComponent, canActivate: [AuthGuard]}, 
+  {path: 'app-service-file-upload/:id', component: ServiceFileUploadComponent, canActivate: [AuthGuard]},
+  {path: 'report-subs', component: ReportSubsComponent, canActivate: [AuthGuard]},
+  {path: 'edit-person/:id', component: EditPersonComponent, canActivate: [AuthGuard]}
 ]
 
 },
-  {path: 'inspeector/home', component: InspeectorComponent},
+  {path: 'inspeector/home', component: InspeectorComponent, canActivate: [AuthGuard]},
   {path: 'inspeector/home', component: InspeectorComponent,
   children:
   [
-    {path: 'ShowUniReport', component: ShowUniReportComponent},
+    {path: 'ShowUniReport', component: ShowUniReportComponent, canActivate: [AuthGuard]},
   ]
 },
-  {path: 'user-panel', component: UserPanelComponent},
+  {path: 'user-panel', component: UserPanelComponent, canActivate: [AuthGuard]},
   // صفحه ثبت کردن person
 
   {path: 'change-password/:id' , component: ChangePasswordComponent},
 
-  {path: 'ShowUniReport', component: ShowUniReportComponent},
-  {path: 'add-uni-pre-data', component: AddUniPreDataComponent},
+  {path: 'ShowUniReport', component: ShowUniReportComponent, canActivate: [AuthGuard]},
+  {path: 'add-uni-pre-data', component: AddUniPreDataComponent, canActivate: [AuthGuard]},
 
 ];
 @NgModule({

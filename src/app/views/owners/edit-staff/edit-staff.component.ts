@@ -25,9 +25,8 @@ export class EditStaffComponent implements OnInit {
         if (res == true) {
           this.toster.success('کاربر ' + this.data.person.firstName + ' حذف شد')
         } else {
-          this.toster.error('خطایی در سمت سرور وجود دارد!')
+          this.toster.error('خطایی در سمت سرور وجود دارد!');
         }
-        
       }
     )
   }
