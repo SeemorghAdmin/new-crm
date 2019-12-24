@@ -64,7 +64,7 @@
       </ng-container>
 
       <ng-container matColumnDef="info">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> اطلاعات کامل </th>
+        <th mat-header-cell *matHeaderCellDef> اطلاعات کامل </th>
         <td mat-cell *matCellDef="let element">
           <a (click)="openDialog(element)" style="cursor: pointer;">
             <img src="assets/images/test-img/info.png" style="width: 25px; margin-right: 15px;">
@@ -93,7 +93,7 @@
       </ng-container>
 
       <ng-container matColumnDef="map">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> نقشه </th>
+        <th mat-header-cell *matHeaderCellDef> نقشه </th>
         <td mat-cell *matCellDef="let element">
           <a>
             <img src="assets/images/test-img/chat.png" style="width: 33px; margin-right: 1px;">
@@ -103,7 +103,7 @@
 
       <!-- Symbol Column -->
       <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> عملیات </th>
+        <th mat-header-cell *matHeaderCellDef> عملیات </th>
         <td mat-cell *matCellDef="let element">
 
           <a (click)="openLog(element)" style="cursor: pointer;">
