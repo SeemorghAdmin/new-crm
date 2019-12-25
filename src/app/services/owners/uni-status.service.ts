@@ -11,6 +11,7 @@ export class UniStatusService {
   readonly BaseURI = this.constants.baseApiUrlNc;
   postStatus(Unilog)
 {
+  console.log(Unilog);
   return this.http.post(this.BaseURI + '/UniStatusLog/', Unilog);
 }
 }

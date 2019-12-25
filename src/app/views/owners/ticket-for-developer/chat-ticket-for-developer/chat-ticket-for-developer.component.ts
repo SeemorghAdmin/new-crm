@@ -27,17 +27,19 @@ export class ChatTicketForDeveloperComponent implements OnInit {
   role;
   t;
   ngOnInit() {
+    //دریافت اطلاعات اط ای پی ای
     this.DeveloperTicketId = this.route.snapshot.paramMap.get('id');
     this.api.getDeveloperTicketChat(this.DeveloperTicketId).subscribe(res => {
       this.ChatTicketing=res;
       this.Moshtari = this.ChatTicketing[0].person.personNational_ID;
+      //دریافت اطلاعات از ای پی ای
       this.api.getPerson().subscribe(res =>{
         this.PersonForDropDownList = res;
       });
     });
+    //ایجاد شرط برای نمایش یا عدم نمایش اطلاعات برای کاربر
     if(parseInt(localStorage.getItem('role')) == 1)
     {
-      console.log(localStorage.getItem('role'));
 this.t =4;
     }
     if (localStorage.getItem('token') != null) {
@@ -56,9 +58,11 @@ this.t =4;
       }
     }
   } 
+  //به دست اوردن ای دی کاربر با این متد
   getName(id) {
     this.PersonNationalId = id;
   }
+  //ارسال اطلاعات تیکت ها به سمت سرور
   post(Ticket)
   {
     if (this.PersonNationalId == null || this.PersonNationalId == 'متقاضی دریافت پیام را انتخاب کنید') {
@@ -78,16 +82,19 @@ this.t =4;
        
       });   
       this.api.putResiver(Ticket).subscribe(res => {
+          //هدایت کاربر به صفحه مناسب
         this.router.navigate(['/owner/home/app-show-ticket-for-owners-manager']);
       });  
     }
   }
+  //ارسال اطلاعات تیکت ها به سمت سرور
   postt(Ticket)
   {
     Ticket.developerTicket_ID = this.DeveloperTicketId;
     this.api.postTicketChat(Ticket).subscribe(res =>{
     });
     this.api.putResiver(Ticket).subscribe(res => {
+      //هدایت کاربر به صفحه مناسب
       this.router.navigate(['/owner/home/app-ticket-for-developer']);
     });  
   }

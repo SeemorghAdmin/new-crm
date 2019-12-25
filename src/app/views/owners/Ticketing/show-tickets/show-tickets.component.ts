@@ -10,6 +10,8 @@ export class ShowTicketsComponent implements OnInit {
   t;
   constructor(private api: TicketingService, private router: Router) { }
   AllTickets;
+  //دریافت اطلاعات از سمت سرور
+  ////دریافت اطلاعات تعداد تیکت ها
   ngOnInit() {
     this.api.getCountTicket();
     this.api.getAllTickets().subscribe(res => {
@@ -17,6 +19,7 @@ export class ShowTicketsComponent implements OnInit {
     });
 
   }
+  //ویرایش پیام های خوانده نشده به خوانده شده
   pagenav(id) {
     this.api.putSeen(id).subscribe(res => {
       if (res == true) {
@@ -31,6 +34,7 @@ export class ShowTicketsComponent implements OnInit {
 
 
   }
+  //ایجاد متد برای استایل دهی به تگ های اچ تی ام ال
   get(index)
   {
     if(index %2 == 0)

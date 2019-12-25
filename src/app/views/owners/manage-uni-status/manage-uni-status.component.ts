@@ -6,6 +6,7 @@ import { UniStatusService } from 'src/app/services/owners/uni-status.service';
 import { DpDatePickerModule } from 'ng2-jalali-date-picker';
 import * as moment from 'jalali-moment';
 import { ConstantsService } from 'src/app/services/constants/constants.service';
+import { ToastrService } from 'ngx-toastr';
 export interface UniLog {
   uniNationalId: number;
   uniStatus: number;
@@ -35,7 +36,7 @@ export class ManageUniStatusComponent implements OnInit {
     { id: 1001, text: 'فرمت قرارداد ارسالی مطابقت ندارد' },
   ];
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public http: HttpClient, private api: EcCustomersService, private apii: UniStatusService ,
-  private constants: ConstantsService) { }
+  private constants: ConstantsService ,private toastr: ToastrService) { }
 
   readonly BaseURI = this.constants.baseApiUrlNc;
   public Unilog: UniLog = { uniNationalId: 0, uniStatus: 0, uniSubStatus: 0, msg: '' };
@@ -152,9 +153,30 @@ export class ManageUniStatusComponent implements OnInit {
       Unilog.uniSubStatus = parseInt(this.substatus);
     }
     this.apii.postStatus(Unilog).subscribe(res => {
+      if(res == true)
+      {
+        
+        this.toastr.success('تغییر وضعیت با موفقیت انجام شد');
+        Unilog.msg = '';
+      }
+      else
+      {
+        this.toastr.error('انجام نشد لطفا دوباره امتحان کنید');
+      }
     });
   }
-  uploadd() {
+  uploadd(Unilog) {
+    Unilog.uniSubStatus = 0;
+    Unilog.uniStatus = parseInt(this.status);
+    Unilog.uniNationalId = this.data.uniNationalId;
+    this.apii.postStatus(Unilog).subscribe(res => {
+      if(res == true)
+      {
+        
+        this.toastr.success('تغییر وضعیت با موفقیت انجام شد');
+        Unilog.msg = '';
+      }
+    });
     this.http.post( this.BaseURI + '/UniStatusLog/Upload', this.response, { reportProgress: true, observe: 'events' })
       .subscribe(event2 => {
         if (event2.type === HttpEventType.UploadProgress)

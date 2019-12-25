@@ -19,11 +19,13 @@ export class TicketForDeveloperComponent implements OnInit {
   public Ticket: TicketClass = { comment: '', status: '' };
   AllTickets;
   t;
+  ////نمایش اطلاعات تیکت ها بعد از دریافت اطلاعات از ای پی ای
   ngOnInit() {
     this.api.getTicket().subscribe(res => {
       this.AllTickets = res;
     });
   }
+  //ارسال اطلاعات تیکت ها 
   post(Ticket) {
     if (Ticket.comment != null && Ticket.comment != '') {
       this.api.postTicket(Ticket).subscribe(res => {
@@ -39,14 +41,17 @@ export class TicketForDeveloperComponent implements OnInit {
       this.t=3;
     }
   }
+  //ایجاد متد برای استایل دهی به تگ های اچ تی ام ال
   get(index) {
     if (index % 2 == 0) {
       return '#eeeded';
     }
 
   }
+  //ویرایش پیام های خوانده نشده به خوانده شده
   pagenav(id) {
     this.api.putSeen(id).subscribe(res =>{
+      //هدایت کاربر به صفحه مناسب
       this.router.navigateByUrl('/owner/home/app-chat-ticket-for-developer/' + id);
     });
 }
