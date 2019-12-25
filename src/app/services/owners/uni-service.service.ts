@@ -15,7 +15,7 @@ export class UniService {
  
   GetList()
   {
-      return this.http.get(this.BaseURI + '/Univercity');
+      return this.http.get(this.BaseUrlEc + '/get-service-request-list.jsp');
   }
 
   Delete(id)

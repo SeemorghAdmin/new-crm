@@ -16,11 +16,7 @@
               <input matInput class="form-field" [formControl]="statusFilter" placeholder="وضعیت">
             </mat-form-field>
           </div>
-          <div class="col-md-2">
-            <mat-form-field>
-              <input matInput class="form-field" [formControl]="numberFilter" placeholder="شماره">
-            </mat-form-field>
-          </div>
+          
         </div>
       
         <div class="mat-elevation-z8">
@@ -48,17 +44,17 @@
               <td mat-cell *matCellDef="let element"> {{element.status}} </td>
             </ng-container>
       
-            <ng-container matColumnDef="number">
+            <ng-container matColumnDef="serviceFormContractNo">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> شماره </th>
-              <td mat-cell *matCellDef="let element"> {{element.number}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.serviceFormContractNo}} </td>
             </ng-container>
       
-            <ng-container matColumnDef="time">
+            <ng-container matColumnDef="subscriptionDate">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> تاریخ </th>
-              <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.subscriptionDate}} </td>
             </ng-container>
       
-            <ng-container matColumnDef="formatContract">
+            <ng-container matColumnDef="exampleForm">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> فرمت قرار داد </th>
               <td mat-cell *matCellDef="let element">
                 <a href="http://crm.nren.ir/pages/service-form-contract-print.jsp?request-id={{element.id}}" style="cursor: pointer;" download>
@@ -67,10 +63,10 @@
               </td>
             </ng-container>
 
-            <ng-container matColumnDef="singlSignatureContract">
+            <ng-container matColumnDef="signedForm">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> قرار داد تک امضا </th>
               <td  mat-cell *matCellDef="let element">
-                <a class="btn" [ngClass]="{'disabled': element.singlSignatureContract === false}" 
+                <a class="btn" [ngClass]="{'disabled': element.signedForm === false}" 
                 href="http://crm.nren.ir/documents/get-service-form-request-docs.jsp?id={{element.id}}&type=2&sub-code=null" style="cursor: pointer;" >
                   <img src="assets/images/pdf-icon.png" style="width: 25px; margin-right: 15px;">
                 </a>
@@ -78,10 +74,10 @@
               </td>
             </ng-container>
 
-            <ng-container matColumnDef="finalContract">
+            <ng-container matColumnDef="finalSignedForm">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> قرار داد نهایی </th>
               <td mat-cell *matCellDef="let element">
-                <a class="btn" [ngClass]="{'disabled': element.finalContract === false}" 
+                <a class="btn" [ngClass]="{'disabled': element.finalSignedForm === false}" 
                 href="http://crm.nren.ir/documents/get-service-form-request-docs.jsp?id={{element.id}}&type=3&sub-code=null" style="cursor: pointer;" >
                   <img src="assets/images/pdf-icon.png" style="width: 25px; margin-right: 15px;">
                 </a>
@@ -98,10 +94,10 @@
               </td>
             </ng-container>
 
-            <ng-container matColumnDef="receiptPost">
+            <ng-container matColumnDef="postReceipt">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> رسید پست </th>
               <td mat-cell *matCellDef="let element">
-                <a class="btn" [ngClass]="{'disabled': element.receiptPost === false}" 
+                <a class="btn" [ngClass]="{'disabled': element.postReceipt === false}" 
                 href="http://crm.nren.ir/documents/get-service-form-request-docs.jsp?id={{element.id}}&type=1" style="cursor: pointer;" >
                   <img src="assets/images/pdf-icon.png" style="width: 25px; margin-right: 15px;">
                 </a>

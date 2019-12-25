@@ -165,7 +165,7 @@ export class PersonService {
 
  StaffEdit(data, id)
  {
-   console.log(data)
+  
    return this.http.put(this.BaseURI + '/Staff/' + id, data)
  }
 

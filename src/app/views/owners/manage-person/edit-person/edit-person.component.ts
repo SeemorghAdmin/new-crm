@@ -39,7 +39,7 @@ export class EditPersonComponent implements OnInit {
   }
   edit(Staff)
   {
-    console.log(this.staff);
+    
     this.service.StaffEdit(this.staff, this.id).subscribe(
       res => {
         if (res == true) {

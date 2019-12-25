@@ -17,13 +17,13 @@ export interface Customer{
   uniName: string;
   title: string;
   status: string;
-  number: number;
-  time: string;
-  formatContract: string;
-  singlSignatureContract: string;
-  finalContract: string;
+  serviceFormContractNo: number;
+  subscriptionDate: string;
+  exampleForm: string;
+  signedForm: string;
+  finalSignedForm: string;
   letter: string;
-  receiptPost: string;
+  postReceipt: string;
   iD: number;
 }
 
@@ -38,8 +38,8 @@ export class UniServiceRequstComponent implements OnInit {
   constructor(public dialog: MatDialog, public service: UniService, private route: ActivatedRoute, private router: Router, private ser: PersonService, private toster: ToastrService) { }
 
   CUSTOMER_DATA: Customer[] = [];
-  displayedColumns: string[] = [ 'uniName', 'title', 'status', 'number', 'time', 'formatContract', 'singlSignatureContract',
-                                  'finalContract',  'letter', 'receiptPost', 'operation'];
+  displayedColumns: string[] = [ 'uniName', 'title', 'status', 'serviceFormContractNo', 'subscriptionDate', 'exampleForm', 'signedForm',
+                                  'finalSignedForm',  'letter', 'postReceipt', 'operation'];
   dataSource : MatTableDataSource<Customer>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -48,11 +48,11 @@ export class UniServiceRequstComponent implements OnInit {
   uniNameFilter = new FormControl();
   titleFilter = new FormControl();
   statusFilter = new FormControl();
-  numberFilter = new FormControl();
+  
 
   filteredValues = {
     uniName: '', title: '', status: '',
-    number: '', time: ''
+    serviceFormContractNo: '', subscriptionDate: ''
   };
 
   ngOnInit() {
@@ -78,10 +78,7 @@ export class UniServiceRequstComponent implements OnInit {
       this.dataSource.filter = JSON.stringify(this.filteredValues);
     });
 
-    this.numberFilter.valueChanges.subscribe((numberFilterValue) => {
-      this.filteredValues['number'] = numberFilterValue;
-      this.dataSource.filter = JSON.stringify(this.filteredValues);
-    });
+    
 
     this.dataSource.filterPredicate = this.customFilterPredicate();
   }
@@ -123,8 +120,8 @@ export class UniServiceRequstComponent implements OnInit {
       let searchString = JSON.parse(filter);
       return data.uniName.toString().trim().indexOf(searchString.uniNationalId) !== -1 &&
         data.title.toString().trim().toLowerCase().indexOf(searchString.uniName.toLowerCase()) !== -1 &&
-        data.status.toString().trim().toLowerCase().indexOf(searchString.uniType.toLowerCase()) !== -1 &&
-        data.number.toString().trim().toLowerCase().indexOf(searchString.state.toLowerCase()) !== -1;
+        data.status.toString().trim().toLowerCase().indexOf(searchString.uniType.toLowerCase()) !== -1 
+        
     }
     return myFilterPredicate;
   }

@@ -3,19 +3,6 @@
       <h3 class="heading">  ویرایش کاربر </h3>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="PersonNationalId"><span style="color: red;">*</span> شماره ملی</label>
-          <input type="text" class="form-control" name="personnationalid" [(ngModel)]="staff.personNationalId"  placeholder="شماره ملی">
-          <label class="text-danger"
-            *ngIf="service.formModel.get('PersonNationalId').touched && service.formModel.get('PersonNationalId').errors?.required">شماره
-            ملی نمیتواند خالی باشد</label>
-          <label class="text-danger"
-            *ngIf="service.formModel.get('PersonNationalId').touched && service.formModel.get('PersonNationalId').errors?.maxlength">شماره
-            ملی باید ده کاراکتر باشد</label>
-          <label class="text-danger"
-            *ngIf="service.formModel.get('PersonNationalId').touched && service.formModel.get('PersonNationalId').errors?.minlength">شماره
-            ملی باید ده کاراکتر باشد</label>
-        </div>
-        <div class="form-group col-md-6">
           <label for="inputPassword4"><span style="color: red;">*</span> نام</label>
           <input type="text" class="form-control" placeholder="نام" name="firstName" [(ngModel)]="staff.firstName">
           <label class="text-danger"
@@ -23,8 +10,7 @@
             نمیتواند خالی باشد</label>
 
         </div>
-      </div>
-      <div class="form-row">
+        
         <div class="form-group col-md-6">
           <label for="inputEmail4"><span style="color: red;">*</span> نام خانوادگی</label>
           <input type="text" class="form-control"  placeholder="نام خانوادگی" name="lastName" [(ngModel)]="staff.lastName">
@@ -33,6 +19,13 @@
             خانوادگی نمیتواند خالی باشد</label>
 
         </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">شماره شناسنامه</label>
+          <input type="text" class="form-control" placeholder="شماره شناسنامه" name="shenasNum" [(ngModel)]="staff.shenasNum">
+        </div>
+        
         <div class="form-group col-md-6">
           <label for="inputPassword4">نام پدر</label>
           <input type="text" class="form-control" placeholder="نام پدر" name="fatherName" [(ngModel)]="staff.fatherName">
@@ -73,22 +66,23 @@
           <label for="inputEmail4">سمت</label>
           <input type="text" class="form-control" placeholder="سمت" name="positionId" [(ngModel)]="staff.positionId">
         </div>
-        <div class="form-group col-md-6">
-          <label for="inputPassword4">شماره شناسنامه</label>
-          <input type="text" class="form-control" placeholder="شماره شناسنامه" name="shenasNum" [(ngModel)]="staff.shenasNum">
-        </div>
-      </div>
-      <div class="form-row">
+        
         <div class="form-group col-md-6">
           <label for="inputEmail4">سریال شناسنامه</label>
           <input type="email" class="form-control"  placeholder="سریال شناسنامه" name="shenasSerial" [(ngModel)]="staff.shenasSerial">
         </div>
+      </div>
+      <div class="form-row">
+        
         <div class="form-group col-md-6">
           <label for="inputPassword4">مدرک تحصیلی</label>
           <input type="text" class="form-control" placeholder="مدرک تحصیلی" name="eduDegree" [(ngModel)]="staff.eduDegree">
         </div>
       </div>
 
+      
+          <input type="hidden" class="form-control" name="personnationalid" [(ngModel)]="staff.personNationalId"  placeholder="شماره ملی">
+          
 
 
       <button type="submit" class="btn btn-primary" (click)="edit(staff)" >ثبت</button>
