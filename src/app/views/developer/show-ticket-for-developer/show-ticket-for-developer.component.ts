@@ -13,7 +13,6 @@ export class ShowTicketForDeveloperComponent implements OnInit {
   AllTickets;
   ngOnInit() {
     this.api.getTicketForOwnerManager().subscribe(res => {
-      console.log(res);
       this.AllTickets=res;
     });
   }
@@ -26,7 +25,7 @@ export class ShowTicketForDeveloperComponent implements OnInit {
     this.api.putSeen(id).subscribe(res =>{
       this.router.navigateByUrl('/dev/home/app-chat-ticket-for-developer/' + id);
     });
-      
+
   }
 
 }
