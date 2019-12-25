@@ -114,7 +114,7 @@ export class AccessCodeComponent implements OnInit {
 
     this.item = element.firstName + ' ' + element.lastName;
     this.AccessData.forEach(element => {
-      element.selected=false;
+      element.selected = false;
     });
     this.CheckRoel(element);
   }
@@ -144,12 +144,13 @@ export class AccessCodeComponent implements OnInit {
 
     this.AccessData.forEach(accessElement => {
 
+      if (person.accessCodes != null) {
+        for (let index = 1; index < person.accessCodes.toString().lastIndexOf('&'); index = index + 3) {
+          const element = person.accessCodes[index] + person.accessCodes[index + 1];
 
-      for (let index = 1; index < person.accessCodes.toString().lastIndexOf('&'); index = index + 3) {
-        const element = person.accessCodes[index] + person.accessCodes[index + 1];
-
-        if (accessElement.iString===element){
-          accessElement.selected=true;
+          if (accessElement.iString === element) {
+            accessElement.selected = true;
+          }
         }
       }
     });
