@@ -12,11 +12,11 @@
           <div class="body">
             <form class="form-auth-small" [formGroup]="service.loginModel" utocomplete="off" (submit)="onSubmit()">
               <div class="form-group">
-                <label><i class="fas fa-user-circle"></i></label>
+                <label><fa-icon [icon]="faUserCircle"></fa-icon></label>
                 <input type="text" formControlName="UserName" class="form-control" required placeholder="نام کاربری">
               </div>
               <div class="form-group">
-                <label><i class="fas fa-unlock-alt"></i></label>
+                <label><fa-icon [icon]="faUnlockAlt"></fa-icon></label>
                 <input type="password" class="form-control" formControlName="Password" required placeholder="رمز عبور">
               </div>
               <div class="form-group clearfix">

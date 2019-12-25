@@ -8,6 +8,8 @@ import { PersonService } from '../../../services/person/person.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { TicketForDeveloperService } from 'src/app/services/Ticketing/ticket-for-developer.service';
 
+import { faUnlockAlt,faUserCircle } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -16,6 +18,9 @@ import { TicketForDeveloperService } from 'src/app/services/Ticketing/ticket-for
 export class LoginPageComponent implements OnInit {
   panelOpenState = true;
   clicked = false;
+
+  faUnlockAlt = faUnlockAlt;
+  faUserCircle = faUserCircle;
 
   constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService, public service: PersonService, private api :TicketForDeveloperService) { }
 
@@ -56,7 +61,7 @@ export class LoginPageComponent implements OnInit {
       {
         this.service.loginModel.reset();
         this.service.userId = res.user.personNational_ID;
-        
+
         //this.toastr.success('Ok');
         //console.log(res.user.token)
         localStorage.setItem('token', res.user.token);

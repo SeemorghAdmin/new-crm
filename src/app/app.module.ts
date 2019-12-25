@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { faBell, faCoffee, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faCoffee, faSignOutAlt, faUserCircle, faUnlockAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -165,6 +165,6 @@ import { EditPersonComponent } from './views/owners/manage-person/edit-person/ed
 export class AppModule {
   constructor(library: FaIconLibrary) {
     // Add an icon to the library for convenient access in other components
-    library.addIcons(faBell, faCoffee, faSignOutAlt);
+    library.addIcons(faBell, faCoffee, faSignOutAlt, faUserCircle, faUnlockAlt);
   }
 }
