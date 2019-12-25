@@ -25,6 +25,7 @@ export interface Customer{
   letter: string;
   postReceipt: string;
   iD: number;
+  canUpload: boolean;
 }
 
 @Component({
@@ -48,7 +49,7 @@ export class UniServiceRequstComponent implements OnInit {
   uniNameFilter = new FormControl();
   titleFilter = new FormControl();
   statusFilter = new FormControl();
-  
+
 
   filteredValues = {
     uniName: '', title: '', status: '',
@@ -78,7 +79,7 @@ export class UniServiceRequstComponent implements OnInit {
       this.dataSource.filter = JSON.stringify(this.filteredValues);
     });
 
-    
+
 
     this.dataSource.filterPredicate = this.customFilterPredicate();
   }
@@ -120,14 +121,15 @@ export class UniServiceRequstComponent implements OnInit {
       let searchString = JSON.parse(filter);
       return data.uniName.toString().trim().indexOf(searchString.uniNationalId) !== -1 &&
         data.title.toString().trim().toLowerCase().indexOf(searchString.uniName.toLowerCase()) !== -1 &&
-        data.status.toString().trim().toLowerCase().indexOf(searchString.uniType.toLowerCase()) !== -1 
-        
+        data.status.toString().trim().toLowerCase().indexOf(searchString.uniType.toLowerCase()) !== -1
+
     }
     return myFilterPredicate;
   }
-  getUploadPage(id)
+  getUploadPage(item: Customer)
   {
-    this.router.navigateByUrl('/owner/home/app-service-file-upload/' + id);
+    console.log(item.canUpload);
+    this.router.navigateByUrl('/owner/home/app-service-file-upload/' + item.id);
   }
 
 }
