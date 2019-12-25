@@ -61,7 +61,7 @@ export class UniServiceRequstComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.paginator.pageSize = 10;
     this.dataSource.sort = this.sort;
-    
+
 
     this.uniNameFilter.valueChanges.subscribe((uniNameFilterValue) => {
       this.filteredValues['uniName'] = uniNameFilterValue;
@@ -98,7 +98,6 @@ export class UniServiceRequstComponent implements OnInit {
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   getUniData(): Array<Customer>{
     this.service.GetList().subscribe( res => {
-      console.log(res)
       this.CUSTOMER_DATA = res as Customer[];
       this.dataSource.data = this.CUSTOMER_DATA;
     });
