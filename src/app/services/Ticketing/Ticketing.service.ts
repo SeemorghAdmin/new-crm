@@ -10,6 +10,7 @@ import { Subject } from 'rxjs';
 export class TicketingService {
   constructor(private fb: FormBuilder, private http: HttpClient, private constants: ConstantsService) { }
   readonly BaseURI = this.constants.baseApiUrlNc;
+  readonly BaseURL = this.constants.baseApiUrlEc;
   private TicketCount = new Subject <any> ();
   TicketCountSelected = this.TicketCount.asObservable();
   //خواندن اطلاعات سرویس ها از سمت سرور برای نمایش و انتخاب کاربر
@@ -70,7 +71,7 @@ putSeen(id)
 //نمایش اطلاعات 
 getInformation(id)
 {
-  return this.http.get('http://crm.nren.ir/api/get-login-info.jsp?id='+id);
+  return this.http.get(this.BaseURL + '/get-login-info.jsp?id='+id);
 }
 //نمایش تعداد تیکت ها در منو
 getCountTicket()
