@@ -13,7 +13,7 @@ export class EcCustomersService {
   readonly BaseURI = this.constants.baseApiUrlNc;
   readonly BaseUrlEc = this.constants.baseApiUrlEc;
 
-  
+
 
   GetList(subcode, isOstani)
   {
@@ -54,10 +54,9 @@ export class EcCustomersService {
   });
   UniPut(body:any)
   {
-    console.log(body);
     return this.http.put(this.BaseURI + '/Univercity', body);
   }
-  
+
   GetManageStatus(id)
   {
     return this.http.get(this.BaseUrlEc + '/manage-uni-status.jsp?id=' + id);
