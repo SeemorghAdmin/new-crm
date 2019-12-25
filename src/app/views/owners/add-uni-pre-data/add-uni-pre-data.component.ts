@@ -114,7 +114,6 @@ export class AddUniPreDataComponent implements OnInit {
     this.service.formModel.value.UniType = this.valu;
     this.service.PostpostUniData().subscribe(
       res => {
-        // tslint:disable: triple-equals
         if (res == true) {
           this.toster.success('ثبت نام با موفقیت انجام شد');
         }
