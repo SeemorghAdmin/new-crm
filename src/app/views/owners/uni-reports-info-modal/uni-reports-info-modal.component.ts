@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 import { EcCustomersService } from 'src/app/services/owners/ec-customers.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-uni-reports-info-modal',
@@ -10,8 +11,8 @@ import { EcCustomersService } from 'src/app/services/owners/ec-customers.service
 })
 export class UniReportsInfoModalComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private http: HttpClient, public service: EcCustomersService) { }
-  d :any=[];
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private http: HttpClient, public service: EcCustomersService, private toster: ToastrService) { }
+  d :any;
   edit1:boolean = false;
   edit2:boolean = false;
   edit3:boolean = false;
@@ -42,11 +43,15 @@ export class UniReportsInfoModalComponent implements OnInit {
     this.edit4 = true;
   }
 
-  onSubmit()
+  onSubmit(d)
   {
-    this.service.UniPut().subscribe(res =>
+    this.service.UniPut(d).subscribe(res =>
       {
-        // console.log(res);
+        if (res == true) {
+          this.toster.success(d.uniName + ' با موفقیت ویرایش شد')
+        } else {
+          this.toster.success(d.uniName + ' ویرایش با مشکل مواجه شد')
+        }
       }
       );
   }

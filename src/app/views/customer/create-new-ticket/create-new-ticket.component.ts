@@ -28,7 +28,6 @@ export class CreatNewTicketComponent implements OnInit {
       this.Service = res;
     });
   }
-
   ServiceTypeNumber(id) {
     this.getServiceTypeId = id;
   }

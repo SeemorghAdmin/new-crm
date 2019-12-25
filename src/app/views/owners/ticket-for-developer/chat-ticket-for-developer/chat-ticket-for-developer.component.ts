@@ -37,6 +37,7 @@ export class ChatTicketForDeveloperComponent implements OnInit {
     });
     if(parseInt(localStorage.getItem('role')) == 1)
     {
+      console.log(localStorage.getItem('role'));
 this.t =4;
     }
     if (localStorage.getItem('token') != null) {
@@ -66,7 +67,7 @@ this.t =4;
     else
     {
       Ticket.developerTicket_ID = this.DeveloperTicketId;
-      if (this.PersonNationalId == 'مشتری') {
+      if (this.PersonNationalId == 'فرستنده درخواست') {
         Ticket.Resiver = this.Moshtari;
       }
       else {

@@ -52,34 +52,10 @@ export class EcCustomersService {
     agentTeleNo: [''],
     agentMobileNo: [''],
   });
-  UniPut()
+  UniPut(body:any)
   {
-    var body =
-    {
-      uniNationalId : this.formModel.value.uniNationalId,
-      uniName : this.formModel.value.uniName,
-      uniEcoCode : this.formModel.value.uniEcoCode,
-      uniTopManagerName : this.formModel.value.uniTopManagerName,
-      uniTopManagerPos : this.formModel.value.uniTopManagerPos,
-      uniSignatoryPos : this.formModel.value.uniSignatoryPos,
-      uniSignatoryNationalId : this.formModel.value.uniSignatoryNationalId,
-      State : this.formModel.value.State,
-      City : this.formModel.value.City,
-      uniAddress : this.formModel.value.uniAddress,
-      uniPostalCode : this.formModel.value.uniPostalCode,
-      uniTelNo : this.formModel.value.uniTelNo,
-      agentFaxNo : this.formModel.value.agentFaxNo,
-      uniWebsite : this.formModel.value.uniWebsite,
-      uniEmail : this.formModel.value.uniEmail,
-      agentFname : this.formModel.value.agentFname,
-      agentLname : this.formModel.value.agentLname,
-      agentNationalId : this.formModel.value.agentNationalId,
-      agentPos : this.formModel.value.agentPos,
-      agentTeleNo : this.formModel.value.agentTeleNo,
-      agentMobileNo : this.formModel.value.agentMobileNo,
-    }
     console.log(body);
-    return this.http.post(this.BaseUrlEc + '/post-uni-info.jsp', body);
+    return this.http.put(this.BaseURI + '/Univercity', body);
   }
   
   GetManageStatus(id)

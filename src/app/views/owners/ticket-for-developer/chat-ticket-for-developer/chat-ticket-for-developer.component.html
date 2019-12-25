@@ -49,7 +49,7 @@
                   <select id="ddl" dir="rtl" style="width: 250px; border-radius: 20px;" (change)="getName($event.target.value)"
                      *ngIf="ta == 1 || t == 4" class="pull-right">
                      <option> متقاضی دریافت پیام را انتخاب کنید</option>
-                     <option>مشتری</option>
+                     <option>فرستنده درخواست</option>
                      <option *ngFor="let item of PersonForDropDownList; let i = index"
                         value="{{item.personNational_ID}}">{{item.firstName}} {{item.lastName}}</option>
                   </select>
