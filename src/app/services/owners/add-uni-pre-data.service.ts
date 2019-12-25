@@ -17,10 +17,10 @@ export class AddUniPreDataService {
    // ایجاد فرم مدل افزودن دانشگاه ها
    formModel = this.fb.group(
     {
-      uniType:['', Validators.required],
-      unicode: ['', Validators.required],
-      uniname: ['', Validators.required],
-      address: ['', Validators.required],
+      UniType:['', Validators.required],
+      Unicode: ['', Validators.required],
+      Uniname: ['', Validators.required],
+      Address: ['', Validators.required],
     
     });
 
@@ -38,14 +38,14 @@ export class AddUniPreDataService {
       {
           var body =
           {
-            uniType:this.formModel.value.unicode,
-            unicode : this.formModel.value.unicode,
-            uniname : this.formModel.value.uniname,
-            address: this.formModel.value.address,
+            UniType: this.formModel.value.UniType,
+            Unicode : this.formModel.value.Unicode,
+            Uniname : this.formModel.value.Uniname,
+            Address: this.formModel.value.Address,
             
           };
 
-          return this.http.post(this.BaseURL + '/post-pre-university.jsp', body);
+          return this.http.post(this.BaseURI + '/AddUniPreData', body);
       }
 
       // متد ورود به حساب کاربری

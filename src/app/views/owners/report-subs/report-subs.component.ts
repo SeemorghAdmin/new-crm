@@ -36,11 +36,33 @@ export class ReportSubsComponent implements OnInit {
     this.dataSource.sort = this.sort;
     this.getUniData();
   }
+  // یادآوری: قسمت مرتبط با کتابخانه ها و اشخاص حقیقی وجود ندارد و به صورت استاتیک پر می شود. در صورتی که این بخش ها فعال شود باید مثل 
+  //نمونه های موجود، به کدها اضافه شود.
+  // هر درایه در این آرایه یکی از مقادیر موجود در ستون درخواست ها را در خود ذخیره می کند.
+  total: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-  total: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0]; totalsum: number = 0; sum: number[] = [0, 0, 0, 0, 0,0];
-  a: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0]; b: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0];
-  c: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0]; d: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0];
-  e: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0];
+  // در انتهای جدول، سطر جمع کل قرار دارد که در این متغیر ذخیره می شود.
+  totalsum: number = 0;
+
+  // مقادیر مربوط به ستون جمع در درایه های این آرایه ذخیره می شوند. 
+  sum: number[] = [0, 0, 0, 0, 0, 0];
+
+  //مقادیر ستون در حال انتظار در رایه های این آرایه ذخیره می شوند.
+  a: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  //مقادیر ستون منتظر امضای مشترک در رایه های این آرایه ذخیره می شوند.
+  b: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  //مقادیر ستون منتظر امضای اپراتور در رایه های این آرایه ذخیره می شوند.
+  c: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  //مقادیر ستون منتظر معرفی نماینده در رایه های این آرایه ذخیره می شوند.
+  d: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  //مقادیر ستون آماده درخواست سرویس در رایه های این آرایه ذخیره می شوند.
+  e: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  //گزینه  سرویس	شهرهای فازهای بعدی غیر فعال است و ه طور داینامیک پر می شود. 
 
   getUniData(): Array<ReportUni> {
     this.http.get(this.BaseURI + '/univercity/ReportSubs').subscribe(
@@ -51,7 +73,7 @@ export class ReportSubsComponent implements OnInit {
 
           //1 unies
           //kole darkhast ha - دانشگاه‌های دولتی مورد تایید وزارت علوم,تحقیقات و فناوری
-          if (this.ELEMENT_DATA[i].uniSubCode== 0) {
+          if (this.ELEMENT_DATA[i].uniSubCode == 0) {
 
             if (this.ELEMENT_DATA[i].typeVal == 0) {
               this.total[0] = this.total[0] + 1;
@@ -359,7 +381,7 @@ export class ReportSubsComponent implements OnInit {
 
 
             //12
-           // kole darkhast ha - حوزه‌های علمیه مورد تایید مرکز مدیریت حوزه‌های علمیه خراسان
+            // kole darkhast ha - حوزه‌های علمیه مورد تایید مرکز مدیریت حوزه‌های علمیه خراسان
             if (this.ELEMENT_DATA[i].typeVal == 3) {
               this.total[11] = this.total[11] + 1;
             }
@@ -497,7 +519,7 @@ export class ReportSubsComponent implements OnInit {
 
 
           if (this.ELEMENT_DATA[i].uniSubCode == 3) {
-           //16
+            //16
             //kole darkhast ha - مراکز پژوهشی مورد تایید مرکز مدیریت حوزه های علمیه
             if (this.ELEMENT_DATA[i].typeVal == 0) {
               this.total[16] = this.total[16] + 1;
@@ -549,7 +571,7 @@ export class ReportSubsComponent implements OnInit {
             }
           }
 
-          }
+        }
 
 
         for (let j = 0; j < 8; j++) {
@@ -573,7 +595,7 @@ export class ReportSubsComponent implements OnInit {
         }
 
 
-        this.totalsum = this.sum[0] + this.sum[1] + this.sum[2]+ this.sum[3];
+        this.totalsum = this.sum[0] + this.sum[1] + this.sum[2] + this.sum[3];
       });
 
     return this.ELEMENT_DATA;
