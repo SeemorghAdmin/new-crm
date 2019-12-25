@@ -60,7 +60,7 @@
             </div>
         </div>
         <div class="formRow" style=" display: table; width: 100%;">
-            <input type="submit" value="تایید" class="btn btn-primary formBtn" style="margin-right: 10px;float: left">
+            <input [disabled]="!service.formModel.valid" type="submit" value="تایید" class="btn btn-primary formBtn" style="margin-right: 10px;float: left">
         </div>
     </div>
 

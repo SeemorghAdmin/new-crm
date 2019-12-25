@@ -17,7 +17,7 @@ export class AddUniPreDataService {
    // ایجاد فرم مدل افزودن دانشگاه ها
    formModel = this.fb.group(
     {
-      UniType:['', Validators.required],
+      UniType:['' ],
       Unicode: ['', Validators.required],
       Uniname: ['', Validators.required],
       Address: ['', Validators.required],

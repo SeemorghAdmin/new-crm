@@ -35,6 +35,7 @@ import { StaffListComponent } from './views/owners/staff-list/staff-list.compone
 import { EditPersonComponent } from './views/owners/manage-person/edit-person/edit-person.component';
 
 
+
 const routes: Routes = [
 
   {path: '', component: LoginPageComponent},
