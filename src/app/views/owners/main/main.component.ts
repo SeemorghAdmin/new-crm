@@ -27,13 +27,11 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
 
   user: Person;
   panelOpenState = false;
-  showWelcome=false;
+  showWelcome = false;
 
   ////////////////// این خط ها متغیرهای مورد نیاز برای sidenav را ایجاد میکنند
   pageType = "پنل کاربری کارکنان خاشع" // نام صفحه
-  fillerNav: MenuItems[] = [{ name: "ارتباط با برنامه نویسان", url: "/owner/home/app-ticket-for-developer", badge: 0 },
-  { name: "درخواست های ارسالی به برنامه نویسان", url: "/owner/home/app-show-ticket-for-owners-manager", badge: 0 },
-  { name: "مدیریت اطلاعات کارکنان خاشع", url: "/owner/home/app-staff-list", badge: 0 },
+  fillerNav: MenuItems[] = [
   ]; // ایجاد آیتم ها برای نمایش در منو
   unreadMsg = 2;
   mobileQuery: MediaQueryList;
@@ -53,7 +51,7 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
   }
   public ngOnInit() {
     if (this.router.url === '/owner/home') {
-      this.showWelcome=true;
+      this.showWelcome = true;
     }
     this.api.getCountTicket();
     this.api.TicketCountSelected.subscribe(res => {
@@ -96,8 +94,21 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
   addUser: boolean;
   ticketingRequest: boolean;
   accessModi: boolean;
+  accessG:boolean ;
+  accessH:boolean;
+  accessI:boolean ;
+  accessJ:boolean ;
+  accessK:boolean ;
+  accessL:boolean ;
+  accessM:boolean;
   CheckRoel(person: Person) {
-
+    this.accessG = false;
+    this.accessH = false;
+    this.accessI = false;
+    this.accessJ = false;
+    this.accessK = false;
+    this.accessL = false;
+    this.accessM = false;
     for (let index = 1; index < person.accessCodes.lastIndexOf('&'); index = index + 3) {
       const element = person.accessCodes[index] + person.accessCodes[index + 1];
       switch (element) {
@@ -109,6 +120,37 @@ export class OwnersMainComponent implements OnInit, OnDestroy {
           break;
         case 'ac':
           this.fillerNav.push({ name: "ویرایش دسترسی کارکنان خاشع", url: "/owner/home/access-code", badge: 0 });
+          break;
+        case 'ad':
+          this.fillerNav.push({ name: "ارتباط با برنامه نویسان", url: "/owner/home/app-ticket-for-developer", badge: 0 });
+          break;
+        case 'ae':
+          this.fillerNav.push({ name: "درخواست ارسالی به برنامه نویسان", url: "/owner/home/app-show-ticket-for-owners-manager", badge: 0 });
+          break;
+        case 'af':
+          this.fillerNav.push({ name: "مدیریت اطلاعات کاربران خاشع", url: "/owner/home/app-staff-list", badge: 0 });
+          break;
+          /*---------------------------------------------------------------*/
+          case 'ag':
+          this.accessG = true;
+          break;
+          case 'ah':
+          this.accessH = true;
+          break;
+          case 'ai':
+          this.accessI = true;
+          break;
+          case 'aj':
+          this.accessJ = true;
+          break;
+          case 'ak':
+          this.accessK = true;
+          break;
+          case 'al':
+          this.accessL = true;
+          break;
+          case 'am':
+          this.accessM = true;
           break;
         default:
           break;

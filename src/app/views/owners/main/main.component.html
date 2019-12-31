@@ -38,25 +38,25 @@
 
           </p>
         </a>
-        <mat-accordion style="text-align: right;" >
+        <mat-accordion *ngIf="accessG == true || accessH == true || accessI == true || accessJ == true || accessK == true || accessL == true || accessM == true" style="text-align: right;" >
 
-          <mat-expansion-panel (opened)="panelOpenState = true"
+          <mat-expansion-panel  (opened)="panelOpenState = true"
                                (closed)="panelOpenState = false" style=" background-color: rgb(192, 220, 222); box-shadow: none; padding-right: 0px;">
             <mat-expansion-panel-header style="padding-right: 0px;">
-              <mat-panel-title>
+              <mat-panel-title >
                 امور مشترکین
               </mat-panel-title>
               <mat-panel-description >
 
               </mat-panel-description>
             </mat-expansion-panel-header>
-           <div class="subMenu"><a [routerLink]="[ '/owner/home/report-subs' ]" >گزارش کمیت مشترکین</a><br></div>
-           <div class="subMenu"><a [routerLink]="[ '/owner/home/uni-reports/0' ]" >دانشگاه ها و مراکز آموزش عالی</a><br></div>
-           <div class="subMenu"><a [routerLink]="[ '/owner/home/uni-reports', 1 ]">حوزه علمیه</a><br></div>
-           <div class="subMenu"><a [routerLink]="[ '/owner/home/uni-reports/2' ]" >مراکز پژوهشی و تحقیقاتی</a><br></div>
-           <div class="subMenu"><a [routerLink]="[ '/owner/home/uni-reports/3' ]" >مراکز زیر نظر وزارت بهداشت</a></div>
-           <div class="subMenu"><a [routerLink]="[ '/owner/home/uni-reports/4' ]" >مشترکان استان</a></div>
-           <div class="subMenu"><a [routerLink]="[ '/owner/home/uni-services' ]" >سرویس فرم درخواستی</a></div>
+           <div *ngIf="accessG == true" class="subMenu"><a [routerLink]="[ '/owner/home/report-subs' ]" >گزارش کمیت مشترکین</a><br></div>
+           <div *ngIf="accessH == true" class="subMenu"><a [routerLink]="[ '/owner/home/uni-reports/0' ]" >دانشگاه ها و مراکز آموزش عالی</a><br></div>
+           <div *ngIf="accessI == true" class="subMenu"><a [routerLink]="[ '/owner/home/uni-reports', 1 ]">حوزه علمیه</a><br></div>
+           <div *ngIf="accessJ == true" class="subMenu"><a [routerLink]="[ '/owner/home/uni-reports/2' ]" >مراکز پژوهشی و تحقیقاتی</a><br></div>
+           <div *ngIf="accessK == true" class="subMenu"><a [routerLink]="[ '/owner/home/uni-reports/3' ]" >مراکز زیر نظر وزارت بهداشت</a></div>
+           <div *ngIf="accessL == true" class="subMenu"><a [routerLink]="[ '/owner/home/uni-reports/4' ]" >مشترکان استان</a></div>
+           <div *ngIf="accessM == true" class="subMenu"><a [routerLink]="[ '/owner/home/uni-services' ]" >سرویس فرم درخواستی</a></div>
           </mat-expansion-panel>
         </mat-accordion>
 
