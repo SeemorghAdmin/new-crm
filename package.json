@@ -50,7 +50,7 @@
     "ngx-gallery": "^5.10.0",
     "ngx-toastr": "^9.2.0",
     "ngx-webstorage": "^4.0.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "popper.js": "^1.14.7",
     "rxjs": "^6.5.2",
     "rxjs-compat": "^6.4.0",
